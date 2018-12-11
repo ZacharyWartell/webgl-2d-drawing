@@ -94,11 +94,15 @@ code.Shell_Code_Prompt
     text-decoration-style: dotted;
 }
 
+/* Names of files 
+ */
 span.File_Name
 {
     font-family: Courier, monospace;
 }
 
+/* Name of code function names
+ */
 span.Function_Name
 {
     font-family: Courier, monospace;
@@ -118,6 +122,10 @@ span.Shell_Code_Comment
     margin-top: 0;
 }
 
+/*
+ *  Used to highligh revisions (updates) to instructions made after their initial publication
+ *
+ */
 span.Updated_Text
 {
     color : red; 

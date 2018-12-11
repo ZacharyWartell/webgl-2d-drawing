@@ -5,11 +5,28 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
     <title></title>
+    <script src="libs/jquery-3.1.0.js"></script>
+    <script src="libs/toc.min.js"></script>
     <script src="generic_instructions.js"></script>
+    <script>
+      /* \author Zachary Wartell
+      *   
+      */
+      function onload_Body()
+      {      
+        /* smoothScrolling isn't working well, perhaps because of my page structure */
+        $('#toc').toc( {'smoothScrolling': false});
+      }
+    </script>
     <link rel="stylesheet" href="generic_instructions.css">
     <link media="print" rel="stylesheet" href="generic_instructions.css">
   </head>
-  <body>
+  <body onload="onload_Body()">
+    <!-- IF_TOC -->
+    <div id="toc"> </div>
+    <div style="margin-left:250px">
+      
+    
     <p class="Title">ITCS xxxx : Generic Instructions</p>
     <p class="Subtitle">Fall 2018</p>
     <p class="Subtitle">Professor: Zachary Wartell</p>
@@ -89,7 +106,8 @@
                   <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
                       ~/ITCS_3120/</code><br>
                     <code class="Shell_Code_Input">$git clone
-                      https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                      https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                       class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                       Project_2</code>2<br>
                     <code class="Shell_Code_Output">Cloning into 'Project_4'...<br>
@@ -114,7 +132,8 @@
                     <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
                       ~/ITCS_3120/Project_2</code><br>
                     <code class="Shell_Code_Input">$git remote add upstream
-                      https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+                      https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+
                         class="Shell_Code_Input">ITCS_3120_Planet_Mobile.git</code></code><br>
                     <span class="Shell_Code_Comment">[... the above connects to
                       the original 'upstream' remote, to which you have
@@ -323,7 +342,8 @@
           <b>p</b> as discussed in class to test whether <b>p</b> is inside the
           triangle.&nbsp;&nbsp;&nbsp; Implement the algorithm as described in
           class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight: normal;">ITCS
-            4120-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
+            4120-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
+
               class=""><span style="font-weight: normal;">ITCS
                 4120-Scan_Conversion 2.pptm).</span></span></span>&nbsp;&nbsp;
           Add the code to the math2D.js function called <span class="Function_Name">barycentric()</span>.<br>
@@ -433,5 +453,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduct
       <ol class="Instruction">
       </ol>
     </section>
+	</div>    
   </body>
 </html>

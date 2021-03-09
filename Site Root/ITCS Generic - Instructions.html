@@ -5,17 +5,23 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
     <title></title>
-    <script src="libs/jquery-3.1.0.js"></script>
+    <script src="libs/jquery-3.5.0.js"></script>
     <script src="libs/toc.min.js"></script>
-    <script src="generic_instructions.js"></script>
+    <script src="ClassAssignmentWartell.css"></script>
     <script>
-      /* \author Zachary Wartell
-      *   
-      */
       function onload_Body()
-      {      
-        /* smoothScrolling isn't working well, perhaps because of my page structure */
-        $('#toc').toc( {'smoothScrolling': false});
+      {
+        const courseNumberElements = document.querySelectorAll('span[data-course-number]');
+        for(let e of courseNumberElements)
+        {
+          e.innerText = "5121";
+        }
+
+        $('#toc').toc(
+                { 'smoothScrolling': true,
+                  'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+                }
+        );
       }
     </script>
     <link rel="stylesheet" href="generic_instructions.css">
@@ -25,7 +31,7 @@
     <!-- IF_TOC -->
     <div id="toc"> </div>
     <div style="margin-left:250px">
-      <p class="Title">ITCS xxxx : Generic Instructions</p>
+      <p class="Title">ITCS <span data-course-number=""></span> : Generic Instructions</p>
       <p class="Subtitle">Fall 2018</p>
       <p class="Subtitle">Professor: Zachary Wartell</p>
       <p class="Subtitle">Revision: <span>10/12/2018</span></p>
@@ -139,10 +145,9 @@
             barycentric system.&nbsp;&nbsp; Test the values of the barycentric
             coordinates of <b>p</b> as discussed in class to test whether <b>p</b>
             is inside the triangle.&nbsp;&nbsp;&nbsp; Implement the algorithm as
-            described in class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight: normal;">ITCS
-              4120-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
-                class=""><span style="font-weight: normal;">ITCS
-                  4120-Scan_Conversion 2.pptm).</span></span></span>&nbsp;&nbsp;
+            described in class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight: normal;">ITCS<span data-course-number=""></span>-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
+
+                class=""><span style="font-weight: normal;">ITCS<span data-course-number=""></span>-Scan_Conversion 2.pptm).</span></span></span>&nbsp;&nbsp;
             Add the code to the math2D.js function called <span class="Function_Name">barycentric()</span>.<br>
           </li>
           <li><u>Quad Selection</u>: <span class="Grade_Points">[10 pts]</span>
@@ -200,17 +205,18 @@
         </ol>
         <h1>Appendix I:&nbsp;&nbsp; Code Retrieval and Repo Setup</h1>
         <ol class="Instruction">
-          <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_3120 directory,
-            where you did your previous projects. Verify you have a directory
+          <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span> directory,
+            where you did yours previous projects. Verify you have a directory
             structure as shown below:<br>
-            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
                   <td><button>▽</button></td>
                   <td>
                     <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120<br>
+                        ~/ITCS_<span data-course-number=""></span><br>
                       </code> <code class="Shell_Code_Input">$ find . -maxdepth
                         2</code><br>
                       <code class="Shell_Code_Output">.<br>
@@ -252,16 +258,18 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
                   <td><button>▽</button></td>
                   <td>
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                         class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                         Project_2</code>2<br>
                       <code class="Shell_Code_Output">Cloning into
@@ -277,7 +285,8 @@
           <li>Next, retrieve the skeleton code:<br>
             (The mechanics below are common git technique called 'fork'ing).<br>
             &nbsp;
-            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -286,16 +295,17 @@
                     <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
                         Project_2</code><br>
                       <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/Project_2</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/Project_2</code><br>
                       <code class="Shell_Code_Input">$git remote add upstream
-                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
-                          class="Shell_Code_Input">ITCS_3120_Planet_Mobile.git</code></code><br>
+                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+
+                          class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                       <span class="Shell_Code_Comment">[... the above connects
                         to the original 'upstream' remote, to which you have
                         read-only access ...]</span><br>
                       <br>
                       <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/Project_2</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/Project_2</code><br>
                       <code class="Shell_Code_Input">$git fetch upstream</code><br>
                       <code class="Shell_Code_Output">remote: Counting objects:
                         30, done.<br>
@@ -303,11 +313,11 @@
                         remote: Total 30 (delta 11), reused 0 (delta 0)<br>
                         Unpacking objects: 100% (30/30), done.<br>
                         From
-                        https://cci-git.uncc.edu/UNCC_Graphics/ITCS_3120_Planet_Mobile<br>
+                        https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span data-course-number=""></span>_Planet_Mobile<br>
                         * [new branch] master -&gt; upstream/master<br>
                         <br>
                       </code> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/Project_2</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/Project_2</code><br>
                       <code class="Shell_Code_Input">$git merge upstream/master</code><br>
                       <span class="Shell_Code_Comment">[... the above 2 commands
                         merge the 'upstream' remote into the local repo...]</span><br>
@@ -319,14 +329,15 @@
             <br>
           </li>
           <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
                   <td><button>▽</button></td>
                   <td>
                     <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/Project_2</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/Project_2</code><br>
                       <code class="Shell_Code_Input">$git push -u origin master</code><br>
                       <code class="Shell_Code_Output">Counting objects: 30,
                         done.<br>
@@ -336,7 +347,7 @@
                         done.<br>
                         Total 30 (delta 11), reused 0 (delta 0)<br>
                         To
-                        https://cci-git.uncc.edu/zwartell/ITCS_3120_Project_2.git<br>
+                        https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_Project_2.git<br>
                         * [new branch] master -&gt; master<br>
                         Branch master set up to track remote branch master from
                         origin.<br>
@@ -352,17 +363,18 @@
             <br>
           </li>
           <li>Verify your directory structure:<br>
-            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
                   <td><button>▽</button></td>
                   <td>
                     <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120/Project_2</code><br>
+                        ~/ITCS_<span data-course-number=""></span>/Project_2</code><br>
                       <code class="Shell_Code_Input">$cd ..</code><br>
                       <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
-                        ~/ITCS_3120</code><br>
+                        ~/ITCS_<span data-course-number=""></span></code><br>
                       <code class="Shell_Code_Input">$find . -maxdepth 2<br>
                       </code><br>
                       <code class="Shell_Code_Output">.<br>

@@ -1,0 +1,50 @@
+2021-02-18 13:14:38 URL:https://zwartell.gitlab.io/javascript-tutorial/index.html [43382/43382] -> "index.html.tmp.tmp" [1]
+https://gitlab.com/users/sign_in:
+2021-02-18 13:14:46 ERROR 503: Service Temporarily Unavailable.
+2021-02-18 13:14:48 URL:https://gitlab.com/robots.txt [2244] -> "robots.txt" [1]
+2021-02-18 13:14:51 URL:http://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+https://licensebuttons.net/robots.txt:
+2021-02-18 13:14:55 ERROR 404: Not Found.
+2021-02-18 13:14:59 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "robots.txt" [1]
+2021-02-18 13:15:02 URL:https://developer.mozilla.org/robots.txt [986/986] -> "robots.txt" [1]
+2021-02-18 13:15:04 URL:https://developers.google.com/robots.txt [93/93] -> "robots.txt" [1]
+2021-02-18 13:15:08 URL:https://zwartell.gitlab.io/javascript-tutorial/Hello-World_embed.css [357/357] -> "Hello-World_embed.css.tmp.tmp" [1]
+2021-02-18 13:15:13 URL:https://zwartell.gitlab.io/javascript-tutorial/Chapter-Setup-Procedure_embed.css [357/357] -> "Chapter-Setup-Procedure_embed.css.tmp.tmp" [1]
+2021-02-18 13:15:17 URL:https://zwartell.gitlab.io/javascript-tutorial/toc.css [640/640] -> "toc.css.tmp.tmp" [1]
+2021-02-18 13:15:19 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/jquery-3.5.1.min.js 200 OK
+unlink: No such file or directory
+2021-02-18 13:15:21 URL: https://zwartell.gitlab.io/javascript-tutorial/libs/toc.min.js 200 OK
+unlink: No such file or directory
+2021-02-18 13:15:31 URL:https://gitlab.com/zwartell/javascript-tutorial/-/commits/master [134732] -> "master.tmp.tmp" [1]
+2021-02-18 13:15:35 URL:http://creativecommons.org/licenses/by-nc-sa/4.0/ [39605] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:39 URL: https://licensebuttons.net/l/by-nc-sa/4.0/88x31.png 200 OK
+unlink: No such file or directory
+2021-02-18 13:15:46 URL:https://cci.uncc.edu/computer-science/45/5 [38964/38964] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:48 URL:https://cci.uncc.edu/robots.txt [2189/2189] -> "robots.txt" [1]
+2021-02-18 13:15:56 URL:https://creativecommons.org/2015/08/05/4-0-bahasa-indonesia-translation-and-a-book/ [93851] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:15:59 URL:https://creativecommons.org/robots.txt [35/35] -> "robots.txt" [1]
+2021-02-18 13:16:03 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide [149536/149536] -> "Guide.tmp.tmp" [1]
+2021-02-18 13:16:07 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/ [109500/109500] -> "index.html.tmp.tmp" [1]
+2021-02-18 13:16:12 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/breakpoints [103474/103474] -> "breakpoints.tmp.tmp" [1]
+2021-02-18 13:16:16 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Introduction [154034/154034] -> "Introduction.tmp.tmp" [1]
+2021-02-18 13:16:24 URL:https://developers.google.com/web/tools/chrome-devtools/javascript/snippets [64390/64390] -> "snippets.tmp.tmp" [1]
+2021-02-18 13:16:28 URL:https://zwartell.gitlab.io/javascript-tutorial/Hello-World_player.html?embedIFrameId=embeddedSmartPlayerInstance [7105/7105] -> "Hello-World_player.html@embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
+2021-02-18 13:16:32 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types [262917/262917] -> "Grammar_and_types.tmp.tmp" [1]
+2021-02-18 13:16:37 URL:https://zwartell.gitlab.io/javascript-tutorial/Chapter-Setup-Procedure_player.html?embedIFrameId=embeddedSmartPlayerInstance [7140/7140] -> "Chapter-Setup-Procedure_player.html@embedIFrameId=embeddedSmartPlayerInstance.tmp.tmp" [1]
+2021-02-18 13:16:39 URL: https://zwartell.gitlab.io/javascript-tutorial/grey-code-box.png 200 OK
+unlink: No such file or directory
+2021-02-18 13:16:43 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Control_flow_and_error_handling [224079/224079] -> "Control_flow_and_error_handling.tmp.tmp" [1]
+2021-02-18 13:16:47 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration [212521/212521] -> "Loops_and_iteration.tmp.tmp" [1]
+2021-02-18 13:16:51 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions [299498/299498] -> "Functions.tmp.tmp" [1]
+2021-02-18 13:16:55 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators [271737/271737] -> "Expressions_and_Operators.tmp.tmp" [1]
+2021-02-18 13:16:59 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Numbers_and_dates [190582/190582] -> "Numbers_and_dates.tmp.tmp" [1]
+2021-02-18 13:17:03 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Text_formatting [177663/177663] -> "Text_formatting.tmp.tmp" [1]
+2021-02-18 13:17:07 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Indexed_collections [282324/282324] -> "Indexed_collections.tmp.tmp" [1]
+2021-02-18 13:17:11 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Keyed_collections [155489/155489] -> "Keyed_collections.tmp.tmp" [1]
+2021-02-18 13:17:16 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects [255340/255340] -> "Working_with_Objects.tmp.tmp" [1]
+2021-02-18 13:17:20 URL:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model [316311/316311] -> "Details_of_the_Object_Model.tmp.tmp" [1]
+Found no broken links.
+
+FINISHED --2021-02-18 13:17:20--
+Total wall clock time: 2m 44s
+Downloaded: 33 files, 3.5M in 0.6s (6.14 MB/s)

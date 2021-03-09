@@ -270,6 +270,17 @@ ol.Instruction > li > ol > li > ol > li::marker {
     content: counter(instructionLevel3, lower-roman) " ";
 }
 
+div.Errata
+{
+    border-style: solid;
+    border-color: grey;
+    border-width: 1 px;
+}
+span.Exercise_Title
+{
+    text-decoration: underline;
+}
+
 span.Grade_Points {
     font-weight: bold;
 }

@@ -48,9 +48,31 @@
         for(let e of elements)
         {
           e.innerText = Project.git;
-        }           
-        
+        }
 
+        elements = document.querySelectorAll('section.Staff_Only');
+        for(let e of elements)
+        {
+          e.hidden = true;
+        }
+
+        /*
+        *    Create video cue buttons
+        */
+        elements = document.querySelectorAll('span.VideoCue');
+        for(let e of elements)
+        {
+          // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+          const videoCue = Function('"use strict";return (' + e.dataset.videoCue + ')')();
+          const button = document.createElement("button");
+          button.addEventListener('click',(e)=>{const cclv=document.getElementById(videoCue.videoID);cclv.currentTime=videoCue.interval[0];cclv.play();});
+          button.innerHTML="&trianglerighteq;";
+          e.after(button);
+        }
+
+        /*
+        *    Initialize toc module
+         */
         $('#toc').toc(
                 { 'smoothScrolling': true,
                   'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
@@ -88,24 +110,29 @@
         </p>
         <b>Objectives</b>
         <ol>
-          <li>Read and play with tutorial code snippets on D3.</li>
+          <li>Read and play with tutorial code snippets on D3 and create some
+            trivial HTML5 pages with D3.</li>
           <li>Read and play with tutorial code snippets on SVG.</li>
-          <li>Develop high level understand of SVG.</li>
-          <li>Develop in depth understanding of D3.</li>
+          <li>Develop very basic understanding of SVG.</li>
+          <li>Develop good understanding of D3.</li>
         </ol>
       </section>
-      Resources
-      <section> In the project skeleton code in the code comment's, there are
-        several references and hyperlinks to other specific, external resources
-        (comments are prefixed by "Student Note:").
-        <h1 class="toc">The Project</h1>
-        For this project you will both create a number of small HTML5 pages as
-        well as use the Chrome debug Console to try out a variety of code
-        snippets embedded in the reading.&nbsp;&nbsp; As with previous tutorials
-        these code snippets will be save to various Console log files which must
-        be saved and git added.<br>
-        <br>
-        Total number of points for the project is 100.
+      Resources In the project skeleton code in the code comment's, there are
+      several references and hyperlinks to other specific, external resources
+      (comments are prefixed by "Student Note:").
+      <h1 class="toc">The Project</h1>
+      For this project you will both </div>
+    <div style="margin-left:250px">
+      <ul>
+        <li>create a number of small HTML5 pages <br>
+          as well as </li>
+        <li>use the Chrome debug Console to try out a variety of code snippets
+          embedded in the reading.&nbsp;&nbsp; As with previous tutorials these
+          code snippets will be save to various Console log files which must be
+          saved and git added.</li>
+      </ul>
+      Total number of points for the project is 100.
+      <section>
         <h1 class="toc">Coding Standards:</h1>
         <span class="Grade_Points">[10 pts]</span> points of your project grade
         will be based on following good programming practices.&nbsp;&nbsp;
@@ -135,7 +162,9 @@
             </ul>
           </li>
         </ul>
-        <h1 class="toc">Part I:&nbsp; Git Repo</h1>
+      </section>
+      <section>
+        <h1 class="toc">Git Repo</h1>
         <ol class="Instruction">
           <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
                 data-course-number=""></span>_<span data-project-number=""></span>_<span
@@ -171,12 +200,122 @@
           <!--
           <li>Next, retrieve the skeleton code:<br>            (The mechanics below are common git technique called 'fork'ing).<br>            &nbsp;            <table class="Code_Example" id="Code_Example3" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Input">$cd                        <span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_X"></span></code><br>                      <code class="Shell_Code_Input">$git remote add upstream                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code                          class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>                      <span class="Shell_Code_Comment">[... the above connects                        to the original 'upstream' remote, to which you have                        read-only access ...]</span><br>                      <br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git fetch upstream</code><br>                      <code class="Shell_Code_Output">remote: Counting objects:                        30, done.<br>                        remote: Compressing objects: 100% (28/28), done.<br>                        remote: Total 30 (delta 11), reused 0 (delta 0)<br>                        Unpacking objects: 100% (30/30), done.<br>                        From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span data-course-number=""></span>_Planet_Mobile<br>                        * [new branch] master -&gt; upstream/master<br>                        <br>                      </code> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git merge upstream/master</code><br>                      <span class="Shell_Code_Comment">[... the above 2 commands                        merge the 'upstream' remote into the local repo...]</span><br>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          </li>          <li>Push the skeleton code to <u><b>your</b></u> repo.<br>            <table class="Code_Example" id="Code_Example7" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git push -u origin master</code><br>                      <code class="Shell_Code_Output">Counting objects: 30,                        done.<br>                        Delta compression using up to 8 threads.<br>                        Compressing objects: 100% (28/28), done.<br>                        Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,                        done.<br>                        Total 30 (delta 11), reused 0 (delta 0)<br>                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span                          data-project-number-long-dir="Project_2"></span>.git<br>                        * [new branch] master -&gt; master<br>                        Branch master set up to track remote branch master from                        origin.<br>                        <br>                      </code> <span class="Shell_Code_Comment">[... this pushes                        the local repo to your remote repo and ensures further                        git operations will default to using your remote ...]</span>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          </li>          <li>Verify your directory structure:<br>            <table class="Code_Example" id="Code_Example8" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$cd ..</code><br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span></code><br>                      <code class="Shell_Code_Input">$find . -maxdepth 2<br>                      </code><br>                      <code class="Shell_Code_Output">.<br>                        ./lib<br>                        ./lib/cuon-matrix.js<br>                        ./lib/cuon-utils.js<br>                        <span class="Shell_Code_Comment">[...the new                          uncc_webgl_utils...]</span><br>                        ./lib/uncc_webgl_utils<br>                        ./lib/webgl-debug.js<br>                        ./lib/webgl-guide<br>                        ./lib/webgl-utils.js<br>                        <span class="Shell_Code_Comment">[...your other tutorial                          and project stuff ...]</span><br>                        <span class="Shell_Code_Comment">[...your new project                          ...]</span><br>                        ./Project_1<br>                        ./Project_1/.git<br>                        ./Project_1/README.txt<br>                        &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>                        <span class="Shell_Code_Comment">[...the WebGL book                          code, etc...]</span><br>                        ./WebGL_Programming_Guide<br>                        ./WebGL_Programming_Guide/.git<br>                        ./WebGL_Programming_Guide/Appendix<br>                        ./WebGL_Programming_Guide/ch02<br>                      </code><br>                      &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          				</li>        <li>All your future <span style="File_Name">git push</span> operations            will be to the <b>origin</b> . (If you try to push to upstream, it            will fail because students have read-only permission to the upstream            repository).				</li>-->
         </ol>
-        <p></p>
-        <h1 class="toc">Part II: &nbsp; D3 - Console Play 1</h1>
+      </section>
+      <section>
+        <h1 class="toc">Chrome Console Log - Chapter Procedure </h1>
+        <p>For a number of Chapters that you will read, you will be saving one
+          Chrome Console log file&nbsp; per Chapter.<br>
+          If you take a prolonged break in your progress in the middle of a
+          Chapter, save the Chapter's log file into multiple per-Chapter logs
+          files, with names like <span class="File_Name">chapter-2-part-1-log.txt</span>,
+          <span class="File_Name">chapter-2-part-2-log.txt</span>,&nbsp; etc.</p>
+        <p>You should setup the log for <u>each</u> chapter as follows:</p>
+        <section>
+          <h2 class="toc"> Details </h2>
+          <ul>
+            <li>The video in the <b>Video</b> sub-section below can be
+              controlled both using the standard video controls and by using the
+              cue buttons (<button> ⊵ </button>) next to each step in the
+              succeeding <b>Instructions</b> sub-section,&nbsp; Pressing a
+              step's cue button (<button> ⊵ </button>) jumps to the
+              corresponding video segment.&nbsp;&nbsp; </li>
+            <li>You can independently adjust the displayed size of the <b>Video</b>
+              sub-window and the <b>Instructions</b> sub-window in order
+              achieved your preferred balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
+                target="_blank">screen real estate</a> alotted to their two
+              sub-windows.&nbsp; Hover the mouse over the lower-right corner of
+              either sub-section's black border and the mouse cursor changes to
+              a double vertical arrow which enables the resizing.</li>
+          </ul>
+          <div class="VideoInstructions">
+            <h4 class="nocount"> Video </h4>
+            <div> <video id="ChromeConsoleLog" controls="controls" preload="metadata"
+                width="auto"> <source src="videos/ChromeConsoleLog.mp4" type="video/mp4">
+                <track label="English" kind="subtitles" srclang="en" src="videos/ChromeConsoleLog.vtt"
+                  default=""> <u> Sorry, your browser doesn't support embedded
+                  videos. </u> </video> </div>
+            <h4 class="nocount"> Instructions </h4>
+            <div>
+              <ol class="Instruction">
+                <li><u><a name="Chapter-Setup-Procedure" id="Chapter-Setup-Procedure"></a>Procedure</u>:&nbsp;
+                  "Chapter Console Log Setup" &nbsp;&nbsp;&nbsp;&nbsp;<u> </u><br>
+                  <u> </u><br>
+                  <ol>
+                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[0,16]}">Open
+                        the Chapter's hyperlink in a Chrome tab.</span></li>
+                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[16.1,23.33]}">
+                        In Chrome, open Chrome DevTools window </span> </li>
+                    <li> Initialize the Console as follows:
+                      <ol>
+                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[23.33,30.33 ]}">
+                            Open the Console via "Show console drawer" </span>
+                        </li>
+                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[31.00 ,41 ]}">
+                            In the Console Settings Panel, <u>enable</u><em> </em>"Preserve
+                            Log"</span> <br>
+                          <u>Note</u>: Without this your log file may fail to
+                          record your Console activity!</li>
+                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[23.33,30.33 ]}">
+                            Clear the Console log from any Console input from
+                            the prior chapters. </span> </li>
+                      </ol>
+                      <br>
+                      <u>Purpose</u>: You will use the Console to enter and
+                      experiment with single-line pieces of code from the
+                      referenced reading. <br>
+                    </li>
+                    <li>Create a Snippet as follows:<br>
+                      <ol>
+                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[44,46.33 ]}">Open
+                            the Sources Panel</span></li>
+                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[46.33,47.33 ]}">Open
+                            the Snippet tab</span></li>
+                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[47.33,56 ]}">In
+                            the Snippet tab create a "New snippet"</span><br>
+                        </li>
+                      </ol>
+                      <u><br>
+                        Purpose</u>: You can use the Snippet feature to enter
+                      and experiment with multi-line pieces of code from the
+                      referenced reading. </li>
+                  </ol>
+                </li>
+                <li> <u>Procedure</u>: Perform the logged exercises described
+                  in the tutorial section.<br>
+                  <ol>
+                    <li><u>Demonstration</u>:&nbsp; In the video the user is
+                      performing part of one of the exercises in this tutorial
+                      typing in code alternately at the Console and using the
+                      Snippet.</li>
+                  </ol>
+                </li>
+                <u> </u>
+                <li><u>Procedure</u>:&nbsp; "Save Chapter or Section Console Log
+                  File"<br>
+                  <ol>
+                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[60+45,60+55]}">
+                        Save the Console to a log file based on the chapter or
+                        section name such as, <span class="File_Name">ConsolePlay1.log.</span>
+                      </span> </li>
+                    <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[60+58,120+14]}">
+                        Verify the log file looks correct using the shell. </span>
+                    </li>
+                    <li><span class="Git_Commit">Git commit</span> the log
+                      file(s) with an appropriate message such as "-log file for
+                      Console Play 1"</li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+      </section>
+      <section>
+        <h1 class="toc">D3 - Console Play 1</h1>
         <p>This part involves reading the introduction at <a href="https://d3js.org/"
             target="_blank">https://d3js.org/</a>, creating small HTML5 page and
-          trying a out and playing with tiny code snippets from the reading
-          using the Chrome Console.</p>
+          trying out and playing with tiny code snippets from the reading in the
+          Chrome Console.</p>
         <ol class="Instruction">
           <li>Create a directory <span class="File_Name"> ConsolePlay1 </span>
             inside your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span></li>
@@ -186,7 +325,8 @@
               <li>Add 5 paragraph elements to the body.&nbsp; In the first
                 paragraph, include an short, joke that would be appropriate for
                 sharing with the class.</li>
-              <li>git commit with message 'preliminary files'</li>
+              <li class="Git_Commit"><span class="Git_Commit">git commit</span>
+                with message 'preliminary files'</li>
             </ol>
           </li>
           <li><a href="https://d3js.org/" target="_blank">[https://d3js.org/</a>]&nbsp;
@@ -237,68 +377,62 @@
           <li><a href="https://d3js.org/#transformation" target="_blank">d3js#Transformation,
               Not Representation</a> Read all. </li>
           <li>Modify the file <span class="File_Name">ConsolePlay1.html</span>
-            as follows.<br>
+            as follows:<br>
             <ol>
               <li>Inserting the following element after the last &lt;p&gt;
-                element:</li>
-              <li>Save the files change.</li>
-              <li>refresh the page in the Chrome browser to see the change.</li>
-              <li>git commit with message '-added svg element'</li>
+                element:<br>
+                <img src="images/image2-svg.png" alt="    &lt;svg version=&quot;1.1&quot;          baseProfile=&quot;full&quot;          width=&quot;300&quot; height=&quot;500&quot;          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;green&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;250&quot; r=&quot;10&quot; fill=&quot;red&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;350&quot; r=&quot;10&quot; fill=&quot;yellow&quot;&gt;&lt;/circle&gt;     &lt;/svg&gt;"></li>
+              <li>Save the file changes.</li>
+              <li>Refresh the page in the Chrome browser to see the change. You
+                should see 3 colored circles at the bottom of the page.</li>
+              <li class="Git_Commit"><span class="Git_Commit">git commit</span>
+                with message '-added svg element'</li>
             </ol>
           </li>
           <li><a href="https://d3js.org/#transitions" target="_blank">d3js#Transistions&nbsp;</a>
             Read all.<br>
-            <br>
-            <div class="Errata"><strong>Errata</strong>:<br>
-              <br>
-              In the exercise below, when your the lines below, replace the
-              first line<img style="margin-left : 30px" src="images/image1-correction.png"
-                alt=""><br>
-              with:<br>
-              <code style="margin-left : 30px" class="javascript hljs">
-                d3.select("svg").selectAll(<span class="string">"circle"</span>).transition()
-                </code> </div> <br>
             <ol>
               <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points">[
                   ? pts]</span>&nbsp; <br>
                 <br>
-                Type in the example code snippets in this section on the
-                Console.&nbsp;&nbsp; <br>
-                Optionally, also experiment a bit with variations of these
-                snippets.</li>
+                <div class="Errata"><strong>Errata</strong>:<br>
+                  <br>
+                  In this steps readings, when you reach the code below, use the
+                  <u>Replacement</u>: code instead:<br>
+                  <u>Original</u>:<br>
+                  <img style="margin-left : 30px" src="images/image1-correction.png"
+                    alt="" width="50%"><br>
+                  <u> Replacement</u>:<br>
+                  <img style="margin-left : 30px" src="images/image3-correction.png"
+                    alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
+                    style="margin-left : 30px"></code> </div>
+                <br>
+                While reading through this section, type in the example code
+                snippets on the Console.&nbsp;&nbsp; <br>
+                Optionally, experiment a bit with variations of these snippets.
+                <br>
+                <br>
+              </li>
             </ol>
           </li>
-          <li>Saved Console.log</li>
-          <li>git commit with message 'complete</li>
+          <li style="counter-increment: instructionLevel2 1;">Save Console log
+            to file<span> </span><span class="File_Name" style="font-family: Courier, monospace;">console-play-1-log.txt.</span></li>
+          <li class="Git_Commit"><span class="Git_Commit">git commit</span> all
+            changes with message 'completed D3 - Console Play 1'</li>
         </ol>
-        <h1 class="toc">Part III: &nbsp; D3 - Console Play 1</h1>
+        <h1 class="toc">SVG - Console Play 2</h1>
+        <h1 class="toc">D3 - Data Joins in Depth</h1>
+        <p></p>
         <p></p>
         <ol class="Instruction">
-          <li><u>Line Drawing</u> : <span class="Grade_Points">[ 0 pts]</span>
-            : In Line Mode, clicking a pair of points will draw a line between
-            those points.&nbsp; As new vertices are clicked a GL_POINT is drawn
-            to indicate the vertex location.&nbsp;&nbsp; The sample code already
-            implements this for you.<br>
-          </li>
-          <li><u>Triangle Drawing</u> : <span class="Grade_Points">[10 pts]</span>
-            : In Triangle Mode, clicking a three points will draw a filled
-            triangle using those points.&nbsp; Similar to Line Mode, as new
-            vertices are clicked a GL_POINT should be drawn to indicate the new
-            vertex location.&nbsp; After three points are selected the triangle
-            is drawn and the GL_POINTS at the vertices disappear.<br>
-          </li>
-          <li><u>Quad Drawing</u> : <span class="Grade_Points">[10 pts]</span>
-            : In Quad Mode, clicking four point will draw a quadrilateral.
-            Similar to the modes, vertices should be draw for visual
-            feedback.&nbsp;&nbsp; WebGL does not support quads, but only
-            triangles. The WebGL book Chapter 2 Section “Hello Rectangle
-            (HelloQuad)” describes how to draw a quadrilateral with triangle
-            based primitives.&nbsp; After three points are selected the triangle
-            is drawn and the GL_POINTS at the vertices disappear.</li>
+        </ol>
+      </section>
+      <section class="Staff_Only">
+        <h1 class="toc">Appendix III: &nbsp; TA/Staff Notes</h1>
+        <p></p>
+        <ol class="Instruction">
         </ol>
         <p></p>
-        <p><br>
-        </p>
         <ul>
           <li>Sequence</li>
           <ul>
@@ -343,123 +477,8 @@
                 </a></li>
           </ul>
         </ul>
-        <h1 class="toc">Part I v2:</h1>
-        <p>Implement the following functionality by clicking with the mouse
-          button.</p>
-        <ol class="Instruction">
-          <li><u>Line Drawing</u> : <span class="Grade_Points">[ 0 pts]</span>
-            : In Line Mode, clicking a pair of points will draw a line between
-            those points.&nbsp; As new vertices are clicked a GL_POINT is drawn
-            to indicate the vertex location.&nbsp;&nbsp; The sample code already
-            implements this for you.<br>
-          </li>
-          <li><u>Triangle Drawing</u> : <span class="Grade_Points">[10 pts]</span>
-            : In Triangle Mode, clicking a three points will draw a filled
-            triangle using those points.&nbsp; Similar to Line Mode, as new
-            vertices are clicked a GL_POINT should be drawn to indicate the new
-            vertex location.&nbsp; After three points are selected the triangle
-            is drawn and the GL_POINTS at the vertices disappear.<br>
-          </li>
-          <li><u>Quad Drawing</u> : <span class="Grade_Points">[10 pts]</span>
-            : In Quad Mode, clicking four point will draw a quadrilateral.
-            Similar to the modes, vertices should be draw for visual
-            feedback.&nbsp;&nbsp; WebGL does not support quads, but only
-            triangles. The WebGL book Chapter 2 Section “Hello Rectangle
-            (HelloQuad)” describes how to draw a quadrilateral with triangle
-            based primitives.&nbsp; After three points are selected the triangle
-            is drawn and the GL_POINTS at the vertices disappear.</li>
-        </ol>
-        <h1 class="toc">Part II:</h1>
-        <p>Using the second mouse button, you will be able to select <u>one</u>
-          object. <span class="Updated_Text">(You may use either the right or
-            middle mouse button, whichever works best in your browser)</span> .</p>
-        <ol class="Instruction">
-          <li value="4"> <u>Line Selection</u> : <span class="Grade_Points">[10
-              pts]</span> : To determine if a line is selected, implement a
-            function that computes the distance of the mouse click point to each
-            line <u>segment</u>, if the distance is within a few pixels of line
-            L, line L becomes the selected object.<br>
-            <br>
-            <i>Detailed Requirements</i>:&nbsp; Implement the algorithm as
-            described in the following document:<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="https://www.geometrictools.com/Documentation/DistancePointLine.pdf">
-              https://www.geometrictools.com/Documentation/DistancePointLine.pdf</a><br>
-            Add the code to the file math2D.js in the function called
-            pointLineDist.&nbsp;&nbsp;<br>
-            <br>
-          </li>
-          <li><u>Triangle Selection</u> : <span class="Grade_Points">[15 pts]</span>
-            :&nbsp; To determine if a triangle is selected, implement a function
-            to test if a point is inside each triangle.&nbsp; If mouse the is
-            inside a triangle T, triangle T becomes the selected object.<br>
-            <i><br>
-            </i> <i>Detailed Requirements</i>:&nbsp; Implement the
-            point-in-triangle test by computing the barycentric coordinate of
-            point <b>p</b> using the triangles vertices to define the
-            barycentric system.&nbsp;&nbsp; Test the values of the barycentric
-            coordinates of <b>p</b> as discussed in class to test whether <b>p</b>
-            is inside the triangle.&nbsp;&nbsp;&nbsp; Implement the algorithm as
-            described in class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight: normal;">ITCS<span
-                data-course-number=""></span>-2D Coordinates.pptx</span> and <span
-              class="instructure_file_link_holder link_holder"><span class=""><span
-                  style="font-weight: normal;">ITCS<span data-course-number=""></span>-Scan_Conversion
-                  2.pptm).</span></span></span>&nbsp;&nbsp; Add the code to the
-            math2D.js function called <span class="Function_Name">barycentric()</span>.<br>
-          </li>
-          <li><u>Quad Selection</u>: <span class="Grade_Points">[10 pts]</span>
-            :&nbsp; To determine if a quad is selected, reuse the barycentric
-            coordinate triangle selection, but test again each triangle making
-            up the quad.&nbsp;&nbsp; If the mouse is inside a quad Q, Q becomes
-            the selected object.<br>
-          </li>
-          <li><u>Selected Object</u> <u>Indicator</u>: <span class="Grade_Points">[5
-              pts]</span> :&nbsp; The vertices of the <span class="Updated_Text"><u>one</u></span>
-            selected object should be drawn as GL_POINTS in order to visually
-            distinguish that the object is selected.&nbsp;&nbsp;&nbsp; Once the
-            object is no longer the selected object, these GL_POINTS should
-            disappear.&nbsp; Use a different color for these points than those
-            used when drawing.<br>
-          </li>
-          <li><u>Multiple Objects</u>: <span class="Grade_Points">[5 pts]</span>
-            :&nbsp;&nbsp; If multiple objects all pass their selection test,
-            then successive mouse clicks -- made without mouse movement --
-            should cycle through selecting each of the object's that passed the
-            selection test.&nbsp;&nbsp; Remember, only <span class="Updated_Text"><u>one</u></span>
-            object is considered the selected object at a time, however.</li>
-        </ol>
-        <h1 class="toc">Part III:</h1>
-        <ol class="Instruction">
-          <li value="9"> <u>Delete Object</u> : <span class="Grade_Points">[10
-              pts]</span> :
-            <ol>
-              <li>Add a Delete button.&nbsp;&nbsp; Pressing the delete button
-                should delete only the <u>one</u> selected object.&nbsp; (If
-                none is selected, the button does nothing.)</li>
-            </ol>
-          </li>
-          <li> <u>Color Change</u> : <span class="Grade_Points">[15 pts]</span>
-            :
-            <ol>
-              <li>Use three sliders with labels Red, Green, Blue.&nbsp;&nbsp;
-                The their values should range between 0 and 1.&nbsp;</li>
-              <li>When a object is selected, that the sliders' values should
-                immediately change to be based on the object type's current
-                color (for simplicity all objects of the same type will be a
-                single color).</li>
-              <li>If you move a slider, the color of all objects of the selected
-                type (all lines, triangles, etc.) should change based on the
-                slider value.</li>
-            </ol>
-            <p><i>Comments</i>:&nbsp; The resources listed earlier give a
-              reasonable introduction to event handlers in HTML5 and
-              JavaScript.&nbsp;&nbsp; Sliders are implemented with &lt;input
-              type="range"&gt; HTML elements.&nbsp; The skeleton code provides
-              the 3 sliders and initializes basic event handlers.&nbsp; You will
-              have to modify these as well as set the range's min and max,
-              etc.&nbsp;&nbsp; (<a target="_blank" href="https://www.w3.org/wiki/HTML/Elements/input/range">https://www.w3.org/wiki/HTML/Elements/input/range</a>)</p>
-          </li>
-        </ol>
+      </section>
+      <section class="Staff_Only">
         <h1 class="toc">Appendix I:&nbsp;&nbsp; Code Retrieval and Repo Setup</h1>
         <ol class="Instruction">
           <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span>
@@ -664,10 +683,14 @@
             upstream, it will fail because students have read-only permission to
             the upstream repository).</li>
         </ol>
+      </section>
+      <section>
         <h1 class="toc">Appendix II:&nbsp;&nbsp; Recording your Console work
           using Chrome log files</h1>
         <p><br>
         </p>
+      </section>
+      <section class="Staff_Only">
         <h1 class="toc">Appendix III:&nbsp; Resources</h1>
         <p><u>WebGL Book</u>:&nbsp; The WebGL book Chapters you read for
           previous project should be sufficient for this assignment in terms of
@@ -684,6 +707,8 @@ https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction</a> - High
 https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction</a>
             - High level description of the Document Object Model (DOM) </li>
         </ul>
+      </section>
+      <section>
         <h1 class="toc">Appendix IV: Academic Integrity</h1>
         <p>See the course syllabus regarding partial credit and the late penalty
           policy. &nbsp;</p>

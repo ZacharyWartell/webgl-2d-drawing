@@ -6,7 +6,7 @@ pages:
     - mkdir .public
     #- mkdir .public/dev_scripts
     - cp -r Site\ Root/* .public
-    - mv ".public/ITCS 3120 - JavaScript Tutorial.html" .public/index.html 
+    - mv ".public/ITCS D3 Tutorial.html" .public/index.html 
     #- cp -r dev_scripts/* .public/dev_scripts
     - git show --no-patch --no-notes --pretty='%cd' $CI_COMMIT_SHA > REVISION.txt
     - . ./dev_scripts/revision.sed

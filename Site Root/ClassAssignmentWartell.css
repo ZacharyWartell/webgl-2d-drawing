@@ -290,6 +290,12 @@ span.Exercise_Title
     text-decoration: underline;
 }
 
+table#RubricTable > tbody > tr:nth-child(1) > td
+{
+    font-weight : bolder;
+    text-align: center;
+}
+
 span.Grade_Points {
     font-weight: bold;
 }

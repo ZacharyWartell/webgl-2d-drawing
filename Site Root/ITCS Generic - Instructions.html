@@ -86,23 +86,19 @@
   <body onload="onload_Body()"> _<!-- IF_TOC -->
     <div id="toc"> </div>
     <div style="margin-left:250px">
-      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
-
+      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
           data-project-number=""></span> - D3 Tutorial <br>
       </h2>
       <h2 class="nocount Title">Spring 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
-      <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
-
+      <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
             target="_blank">git logs</a>) </sup><br>
       </h3>
       <hr>
-      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-
+      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
             alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
         <span>"ITCS <span data-course-number=""></span> : Generic Instructions"
-        </span>by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
-
+        </span>by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
           target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
           Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -162,10 +158,8 @@
       <section>
         <h1 class="toc">Git Repo</h1>
         <ol class="Instruction">
-          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
-
-                data-course-number=""></span>_<span data-project-number=""></span>_<span
-
+          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
+                data-course-number=""></span>_<span data-project-number=""></span>_<span
                 data-project-name-dir=""></span></span>.<br>
             <ol>
               <li>Remember to make your remote repository <b>"Private"</b> .</li>
@@ -174,8 +168,7 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -184,8 +177,7 @@
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
                         class="Shell_Code_Input"><span style="File_Name"><span data-project-git="">3120_P2_Planet_Mobile</span></span>.git
                         <span data-project-number-long-dir="Project_2"></span></code>2<br>
                       <code class="Shell_Code_Output">Cloning into '<span data-project-number-long-dir="">Project_X</span>'...<br>
@@ -222,8 +214,7 @@
               corresponding video segment.&nbsp;&nbsp; </li>
             <li>You can independently adjust the displayed size of the <b>Video</b>
               sub-window and the <b>Instructions</b> sub-window in order
-              achieved your preferred balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
-
+              achieved your preferred balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
                 target="_blank">screen real estate</a> alotted to their two
               sub-windows.&nbsp; Hover the mouse over the lower-right corner of
               either sub-section's black border and the mouse cursor changes to
@@ -231,8 +222,7 @@
           </ul>
           <div class="VideoInstructions">
             <h4 class="nocount"> Video </h4>
-            <div> <video id="ChromeConsoleLog" controls="controls" preload="auto"
-
+            <div> <video id="ChromeConsoleLog" controls="controls" preload="auto"
                 width="500px"> <source src="videos/ChromeConsoleLog.mp4" type="video/mp4">
                 <!--
               <track label="English" kind="subtitles" srclang="en" src="videos/ChromeConsoleLog.vtt"                  default="">               -->
@@ -316,8 +306,7 @@
       </section>
       <section>
         <h1 class="toc">D3 - Console Play 1</h1>
-        <p>This part involves reading the introduction at <a href="https://d3js.org/"
-
+        <p>This part involves reading the introduction at <a href="https://d3js.org/"
             target="_blank">https://d3js.org/</a>, creating small HTML5 page and
           trying out and playing with tiny code snippets from the reading in the
           Chrome Console.</p>
@@ -406,14 +395,11 @@
                   In this steps readings, when you reach the code below, use the
                   <u>Replacement</u>: code instead:<br>
                   <u>Original</u>:<br>
-                  <img style="margin-left : 30px" src="images/image1-correction.png"
-
+                  <img style="margin-left : 30px" src="images/image1-correction.png"
                     alt="" width="50%"><br>
                   <u> Replacement</u>:<br>
-                  <img style="margin-left : 30px" src="images/image3-correction.png"
-
-                    alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
-
+                  <img style="margin-left : 30px" src="images/image3-correction.png"
+                    alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
                     style="margin-left : 30px"></code> </div>
                 <br>
                 While reading through this section, type in the example code
@@ -431,8 +417,7 @@
         </ol>
         <section>
           <h1 class="toc">SVG - Play</h1>
-          <p>D3 has is own set of Shape primitives (<a href="https://github.com/d3/d3/blob/master/API.md#shapes-d3-shape"
-
+          <p>D3 has is own set of Shape primitives (<a href="https://github.com/d3/d3/blob/master/API.md#shapes-d3-shape"
               target="_blank">d3-shape)</a>.&nbsp; However, underneath the
             covers&nbsp; D3 is by and large relying on SVG for all graphical
             rendering&nbsp;&nbsp; Also there will be occasions when a developer
@@ -446,12 +431,10 @@
                 SVG</span><span class="File_Name">Play </span> inside your
               directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
             </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
                 target="_blank">MDN SVG Getting_Started</a>]&nbsp; Read all
               sub-sections up to, but <u>not</u> including "A word on
-              Webservers" and create the mentioned files in directory <span style="font-family: Courier,monospace;">SVG</span><span
-
+              Webservers" and create the mentioned files in directory <span style="font-family: Courier,monospace;">SVG</span><span
                 class="File_Name">Play </span>
               <ol>
                 <li><span class="Exercise_Title">Exercise</span>: demo1.svg
@@ -463,41 +446,33 @@
                   file(s) with message "-completed MDN SVG intro" </li>
               </ol>
             </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
-
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
                 target="_blank">MDN SVG Position</a>]&nbsp; Read all.</li>
-            <li>Create a webpage, <span style="font-family: Courier,monospace;">SVG</span><span
-
+            <li>Create a webpage, <span style="font-family: Courier,monospace;">SVG</span><span
                 class="File_Name">Play.html<span style="font-family: serif;"> i</span></span>nside
-              the directory<span style="font-family: Courier,monospace;"> SVG</span><span
-
+              the directory<span style="font-family: Courier,monospace;"> SVG</span><span
                 class="File_Name">Pla<span style="font-family: serif;">y.&nbsp;</span></span>
               The HTML page will have the capabilities described in the
               exercises below.<br>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span style="font-family: Courier,monospace;">SVG</span><span
-
+                <li><span class="Exercise_Title">Exercise</span>: <span style="font-family: Courier,monospace;">SVG</span><span
                     class="File_Name">Play.html<span style="font-family: serif;">
                     </span></span><span class="Grade_Points">[ ? pts]</span>&nbsp;
                   <br> <br>
                   -Give the page a visible title and display your name as
                   author.<br>
-                  -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
-
+                  -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
                     class="File_Name">Play.html<span style="font-family: serif;"></span></span>.<br>
                   -<span class="Git_Commit">Git add and commit</span> the
                   file(s) with message "-initial .html page" <br>
                 </li>
-                <li><span class="Exercise_Title">Exercise</span>: Pan and Zoom <span
-
+                <li><span class="Exercise_Title">Exercise</span>: Pan and Zoom <span
                     class="Grade_Points">[ ? pts]</span>&nbsp; <br>
                   <br>
-                  Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
-
+                  Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
                     target="_blank">MDN SVG Position</a>] -- and knowledge of
                   HTML, JavaScript, the DOM, EventListeners,etc. -- add the
-                  following pan and zoom interface to <span style="font-family: Courier,monospace;">SVG</span><span
-
+                  following pan and zoom interface to <span style="font-family: Courier,monospace;">SVG</span><span
                     class="File_Name">Play.html<span style="font-family: serif;"></span></span>.&nbsp;
                   Create additional files (JavaScript, etc.) as needed.<br>
                   <br>
@@ -514,26 +489,20 @@
             </li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">[MDN
                 SV Basic_Shapes</a>] Read all.&nbsp; While reading add at least
-              <u>one</u> example of each described shape to <span style="font-family: Courier,monospace;">SVG</span><span
-
-                class="File_Name">Play.html<span style="font-family: serif;"> </span></span><span
-
+              <u>one</u> example of each described shape to <span style="font-family: Courier,monospace;">SVG</span><span
+                class="File_Name">Play.html<span style="font-family: serif;"> </span></span><span
                 class="Grade_Points"><br>
               </span>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: More shapes <span
-
-                    style="font-family: Courier,monospace;">SVG</span><span class="File_Name">Play.html<span
-
+                <li><span class="Exercise_Title">Exercise</span>: More shapes <span
+                    style="font-family: Courier,monospace;">SVG</span><span class="File_Name">Play.html<span
                       style="font-family: serif;"> </span></span><span class="Grade_Points">[
                     ? pts]</span>&nbsp; <br>
                   -While reading add at least <u>one</u> example of each
-                  described shape to <span style="font-family: Courier,monospace;">SVG</span><span
-
+                  described shape to <span style="font-family: Courier,monospace;">SVG</span><span
                     class="File_Name">Play.html<br>
                   </span> -<span class="Git_Commit">Git add/commit</span> the
-                  file(s) with message "-more shapes" <span class="File_Name"><span
-
+                  file(s) with message "-more shapes" <span class="File_Name"><span
                       style="font-family: serif;"> </span></span><span class="Grade_Points"></span></li>
               </ol>
             </li>
@@ -545,42 +514,46 @@
             <li>Create a directory<span style="font-family: Courier,monospace;">
                 D3Selections</span><span class="File_Name"> </span> inside your
               directory <span class="File_Name" data-project-number-long-dir="">Project_2</span></li>
-            <li>Download the following two files: 
-              <a href="HowSelectionsWork-Example.html" download>HowSelectionsWork-Example.html</a>,
-              <a href="HowSelectionsWork-Example.css" download>HowSelectionsWork-Example.css</a>,.&nbsp;&nbsp;&nbsp; Copy them to directory <span style="font-family: Courier,monospace;">D3Selections</span><span
-
+            <li>Download the following two files: <a href="HowSelectionsWork-Example.html"
+                download="">HowSelectionsWork-Example.html</a>, <a href="HowSelectionsWork-Example.css"
+                download="">HowSelectionsWork-Example.css</a>,.&nbsp;&nbsp;&nbsp;
+              Copy them to directory <span style="font-family: Courier,monospace;">D3Selections</span><span
                 class="File_Name"> <br>
               </span><span class="Git_Commit">Git add and commit</span> the
               file(s) with message "-initial&nbsp; D3 Selections files" </li>
-            <li>Open the file xyz.html in Chrome and follow the <a href="#Chapter-Setup-Procedure">Chapter
-                Console Log Setup</a> procedure. <br>
+            <li>Open the file <span class="File_Name">HowSelectionsWork-Example.html</span>
+              in Chrome and follow the <a href="#Chapter-Setup-Procedure">Chapter
+                Console Log Setup</a> procedure so you can use the Console to
+              explore and modify the DOM of this .html page.<br>
               <br>
             </li>
-            <li>[<a href="https://bost.ocks.org/mike/selection/" target="_blank">BSO
-                Selections</a>] Read all.&nbsp; While reading, using the Chrome
-              Console you setup above, type in and experiment with all the
-              example code in the BSO tutorial.&nbsp;<span class="File_Name"><span
-
-                  style="font-family: serif;"> </span></span><span class="Grade_Points"></span><br>
+            <li>[<a href="https://bost.ocks.org/mike/selection/" target="_blank">BOO
+                Selections</a>] Open this page in a <u>separate</u> tab.&nbsp;
+              Read all and <u>while</u> reading perform the exercise
+              below..&nbsp;<span class="File_Name"><span style="font-family: serif;">
+                </span></span><span class="Grade_Points"></span><br>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>:&nbsp; BSO
+                <li><span class="Exercise_Title">Exercise</span>:&nbsp; BOO
                   Selections <span class="Grade_Points">[ ? pts]</span>&nbsp; <br>
                   <br>
-                  -While reading, using the Chrome Console you setup above, type
-                  in and experiment with all the example code in the BSO
-                  Selections page.&nbsp;<span class="File_Name"><span style="font-family: serif;">
-                    </span></span><span class="Grade_Points"></span>&nbsp;
-                  Whenever the Console displays a resulting JavaScript objects,
-                  expand the Console's Object view using the ▸ buttons and
-                  verify that the JS Object is structured as shown in the tree
-                  diagrams in the BSO Selections page.<br>
-                  <br>
-                  -Follow the <a href="#Chapter-Log-Save-Procedure">Save
-                    Section Console Log File</a> procedure and save the log to a
-                  file named <span style="font-family: Courier,monospace;">D3Selections.log.</span><br>
-                  -<span class="Git_Commit">Git add and commit</span> the
-                  file(s) with message "-completed D3Selection section" <br>
-                  <span style="font-family: Courier,monospace;"></span></li>
+                  <ul>
+                    <li> While reading, using the Chrome Console you setup to
+                      work with file <span class="File_Name">HowSelectionsWork-Example.html</span>,
+                      type in and experiment with all the example code in the
+                      BOO Selections page at the Console.&nbsp; Whenever the
+                      Console displays&nbsp; resulting JavaScript objects,
+                      expand the Console's display of the object by pressing
+                      Expand ▸ icons. Verify that the objects are structured
+                      following the corresponding tree diagram in the BOO
+                      Selections page.</li>
+                    <li>Save the Console log to a file named <span style="font-family: Courier,monospace;">D3Selections.log<span
+                          style="font-family: serif;"> using the </span></span><a
+                        href="#Chapter-Log-Save-Procedure">Save Section Console
+                        Log File</a> procedure. </li>
+                    <li><span class="Git_Commit">Git add and commit</span> the
+                      file(s) with message "-completed D3Selection section" </li>
+                  </ul>
+                </li>
               </ol>
             </li>
             <li>??? <span class="Grade_Points">[ ? pts]</span></li>
@@ -588,7 +561,41 @@
         </section>
       </section>
       <section class="Staff_Only">
-        <h1 class="toc">Appendix III: &nbsp; [Teaching Staff Only] Notes</h1>
+        <h1 class="toc">D3 - A Simple Example</h1>
+        <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021
+            - 12:05am]
+            Section&nbsp; Under Construction</em></p>
+        <h1 class="toc">Appendix I: Academic Integrity</h1>
+        <p>See the course syllabus regarding partial credit and the late penalty
+          policy. &nbsp;</p>
+        <p>This is an individual student project.&nbsp;&nbsp; Each student
+          should be writing and submitting their own code.&nbsp;</p>
+        <p>Students can discuss general aspects of the various API's (WebGL,
+          HTML5, etc) with each other and this is strongly
+          encouraged.&nbsp;&nbsp; Discussing algorithm's at the pseudo-code
+          level is also acceptable. &nbsp;</p>
+        <p>However, it is <u>not</u> permissible:</p>
+        <ul>
+          <li>to copy code from other students</li>
+          <li>copy code implementing entire functions or entire algorithms from
+            Internet resources</li>
+          <li>to copy code from other students from prior semesters</li>
+          <li>translate an algorithm found on the Internet implemented in
+            programming <i>X</i> and re-write it in language <i>Y</i>.</li>
+        </ul>
+        <p>For example, Objective 4 is to demonstrate the student's ability to
+          understand a geometric computation at the diagrammatic, algebraic and
+          pseudo-code level and then implement code that solves that geometric
+          problem.&nbsp; Copying code from the Internet that already implements
+          the algorithm (1) does not demonstrate programming ability nor the
+          ability to translate geometric computation from a high-level
+          description to code and (2) constitutes plagiarism if the resource is
+          not cited immediately next to the copied code segment. &nbsp; For
+          these reasons this would violate academic integrity.</p>
+        <p>If you have questions about whether using a particular resource is
+          acceptable or not, email the TA and/or Professor.</p>
+        <p class="UnderConstruction"> </p>
+        <h1 class="toc">Appendix II: &nbsp; [Teaching Staff Only] Notes</h1>
         <p></p>
         <ol class="Instruction">
         </ol>
@@ -609,16 +616,14 @@
                 <li>save console log to dir "ConsolePlay1" file and git submit</li>
               </ul>
             </ul>
-            <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
+            <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
                 target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
             <ul>
               <li>grading:&nbsp; console log ?</li>
             </ul>
             <li>Understanding D3 "join" in mild depth - <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a>
             </li>
-            <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
-
+            <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
                 target="_blank">https://bost.ocks.org/mike/selection/ <br>
               </a></li>
             <ul>
@@ -629,8 +634,7 @@
           </ul>
           <li>SVG</li>
           <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
                 target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
           </ul>
           <li>D3</li>
@@ -642,13 +646,13 @@
         </ul>
       </section>
       <section class="Staff_Only">
-        <h1 class="toc">Appendix I:&nbsp;&nbsp; Code Retrieval and Repo Setup</h1>
+        <h1 class="toc">Appendix III: [Teaching Staff Only]&nbsp; Code Retrieval
+          and Repo Setup</h1>
         <ol class="Instruction">
           <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span>
             directory, where you did yours previous projects. Verify you have a
             directory structure as shown below:<br>
-            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -697,8 +701,7 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -707,8 +710,7 @@
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
                         class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                         <span data-project-number-long-dir="Project_2"></span></code>2<br>
                       <code class="Shell_Code_Output">Cloning into
@@ -724,8 +726,7 @@
           <li>Next, retrieve the skeleton code:<br>
             (The mechanics below are common git technique called 'fork'ing).<br>
             &nbsp;
-            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -733,19 +734,16 @@
                   <td>
                     <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
                         <span data-project-number-long-dir="Project_2"></span></code><br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
-
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
                           data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$git remote add upstream
-                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
-
+                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
                           class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                       <span class="Shell_Code_Comment">[... the above connects
                         to the original 'upstream' remote, to which you have
                         read-only access ...]</span><br>
                       <br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
-
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
                           data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$git fetch upstream</code><br>
                       <code class="Shell_Code_Output">remote: Counting objects:
@@ -769,8 +767,7 @@
             <br>
           </li>
           <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -786,8 +783,7 @@
                         Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,
                         done.<br>
                         Total 30 (delta 11), reused 0 (delta 0)<br>
-                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
-
+                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
                           data-project-number-long-dir="Project_2"></span>.git<br>
                         * [new branch] master -&gt; master<br>
                         Branch master set up to track remote branch master from
@@ -804,8 +800,7 @@
             <br>
           </li>
           <li>Verify your directory structure:<br>
-            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -814,8 +809,7 @@
                     <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$cd ..</code><br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
-
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
                           data-course-number=""></span></code><br>
                       <code class="Shell_Code_Input">$find . -maxdepth 2<br>
                       </code><br>
@@ -859,7 +853,7 @@
         </ol>
       </section>
       <section class="Staff_Only">
-        <h1 class="toc">Appendix III:&nbsp; Resources</h1>
+        <h1 class="toc">Appendix III: [Teaching Staff Only] Resources</h1>
         <p><u>WebGL Book</u>:&nbsp; The WebGL book Chapters you read for
           previous project should be sufficient for this assignment in terms of
           WebGL itself. </p>
@@ -876,40 +870,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduct
             - High level description of the Document Object Model (DOM) </li>
         </ul>
       </section>
-      <section>
-        <h1 class="toc">Appendix IV: Academic Integrity</h1>
-        <p>See the course syllabus regarding partial credit and the late penalty
-          policy. &nbsp;</p>
-        <p>This is an individual student project.&nbsp;&nbsp; Each student
-          should be writing and submitting their own code.&nbsp;</p>
-        <p>Students can discuss general aspects of the various API's (WebGL,
-          HTML5, etc) with each other and this is strongly
-          encouraged.&nbsp;&nbsp; Discussing algorithm's at the pseudo-code
-          level is also acceptable. &nbsp;</p>
-        <p>However, it is <u>not</u> permissible:</p>
-        <ul>
-          <li>to copy code from other students</li>
-          <li>copy code implementing entire functions or entire algorithms from
-            Internet resources</li>
-          <li>to copy code from other students from prior semesters</li>
-          <li>translate an algorithm found on the Internet implemented in
-            programming <i>X</i> and re-write it in language <i>Y</i>.</li>
-        </ul>
-        <p>For example, Objective 4 is to demonstrate the student's ability to
-          understand a geometric computation at the diagrammatic, algebraic and
-          pseudo-code level and then implement code that solves that geometric
-          problem.&nbsp; Copying code from the Internet that already implements
-          the algorithm (1) does not demonstrate programming ability nor the
-          ability to translate geometric computation from a high-level
-          description to code and (2) constitutes plagiarism if the resource is
-          not cited immediately next to the copied code segment. &nbsp; For
-          these reasons this would violate academic integrity.</p>
-        <p>If you have questions about whether using a particular resource is
-          acceptable or not, email the TA and/or Professor.</p>
-        <p><br>
-        </p>
-        <p><br>
-        </p>
+      <section><br>
         <ol class="Instruction">
         </ol>
       </section>

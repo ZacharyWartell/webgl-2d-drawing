@@ -270,8 +270,53 @@ ol.Instruction > li > ol > li > ol > li::marker {
     content: counter(instructionLevel3, lower-roman) " ";
 }
 
+ol.Instruction li.Git_Commit
+{
+    margin-top: 1em;
+}
+
+div.Errata
+{
+    border-style: solid;
+    border-color: grey;
+    border-width: 2px;
+}
+span.Git_Commit
+{
+    font-weight: bolder;
+}
+span.Exercise_Title
+{
+    text-decoration: underline;
+}
+
 span.Grade_Points {
     font-weight: bold;
+}
+
+a.Term
+{
+    text-underline: darkgray dash;
+}
+div.VideoInstructions > div:nth-of-type(1)
+{
+    border : solid 1px;
+    padding: 5px;
+    align-content: center;
+    resize: vertical;
+    overflow: hidden;
+    display: flex;
+}
+div.VideoInstructions > div:nth-of-type(1) > video
+{
+    flex: auto;
+}
+div.VideoInstructions > div:nth-of-type(2)
+{
+    overflow-y: scroll;
+    border: solid 1px;
+    height=500px;
+    resize: vertical;
 }
 
 h1.Title, h2.Title, h3.Title {

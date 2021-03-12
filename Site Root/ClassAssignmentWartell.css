@@ -294,6 +294,11 @@ span.Grade_Points {
     font-weight: bold;
 }
 
+span.Grade_Points:after {
+    content: "[" attr(data-points) " pts ]";
+}
+
+
 a.Term
 {
     text-underline: darkgray dash;

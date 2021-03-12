@@ -132,16 +132,15 @@
         const body = RubricTable.querySelector(':scope tbody');
         for (let ri of _Rubric.items)
         {
-          const style = ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;";
           body.innerHTML +=
                   `
                   <tr>
-                        <td style="${style}"> ${ri.parentTag} </td>
+                        <td style="${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}"> ${ri.parentTag} </td>
                         <td>${ri.name}</td>
                         <td>${ri.shortDescription}</td>
-                        <td>${ri.points}</td>
+                        <td style="${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}">${ri.points}</td>
                   </tr>
-                  `;// <td style=${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}> ${ri.parentTag} </td>
+                  `;//
         }
         
       }
@@ -175,8 +174,7 @@
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
       </div>
       <hr>
-      <section>
-        <span style="font-size: large; font-weight: bold">Compatibility</span>
+      <section> <span style="font-size: large; font-weight: bold">Compatibility</span>
         <p>This page has been tested on Chrome.&nbsp;
           <!-- A PDF version should be available under Canvas "Files\Projects\<em>xxxx</em>.pdf" -->
         </p>
@@ -188,24 +186,21 @@
           <li>Develop very minimal understanding of SVG.</li>
           <li>Develop a basic understanding of D3.</li>
         </ol>
-
         Resources In the project skeleton code in the code comment's, there are
         several references and hyperlinks to other specific, external resources
-        (comments are prefixed by "Student Note:").
-      </section>
+        (comments are prefixed by "Student Note:"). </section>
       <section>
         <h1 class="toc">Overview</h1>
         For this project you will both
-          <ul>
-            <li>create a number of small HTML5 pages <br>
-              as well as </li>
-            <li>use the Chrome debug Console to try out a variety of code snippets
-              embedded in the reading.&nbsp;&nbsp; As with previous tutorials these
-              code snippets will be save to various Console log files which must be
-              saved and git added.</li>
-          </ul>
-          Total number of points for the project is 100.
-      </section>
+        <ul>
+          <li>create a number of small HTML5 pages <br>
+            as well as </li>
+          <li>use the Chrome debug Console to try out a variety of code snippets
+            embedded in the reading.&nbsp;&nbsp; As with previous tutorials
+            these code snippets will be save to various Console log files which
+            must be saved and git added.</li>
+        </ul>
+        Total number of points for the project is 100. </section>
       <section>
         <h1 class="toc">Coding Standards:</h1>
         <span class="Grade_Points" data-points="10"></span> points of your
@@ -401,11 +396,17 @@
           <li>Inside <span class="File_Name">ConsolePlay1</span>, create bare
             bones HTML file <span class="File_Name">ConsolePlay1.html</span> <br>
             <ol>
-              <li>Add 5 paragraph elements to the body.&nbsp; In the first
-                paragraph, include an short, joke that would be appropriate for
-                sharing with the class.</li>
-              <li class="Git_Commit"><span class="Git_Commit">git commit</span>
-                with message 'preliminary files'</li>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="10"></span> <span><span class="File_Name">ConsolePlay1.html</span></span><br>
+                <ol>
+                  <li>Add 5 paragraph elements to the body.&nbsp; In the first
+                    paragraph, include an short, joke that would be appropriate
+                    for sharing with the class.</li>
+                  <li><span class="Git_Commit">git commit</span> with message
+                    'preliminary files'</li>
+                </ol>
+              </li>
             </ol>
           </li>
           <li><a href="https://d3js.org/" target="_blank">[https://d3js.org/</a>]&nbsp;
@@ -418,8 +419,9 @@
           <li><a href="https://d3js.org/#selections" target="_blank">d3js#Selections</a>
             &nbsp; Read all.<br>
             <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span> <span>Selections</span>
-                <br>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="10"></span> <span>Selections</span> <br>
                 <br>
                 Type in the example code snippets in this section on the
                 Console.&nbsp;&nbsp; <br>
@@ -430,7 +432,9 @@
           <li><a href="https://d3js.org/#properties" target="_blank">d3js#Dynaimc
               Properties </a>Read all.<br>
             <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span><span>Dynanmic Properties</span> <br>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="10"></span><span>Dynanmic Properties</span> <br>
                 <br>
                 Type in the example code snippets in this section on the
                 Console.&nbsp;&nbsp; <br>
@@ -443,7 +447,9 @@
           <li><a href="https://d3js.org/#enter-exit" target="_blank">d3js#Enter
               and Exit</a> Read all.<br>
             <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span><span>Enter and Exit</span> <br>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="10"></span><span>Enter and Exit</span> <br>
                 <br>
                 Type in the example code snippets in this section on the
                 Console.&nbsp;&nbsp; <br>
@@ -469,8 +475,9 @@
           <li><a href="https://d3js.org/#transitions" target="_blank">d3js#Transistions&nbsp;</a>
             Read all.<br>
             <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span>
-                <span>Transitions</span><br>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="10"></span> <span>Transitions</span><br>
                 <br>
                 <div class="Errata"><strong>Errata</strong>:<br>
                   <br>
@@ -528,7 +535,9 @@
 
                 class="File_Name">Play </span>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span> <span> demo1.svg </span> <br>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span> <span> demo1.svg </span> <br>
                   <br>
                   -As described in the MDN reading, create the file demo1.svg,
                   etc.<br>
@@ -548,8 +557,10 @@
               The HTML page will have the capabilities described in the
               exercises below.<br>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span>
-                  <span class="File_Name">SVGPlay.html</span>&nbsp;<br> <br>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span> <span class="File_Name">SVGPlay.html</span>&nbsp;<br>
+                  <br>
                   -Give the page a visible title and display your name as
                   author.<br>
                   -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
@@ -558,7 +569,9 @@
                   -<span class="Git_Commit">Git add and commit</span> the
                   file(s) with message "-initial .html page" <br>
                 </li>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-ponits="?"></span> <span>Pan and Zoom</span> <br>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="20"></span> <span>Pan and Zoom</span> <br>
                   <br>
                   Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
 
@@ -586,8 +599,10 @@
 
                   style="font-family: serif;"> </span></span>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points" data-points="?"></span><span>More shapes  <span class="File_Name">SVGPlay.html</span> </span>
-                  <br>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span><span>More shapes <span class="File_Name">SVGPlay.html</span>
+                  </span> <br>
                   -While reading add at least <u>one</u> example of each
                   described shape to <span class="File_Name">SVGPlay.html</span><br>
                   -<span class="Git_Commit">Git add/commit</span> the file(s)
@@ -636,8 +651,9 @@
               Read all and <u>while</u> reading perform the exercise
               below..&nbsp;<br>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"data-points="?"></span><span> BOO Selections</span>
-                  <br>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span><span> BOO Selections</span> <br>
                   <br>
                   <ul>
                     <li> While reading, using the Chrome Console you setup to
@@ -667,13 +683,13 @@
       </section>
       <section>
         <h1 class="toc">D3 - A Simple Example</h1>
-        Section: <span class="Grade_Points" data-points="75"></span>
+        Section: <span class="Grade_Points" data-points="75"></span><br>
+        <br>
         <div style="border: solid 1px">
           <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021
               - 12:05am] Section&nbsp; Under Construction<br>
             </em></p>
         </div>
-        <br>
         <br>
         This section will contain a sequence of exercises in which you will
         incrementally be guide in creating a simple D3 Visualization. <br>
@@ -684,6 +700,41 @@
         Assignment "P1: D3 Visualization" in which you will be given a set of
         general software requirements and then you will individual required
         develop all the code to meet the software specification.<br>
+        <ol class="Instruction">
+          <li>x<span class="File_Name" data-project-number-long-dir=""></span> </li>
+          <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
+              target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
+            <ol>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="?"></span> <span>exercise_name </span> <br>
+                <br>
+                -[details]<br>
+                <span class="Git_Commit">-Git add and commit</span> the file(s)
+                with message "-[message]" </li>
+            </ol>
+            <br>
+            <ol>
+            </ol>
+          </li>
+          <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
+              target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
+            <ol>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                  data-points="?"></span> <span>exercise_name </span> <br>
+                <br>
+                -[details]<br>
+                <span class="Git_Commit">-Git add and commit</span> the file(s)
+                with message "-[message]" </li>
+            </ol>
+            <br>
+            <ol>
+            </ol>
+          </li>
+        </ol>
       </section>
       <section>
         <h1 class="toc">Appendix I: Rubric</h1>
@@ -693,8 +744,7 @@
             </em></p>
           The rubric will be auto generated as soon as the entire tutorial is
           complete.<br>
-          The total point for this Tutorial will be 150 points.
-        </div>
+          The total point for this Tutorial will be 150 points. </div>
         <table id="RubricTable" style="width: 100%" border="1">
           <tbody>
             <tr>
@@ -715,7 +765,6 @@
             </tr>
           </tbody>
         </table>
-        <br>
         <br>
       </section>
       <section>

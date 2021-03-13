@@ -119,9 +119,9 @@ table.Code_Example > tbody > tr > td > div {
 }
 
 /*
-           Displays figures that are Screen_Capture's and which are zoomable when clicked.
-           (Resourse [R1])
-           */
+Displays figures that are Screen_Capture's and which are zoomable when clicked.
+(Resourse [R1])
+*/
 figure.Screen_Capture {
     width: 500px;
     background: white;
@@ -309,6 +309,7 @@ a.Term
 {
     text-underline: darkgray dash;
 }
+
 div.VideoInstructions > div:nth-of-type(1)
 {
     border : solid 1px;

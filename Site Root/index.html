@@ -53,7 +53,7 @@
           e.innerText = Project.git;
         }
 
-        elements = document.querySelectorAll('section.Staff_Only');
+        elements = document.querySelectorAll('.Staff_Only');
         for(let e of elements)
         {
           e.hidden = true;
@@ -129,18 +129,22 @@
         }
 
         let RubricTable = document.getElementById("RubricTable");
-        const body = RubricTable.querySelector(':scope tbody');
+        const tbody = RubricTable.querySelector(':scope tbody');
         for (let ri of _Rubric.items)
         {
-          body.innerHTML +=
+          const row = document.createElement("tr");
+          //tbody.appendChild(row);
+          let tmp = tbody.querySelector(':scope > tr:nth-last-child(1)');
+          tbody.insertBefore(row,tmp);
+          row.outerHTML =
                   `
                   <tr>
                         <td style="${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}"> ${ri.parentTag} </td>
                         <td>${ri.name}</td>
                         <td>${ri.shortDescription}</td>
-                        <td style="${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}">${ri.points}</td>
+                        <td style="${ri.parentTag === "Exercise:" ? "text-align : left;" : "text-align : center;"}">${ri.points}</td>
                   </tr>
-                  `;//
+                  `;
         }
         
       }
@@ -151,20 +155,24 @@
   <body onload="onload_Body()"> _<!-- IF_TOC -->
     <div id="toc"> </div>
     <div style="margin-left:250px">
-      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
+      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
+
           data-project-number=""></span> - D3 Tutorial <br>
       </h2>
       <h2 class="nocount Title">Spring 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
       <h3 class="nocount Title">Revision: 1.0.6
-        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
+        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/JavaScript-Tutorial/commits/master"
+
             target="_blank">git logs</a>) </sup><br>
       </h3>
       <hr>
-      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+
             alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
         <span>"ITCS <span data-course-number=""></span> : Generic Instructions"
-        </span>by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
+        </span>by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
+
           target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
           Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -195,8 +203,10 @@
           <li>Try out and experiment with a variety of code snippets embedded in
             the reading.&nbsp;&nbsp; </li>
         </ul>
-        <p>You will create the HTML5 pages using your preferred code editor or <a
-            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
+        <p>You will create the HTML5 pages using your preferred code editor or <a
+
+            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
+
             target="_blank">IDE.</a>&nbsp; (For brevity, the term <em>IDE</em>
           will be used to refer to either such tool).<br>
           You will perform your experiments with the code snippets by using the
@@ -205,21 +215,21 @@
       </section>
       <section>
         <h1 class="toc">Coding Standards:</h1>
-        <span class="Grade_Points" data-points="10"></span> points of your
-        project grade will be based on following good programming
+        Section: <span class="Grade_Points" data-points="10"></span> Part of
+        your project grade will be based on following good programming
         practices.&nbsp;&nbsp; Including the following:
         <ul>
           <li>git commit </li>
           <li style="list-style: none; display: inline">
             <ul>
               <li>There should be at least one descriptive git commit message
-                associated with your achieving <u>each</u> of the <u>numbered</u>
-                requirements as described below.&nbsp;&nbsp; Think of your git
-                commit messages as professional journal or blog.</li>
+                associated with your achieving <u>each</u> of the requirements
+                below that ends with the statement <strong>git commit</strong>.&nbsp;&nbsp;
+                </li>
               <li>Good programming practice would suggest you should be making
                 additional commit messages, as you develop your code and debug
-                it, etc.<br>
-              </li>
+                it, etc.Think of your git commit messages as professional
+                journal or blog. </li>
               <li>Remember, it is common practice to git commit frequently but
                 to only git push occasionally.</li>
             </ul>
@@ -229,8 +239,10 @@
       <section>
         <h1 class="toc">Git Repo</h1>
         <ol class="Instruction">
-          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
-                data-course-number=""></span>_<span data-project-number=""></span>_<span
+          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
+
+                data-course-number=""></span>_<span data-project-number=""></span>_<span
+
                 data-project-name-dir=""></span></span>.<br>
             <ol>
               <li>Remember to make your remote repository <b>"Private"</b> .</li>
@@ -239,7 +251,8 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -248,7 +261,8 @@
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                         class="Shell_Code_Input"><span style="File_Name"><span data-project-git="">3120_P2_Planet_Mobile</span></span>.git
                         <span data-project-number-long-dir="Project_2"></span></code>2<br>
                       <code class="Shell_Code_Output">Cloning into '<span data-project-number-long-dir="">Project_X</span>'...<br>
@@ -288,7 +302,8 @@
             <li><strong>Adjusting Video Size</strong>: You can independently
               adjust the displayed size of the <b>Video</b> sub-window and the
               <b>Instructions</b> sub-window in order achieved your preferred
-              balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
+              balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
+
                 target="_blank">screen real estate</a> alotted to their two
               sub-windows.&nbsp; Hover the mouse over the lower-right corner of
               either sub-section's black border and the mouse cursor changes to
@@ -296,7 +311,8 @@
           </ul>
           <div class="VideoInstructions">
             <h4 class="nocount"> Video </h4>
-            <div> <video id="ChromeConsoleLog" controls="controls" preload="auto"
+            <div> <video id="ChromeConsoleLog" controls="controls" preload="auto"
+
                 width="500px"> <source src="videos/ChromeConsoleLog.mp4" type="video/mp4">
                 <!--
               <track label="English" kind="subtitles" srclang="en" src="videos/ChromeConsoleLog.vtt"                  default="">               -->
@@ -379,124 +395,139 @@
         </section>
       </section>
       <section>
-        <h1 class="toc">D3 - Console Play 1</h1>
-        Section: <span class="Grade_Points" data-points="25"></span>
-        <p>This part involves reading the introduction at <a href="https://d3js.org/"
-            target="_blank">https://d3js.org/</a>, creating small HTML5 page and
-          trying out and playing with tiny code snippets from the reading in the
-          Chrome Console.</p>
-        <ol class="Instruction">
-          <li>Create a directory <span class="File_Name"> ConsolePlay1 </span>
-            inside your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
-          </li>
-          <li>Inside <span class="File_Name">ConsolePlay1</span>, create bare
-            bones HTML file <span class="File_Name">ConsolePlay1.html</span> <br>
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="5"></span> <span><span class="File_Name">ConsolePlay1.html</span></span><br>
-                <ol>
-                  <li>Add 5 paragraph elements to the body.&nbsp; In the first
-                    paragraph, include an short, joke that would be appropriate
-                    for sharing with the class.</li>
-                  <li><span class="Git_Commit">git commit</span> with message
-                    'preliminary files'</li>
-                </ol>
-              </li>
-            </ol>
-          </li>
-          <li><a href="https://d3js.org/" target="_blank">[https://d3js.org/</a>]&nbsp;
-            Read the first paragraph. Add the suggested &lt;script&gt; element
-            to your <span class="File_Name">ConsolePlay1.html</span></li>
-          <li><a href="https://d3js.org/#introduction" target="_top">d3js#Introduction</a>
-            Read all.</li>
-          <li>Use the <a href="#Chapter-Setup-Procedure">"Chapter Console Log
-              Setup"</a> procedure to prepare the Console and Console logging.</li>
-          <li><a href="https://d3js.org/#selections" target="_blank">d3js#Selections</a>
-            &nbsp; Read all.<br>
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="5"></span> <span>Selections</span> <br>
-                <br>
-                Type in the example code snippets in this section on the
-                Console.&nbsp;&nbsp; <br>
-                Optionally, also experiment a bit with variations of these
-                snippets.</li>
-            </ol>
-          </li>
-          <li><a href="https://d3js.org/#properties" target="_blank">d3js#Dynamic
-              Properties</a>: Read all. While reading do the following exercise.
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="5"></span><span> Dynamic Properties</span> <br>
-                <br>
-                Type in the example code snippets in this section on the
-                Console.&nbsp;&nbsp; <br>
-                Optionally, also experiment a bit with variations of these
-                snippets.</li>
-            </ol>
-          </li>
-          <li><a href="https://d3js.org/#enter-exit" target="_blank">d3js#Enter
-              and Exit</a>: Read all. While reading do the following exercise.
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="5"></span><span> Enter and Exit</span> <br>
-                <br>
-                Type in the example code snippets in this section on the
-                Console.&nbsp;&nbsp; <br>
-                Optionally, also experiment a bit with variations of these
-                snippets.</li>
-            </ol>
-          </li>
-          <li><a href="https://d3js.org/#transformation" target="_blank">d3js#Transformation,
-              Not Representation</a>:&nbsp; Read all. </li>
-          <li>Using your IDE, modify the file <span class="File_Name">ConsolePlay1.html</span>
-            as follows:<br>
-            <ol>
-              <li>Inserting the following element after the last &lt;p&gt;
-                element:<br>
-                <img src="images/image2-svg.png" alt="    &lt;svg version=&quot;1.1&quot;          baseProfile=&quot;full&quot;          width=&quot;300&quot; height=&quot;500&quot;          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;green&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;250&quot; r=&quot;10&quot; fill=&quot;red&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;350&quot; r=&quot;10&quot; fill=&quot;yellow&quot;&gt;&lt;/circle&gt;     &lt;/svg&gt;"></li>
-              <li>Save the file changes.</li>
-              <li>Refresh the page in the Chrome browser to see the change. You
-                should see 3 colored circles at the bottom of the page.</li>
-              <li class="Git_Commit"><span class="Git_Commit">git commit</span>
-                with message '-added svg element'</li>
-            </ol>
-          </li>
-          <li><a href="https://d3js.org/#transitions" target="_blank">d3js#Transistions</a>:&nbsp;
-            Read all.&nbsp;&nbsp; While reading do the following exercise.<br>
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="5"></span> <span>Transitions</span><br>
-                <br>
-                <div class="Errata"><strong>Errata</strong>:<br>
-                  <br>
-                  In this steps readings, when you reach the code below, use the
-                  <u>Replacement</u>: code instead:<br>
-                  <u>Original</u>:<br>
-                  <img style="margin-left : 30px" src="images/image1-correction.png"
-                    alt="" width="50%"><br>
-                  <u> Replacement</u>:<br>
-                  <img style="margin-left : 30px" src="images/image3-correction.png"
-                    alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
-                    style="margin-left : 30px"></code> </div>
-                <br>
-                While reading through this section, type in the example code
-                snippets on the Console.&nbsp;&nbsp; <br>
-                Optionally, experiment a bit with variations of these snippets.
-                <br>
-                <br>
-              </li>
-            </ol>
-          </li>
-          <li style="counter-increment: instructionLevel2 1;">Save Console log
-            to file<span> </span><span class="File_Name" style="font-family: Courier, monospace;">console-play-1-log.txt.</span></li>
-          <li class="Git_Commit"><span class="Git_Commit">git commit</span> all
-            changes with message 'completed D3 - Console Play 1'</li>
-        </ol>
+        <h1 class="toc">Part I</h1>
         <section>
-          <h1 class="toc">SVG - Play</h1>
+          <h2 class="toc">D3 - Console Play 1</h2>
+          Section: <span class="Grade_Points" data-points="25"></span>
+          <p>This part involves reading the introduction at <a href="https://d3js.org/"
+
+              target="_blank">https://d3js.org/</a>, creating small HTML5 page
+            and trying out and playing with tiny code snippets from the reading
+            in the Chrome Console.</p>
+          <ol class="Instruction">
+            <li>Create a directory <span class="File_Name"> ConsolePlay1 </span>
+              inside your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
+            </li>
+            <li>Inside <span class="File_Name">ConsolePlay1</span>, create bare
+              bones HTML file <span class="File_Name">ConsolePlay1.html</span>
+              <br>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="5"></span> <span><span class="File_Name">ConsolePlay1.html</span></span><br>
+                  <ol>
+                    <li>Add 5 paragraph elements to the body.&nbsp; In the first
+                      paragraph, include an short, joke that would be
+                      appropriate for sharing with the class.</li>
+                    <li><span class="Git_Commit">git commit</span> with message
+                      'preliminary files'</li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+            <li><a href="https://d3js.org/" target="_blank">[https://d3js.org/</a>]&nbsp;
+              Read the first paragraph. Add the suggested &lt;script&gt; element
+              to your <span class="File_Name">ConsolePlay1.html</span></li>
+            <li><a href="https://d3js.org/#introduction" target="_top">d3js#Introduction</a>
+              Read all.</li>
+            <li>Use the <a href="#Chapter-Setup-Procedure">"Chapter Console Log
+                Setup"</a> procedure to prepare the Console and Console logging.</li>
+            <li><a href="https://d3js.org/#selections" target="_blank">d3js#Selections</a>
+              &nbsp; Read all.<br>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="5"></span> <span>Selections</span> <br>
+                  <br>
+                  Type in the example code snippets in this section on the
+                  Console.&nbsp;&nbsp; <br>
+                  Optionally, also experiment a bit with variations of these
+                  snippets.</li>
+              </ol>
+            </li>
+            <li><a href="https://d3js.org/#properties" target="_blank">d3js#Dynamic
+                Properties</a>: Read all. While reading do the following
+              exercise.
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="5"></span><span> Dynamic Properties</span> <br>
+                  <br>
+                  Type in the example code snippets in this section on the
+                  Console.&nbsp;&nbsp; <br>
+                  Optionally, also experiment a bit with variations of these
+                  snippets.</li>
+              </ol>
+            </li>
+            <li><a href="https://d3js.org/#enter-exit" target="_blank">d3js#Enter
+                and Exit</a>: Read all. While reading do the following exercise.
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="5"></span><span> Enter and Exit</span> <br>
+                  <br>
+                  Type in the example code snippets in this section on the
+                  Console.&nbsp;&nbsp; <br>
+                  Optionally, also experiment a bit with variations of these
+                  snippets.</li>
+              </ol>
+            </li>
+            <li><a href="https://d3js.org/#transformation" target="_blank">d3js#Transformation,
+                Not Representation</a>:&nbsp; Read all. </li>
+            <li>Using your IDE, modify the file <span class="File_Name">ConsolePlay1.html</span>
+              as follows:<br>
+              <ol>
+                <li>Inserting the following element after the last &lt;p&gt;
+                  element:<br>
+                  <img src="images/image2-svg.png" alt="    &lt;svg version=&quot;1.1&quot;          baseProfile=&quot;full&quot;          width=&quot;300&quot; height=&quot;500&quot;          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;green&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;250&quot; r=&quot;10&quot; fill=&quot;red&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;350&quot; r=&quot;10&quot; fill=&quot;yellow&quot;&gt;&lt;/circle&gt;     &lt;/svg&gt;"></li>
+                <li>Save the file changes.</li>
+                <li>Refresh the page in the Chrome browser to see the change.
+                  You should see 3 colored circles at the bottom of the page.</li>
+                <li class="Git_Commit"><span class="Git_Commit">git commit</span>
+                  with message '-added svg element'</li>
+              </ol>
+            </li>
+            <li><a href="https://d3js.org/#transitions" target="_blank">d3js#Transistions</a>:&nbsp;
+              Read all.&nbsp;&nbsp; While reading do the following exercise.<br>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="5"></span> <span>Transitions</span><br>
+                  <br>
+                  <div class="Errata"><strong>Errata</strong>:<br>
+                    <br>
+                    In this steps readings, when you reach the code below, use
+                    the <u>Replacement</u>: code instead:<br>
+                    <u>Original</u>:<br>
+                    <img style="margin-left : 30px" src="images/image1-correction.png"
+
+                      alt="" width="50%"><br>
+                    <u> Replacement</u>:<br>
+                    <img style="margin-left : 30px" src="images/image3-correction.png"
+
+                      alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
+
+                      style="margin-left : 30px"></code> </div>
+                  <br>
+                  While reading through this section, type in the example code
+                  snippets on the Console.&nbsp;&nbsp; <br>
+                  Optionally, experiment a bit with variations of these
+                  snippets. <br>
+                  <br>
+                </li>
+              </ol>
+            </li>
+            <li style="counter-increment: instructionLevel2 1;">Save Console log
+              to file<span> </span><span class="File_Name" style="font-family: Courier, monospace;">console-play-1-log.txt.</span></li>
+            <li class="Git_Commit"><span class="Git_Commit">git commit</span>
+              all changes with message 'completed D3 - Console Play 1'</li>
+          </ol>
+        </section>
+        <section>
+          <h2 class="toc">SVG - Play</h2>
           Section: <span class="Grade_Points" data-points="50"></span>
-          <p>D3 has is own set of Shape primitives (<a href="https://github.com/d3/d3/blob/master/API.md#shapes-d3-shape"
+          <p>D3 has is own set of Shape primitives (<a href="https://github.com/d3/d3/blob/master/API.md#shapes-d3-shape"
+
               target="_blank">d3-shape)</a>.&nbsp; However, underneath the
             covers&nbsp; D3 is by and large relying on SVG for all graphical
             rendering&nbsp;&nbsp; Also there will be occasions when a developer
@@ -510,14 +541,17 @@
                 SVG</span><span class="File_Name">Play </span> inside your
               directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
             </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
                 target="_blank">MDN SVG Getting_Started</a>]&nbsp; Read all
               sub-sections up to, but <u>not</u> including "A word on
               Webservers" and using your IDE create the mentioned files in
-              directory <span style="font-family: Courier,monospace;">SVG</span><span
+              directory <span style="font-family: Courier,monospace;">SVG</span><span
+
                 class="File_Name">Play </span>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                     data-points="5"></span> <span> demo1.svg </span> <br>
                   <br>
                   -As described in the MDN reading, create the file demo1.svg,
@@ -526,32 +560,40 @@
                   file(s) with message "-completed MDN SVG intro" </li>
               </ol>
             </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
+
                 target="_blank">MDN SVG Position</a>]&nbsp; Read all.</li>
-            <li>In you IDE, create a webpage, <span style="font-family: Courier,monospace;">SVG</span><span
+            <li>In you IDE, create a webpage, <span style="font-family: Courier,monospace;">SVG</span><span
+
                 class="File_Name">Play.html<span style="font-family: serif;"> i</span></span>nside
-              the directory<span style="font-family: Courier,monospace;"> SVG</span><span
+              the directory<span style="font-family: Courier,monospace;"> SVG</span><span
+
                 class="File_Name">Pla<span style="font-family: serif;">y.&nbsp;</span></span>
               The HTML page will have the capabilities described in the
               exercises below.<br>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                     data-points="5"></span> <span class="File_Name">SVGPlay.html</span>&nbsp;<br>
                   <br>
                   -Give the page a visible title and display your name as
                   author.<br>
-                  -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
+                  -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
+
                     class="File_Name">Play.html<span style="font-family: serif;"></span></span>.<br>
                   -<span class="Git_Commit">Git add and commit</span> the
                   file(s) with message "-initial .html page" <br>
                 </li>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                     data-points="30"></span> <span>Pan and Zoom</span> <br>
                   <br>
-                  Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
+                  Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
+
                     target="_blank">MDN SVG Position</a>] -- and knowledge of
                   HTML, JavaScript, the DOM, EventListeners,etc. -- add the
-                  following pan and zoom interface to <span style="font-family: Courier,monospace;">SVG</span><span
+                  following pan and zoom interface to <span style="font-family: Courier,monospace;">SVG</span><span
+
                     class="File_Name">Play.html<span style="font-family: serif;"></span></span>.&nbsp;
                   Create additional files (JavaScript, etc.) as needed.<br>
                   <br>
@@ -568,10 +610,12 @@
             </li>
             <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">[MDN
                 SV Basic_Shapes</a>] Read all.&nbsp; While reading add at least
-              <u>one</u> example of each described shape to <span class="File_Name">SVGPlay.html<span
+              <u>one</u> example of each described shape to <span class="File_Name">SVGPlay.html<span
+
                   style="font-family: serif;"> </span></span>
               <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                     data-points="10"></span><span>More shapes <span class="File_Name">SVGPlay.html</span>
                   </span> <br>
                   -While reading add at least <u>one</u> example of each
@@ -582,8 +626,12 @@
             </li>
           </ol>
         </section>
+      </section>
+      <section>
+        <h1 class="toc">Part II</h1>
+        Part II is under construction.
         <section>
-          <h1 class="toc">D3 - Selections ("Data Joins") in Depth</h1>
+          <h2 class="toc">D3 - Selections ("Data Joins") in Depth</h2>
           Section:<span class="Grade_Points" data-points="25"></span><br>
           <br>
           <div style="border: solid 1px">
@@ -594,60 +642,72 @@
               make it not works are a 'type in the example code as you read'
               tutorial.&nbsp;&nbsp;&nbsp; I am working to address them today. </p>
             <p>Do <strong>not</strong> yet attempt to perform the Exercises in
-              this sectino.</p>
+              this section.</p>
           </div>
-          <ol class="Instruction">
-            <li>Create a directory<span style="font-family: Courier,monospace;">
-                D3Selections</span><span class="File_Name"> </span> inside your
-              directory <span class="File_Name" data-project-number-long-dir="">Project_2</span></li>
-            <li>Download the following two files: <a href="HowSelectionsWork-Example.html"
-                download="">HowSelectionsWork-Example.html</a>, <a href="HowSelectionsWork-Example.css"
-                download="">HowSelectionsWork-Example.css</a>,.&nbsp;&nbsp;&nbsp;
-              Copy them to directory <span style="font-family: Courier,monospace;">D3Selections</span><span
-                class="File_Name"> <br>
-              </span><span class="Git_Commit">Git add and commit</span> the
-              file(s) with message "-initial&nbsp; D3 Selections files" </li>
-            <li>Open the file <span class="File_Name">HowSelectionsWork-Example.html</span>
-              in Chrome and follow the <a href="#Chapter-Setup-Procedure">Chapter
-                Console Log Setup</a> procedure so you can use the Console to
-              explore and modify the DOM of this .html page.<br>
-              <br>
-            </li>
-            <li>[<a href="https://bost.ocks.org/mike/selection/" target="_blank">BOO
-                Selections</a>] Open this page in a <u>separate</u> tab.&nbsp;
-              Read all and <u>while</u> reading perform the exercise
-              below..&nbsp;<br>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                    data-points="?"></span><span> BOO Selections</span> <br>
-                  <br>
-                  <ul>
-                    <li> While reading, using the Chrome Console you setup to
-                      work with file <span class="File_Name">HowSelectionsWork-Example.html</span>,
-                      type in and experiment with all the example code in the
-                      BOO Selections page at the Console.&nbsp; Whenever the
-                      Console displays&nbsp; resulting JavaScript objects,
-                      expand the Console's display of the object by pressing
-                      Expand ▸ icons. Verify that the objects are structured
-                      following the corresponding tree diagram in the BOO
-                      Selections page.</li>
-                    <li>Save the Console log to a file named <span style="font-family: Courier,monospace;">D3Selections.log<span
-                          style="font-family: serif;"> using the </span></span><a
-                        href="#Chapter-Log-Save-Procedure">Save Section Console
-                        Log File</a> procedure. </li>
-                    <li><span class="Git_Commit">Git add and commit</span> the
-                      file(s) with message "-completed D3Selection section" </li>
-                  </ul>
-                </li>
-              </ol>
-            </li>
-            <!-- 
+          <div class="Staff_Only">
+            <ol class="Instruction">
+              <li>Create a directory<span style="font-family: Courier,monospace;">
+                  D3Selections</span><span class="File_Name"> </span> inside
+                your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span></li>
+              <li>Download the following two files: <a href="HowSelectionsWork-Example.html"
+
+                  download="">HowSelectionsWork-Example.html</a>, <a href="HowSelectionsWork-Example.css"
+
+                  download="">HowSelectionsWork-Example.css</a>,.&nbsp;&nbsp;&nbsp;
+                Copy them to directory <span style="font-family: Courier,monospace;">D3Selections</span><span
+
+                  class="File_Name"> <br>
+                </span><span class="Git_Commit">Git add and commit</span> the
+                file(s) with message "-initial&nbsp; D3 Selections files" </li>
+              <li>Open the file <span class="File_Name">HowSelectionsWork-Example.html</span>
+                in Chrome and follow the <a href="#Chapter-Setup-Procedure">Chapter
+                  Console Log Setup</a> procedure so you can use the Console to
+                explore and modify the DOM of this .html page.<br>
+                <br>
+              </li>
+              <li>[<a href="https://bost.ocks.org/mike/selection/" target="_blank">BOO
+                  Selections</a>] Open this page in a <u>separate</u> <u>window</u>.&nbsp;&nbsp;
+                Arrange this Chrome window side-by-side with the Chrome window
+                displaying <span class="File_Name">HowSelectionsWork-Example.html</span>
+                (see Screen Capture below). Read all and <u>while</u> reading
+                perform the following exercise.<br>
+                <figure class="Screen_Capture" tabindex="1"> <img src="images/image4-side-by-side.png">
+                </figure>
+                <ol>
+                  <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                      data-points="25"></span><span> BOO Selections</span> <br>
+                    <br>
+                    <ul>
+                      <li> While reading, using the Chrome Console you setup to
+                        work with file <span class="File_Name">HowSelectionsWork-Example.html</span>,
+                        type in and experiment with all the example code in the
+                        BOO Selections page at the Console.&nbsp; Whenever the
+                        Console displays&nbsp; resulting JavaScript objects,
+                        expand the Console's display of the object by pressing
+                        Expand ▸ icons. Verify that the objects are structured
+                        following the corresponding tree diagram in the BOO
+                        Selections page.</li>
+                      <li>Save the Console log to a file named <span style="font-family: Courier,monospace;">D3Selections.log<span
+
+                            style="font-family: serif;"> using the </span></span><a
+
+                          href="#Chapter-Log-Save-Procedure">Save Section
+                          Console Log File</a> procedure. </li>
+                      <li><span class="Git_Commit">Git add and commit</span> the
+                        file(s) with message "-completed D3Selection section" </li>
+                    </ul>
+                  </li>
+                </ol>
+              </li>
+              <!-- 
             <li hidden="">??? <span class="Grade_Points" data-points="?"></span></li>						-->
-          </ol>
+            </ol>
+          </div>
         </section>
       </section>
       <section>
-        <h1 class="toc">D3 - A Simple Example</h1>
+        <h2 class="toc">D3 - A Simple Example</h2>
         Section: <span class="Grade_Points" data-points="50"></span><br>
         <br>
         <div style="border: solid 1px">
@@ -665,41 +725,48 @@
         Assignment "P1: D3 Visualization" in which you will be given a set of
         general software requirements and then you will individual required
         develop all the code to meet the software specification.<br>
-        <ol class="Instruction">
-          <li>x<span class="File_Name" data-project-number-long-dir=""></span> </li>
-          <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-              target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="?"></span> <span>exercise_name </span> <br>
-                <br>
-                -[details]<br>
-                <span class="Git_Commit">-Git add and commit</span> the file(s)
-                with message "-[message]" </li>
-            </ol>
-            <br>
-            <ol>
-            </ol>
-          </li>
-          <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-              target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
-            <ol>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-                  data-points="?"></span> <span>exercise_name </span> <br>
-                <br>
-                -[details]<br>
-                <span class="Git_Commit">-Git add and commit</span> the file(s)
-                with message "-[message]" </li>
-            </ol>
-            <br>
-            <ol>
-            </ol>
-          </li>
-        </ol>
+        <div class="Staff_Only">
+          <ol class="Instruction">
+            <li>x<span class="File_Name" data-project-number-long-dir=""></span>
+            </li>
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
+                target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span> <span>exercise_name </span> <br>
+                  <br>
+                  -[details]<br>
+                  <span class="Git_Commit">-Git add and commit</span> the
+                  file(s) with message "-[message]" </li>
+              </ol>
+              <br>
+              <ol>
+              </ol>
+            </li>
+            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
+                target="_blank">MDN SVG Getting_Started</a>]&nbsp; <span class="File_Name"></span>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="?"></span> <span>exercise_name </span> <br>
+                  <br>
+                  -[details]<br>
+                  <span class="Git_Commit">-Git add and commit</span> the
+                  file(s) with message "-[message]" </li>
+              </ol>
+              <br>
+              <ol>
+              </ol>
+            </li>
+          </ol>
+        </div>
       </section>
       <section>
         <h1 class="toc">Appendix I: Rubric</h1>
-        <div style="border: solid 1px">
+        <div style="border: solid 1px" hidden="">
           <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021
               - 12:05am] Section&nbsp; Under Construction<br>
             </em></p>
@@ -717,13 +784,12 @@
               <td>Short Description</td>
               <td>Points</td>
             </tr>
-            <tr>
-              <td><br>
+            <tr style="border:none">
+              <td style="border:none"><br>
               </td>
-              <td><br>
+              <td style="border:none"><br>
               </td>
-              <td><br>
-              </td>
+              <td style="border:none; text-align: right;"><strong>Total</strong></td>
               <td><br>
               </td>
             </tr>
@@ -785,14 +851,16 @@
                 <li>save console log to dir "ConsolePlay1" file and git submit</li>
               </ul>
             </ul>
-            <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+            <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
                 target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
             <ul>
               <li>grading:&nbsp; console log ?</li>
             </ul>
             <li>Understanding D3 "join" in mild depth - <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a>
             </li>
-            <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
+            <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
+
                 target="_blank">https://bost.ocks.org/mike/selection/ <br>
               </a></li>
             <ul>
@@ -803,7 +871,8 @@
           </ul>
           <li>SVG</li>
           <ul>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
                 target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
           </ul>
           <li>D3</li>
@@ -821,7 +890,8 @@
           <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span>
             directory, where you did yours previous projects. Verify you have a
             directory structure as shown below:<br>
-            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -870,7 +940,8 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -879,7 +950,8 @@
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                         class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                         <span data-project-number-long-dir="Project_2"></span></code>2<br>
                       <code class="Shell_Code_Output">Cloning into
@@ -895,7 +967,8 @@
           <li>Next, retrieve the skeleton code:<br>
             (The mechanics below are common git technique called 'fork'ing).<br>
             &nbsp;
-            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -903,16 +976,19 @@
                   <td>
                     <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
                         <span data-project-number-long-dir="Project_2"></span></code><br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+
                           data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$git remote add upstream
-                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+
                           class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                       <span class="Shell_Code_Comment">[... the above connects
                         to the original 'upstream' remote, to which you have
                         read-only access ...]</span><br>
                       <br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+
                           data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$git fetch upstream</code><br>
                       <code class="Shell_Code_Output">remote: Counting objects:
@@ -936,7 +1012,8 @@
             <br>
           </li>
           <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -952,7 +1029,8 @@
                         Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,
                         done.<br>
                         Total 30 (delta 11), reused 0 (delta 0)<br>
-                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
+                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
+
                           data-project-number-long-dir="Project_2"></span>.git<br>
                         * [new branch] master -&gt; master<br>
                         Branch master set up to track remote branch master from
@@ -969,7 +1047,8 @@
             <br>
           </li>
           <li>Verify your directory structure:<br>
-            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+            <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+
               border="1">
               <tbody>
                 <tr>
@@ -978,7 +1057,8 @@
                     <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                       <code class="Shell_Code_Input">$cd ..</code><br>
-                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+                      <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+
                           data-course-number=""></span></code><br>
                       <code class="Shell_Code_Input">$find . -maxdepth 2<br>
                       </code><br>

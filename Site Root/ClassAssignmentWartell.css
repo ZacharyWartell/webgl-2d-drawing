@@ -331,6 +331,17 @@ div.VideoInstructions > div:nth-of-type(2)
     resize: vertical;
 }
 
+div.Staff_Notes
+{
+    border : dashed 1px;
+}
+
+div.Staff_Notes:before
+{
+    content:  "Staff Notes:";
+    font-weight: bolder;
+}
+
 h1.Title, h2.Title, h3.Title {
     text-align: center
 }

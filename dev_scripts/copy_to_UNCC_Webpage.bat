@@ -2,6 +2,7 @@ REM \author Zachary Wartell
 REM
 REM
 
+set TARGET_DIR=D3 Tutorial
 echo off
 if not defined DROPBOX_UNC_CHARLOTTE (
     echo FATAL ERROR: Environment Variables DROPBOX_UNCC_CHARLOTTE is undefined.
@@ -10,10 +11,10 @@ if not defined DROPBOX_UNC_CHARLOTTE (
 )
 
 echo Copying to Dropbox...
-robocopy "%CD%" "%DROPBOX_UNC_CHARLOTTE%\UNCC webpage\public_html\Teaching\ITCS 3120 - JavaScript Tutorial" /mir /xf "*.bak" /xd "node_modules"
+robocopy "%CD%\..\Site Root" "%DROPBOX_UNC_CHARLOTTE%\UNCC webpage\public_html\Teaching\%TARGET_DIR%" /mir /xf "*.bak" /xd "node_modules"
 
 SET /P ENTER="Hit Enter to complete"
-exit 0
+goto:eof
 
 REM below not working yet.
 

@@ -137,6 +137,15 @@ figure.Screen_Capture {
     position: relative;
 }
 
+figure.Screen_Capture:before
+{
+    content:  "Click to Enlarge";
+    text-color: black;
+    font-size : small;
+    border: grey solid 3px;
+    background-color: lightgray;
+}
+
 figure.Screen_Capture img {
     width: 100%;
 }
@@ -146,6 +155,10 @@ figure.Screen_Capture:hover {
     -moz-box-shadow: 0 3px 10px #F1EA35;
 }
 
+figure.Screen_Capture figcaption
+{
+    text-align: center;
+}
 figure.Screen_Capture:focus {
     outline: none;
     -webkit-transform: translate(500px, 350px) scale(3.0);

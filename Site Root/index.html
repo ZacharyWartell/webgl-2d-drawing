@@ -117,7 +117,26 @@
           // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
           const videoCue = Function('"use strict";return (' + e.dataset.videoCue + ')')();
           const button = document.createElement("button");
-          button.addEventListener('click',(e)=>{const cclv=document.getElementById(videoCue.videoID);console.log(videoCue.interval[0]);cclv.currentTime=videoCue.interval[0];cclv.play();});
+          button.addEventListener('click',
+            (e)=>
+              {
+                const cclv=document.getElementById(videoCue.videoID);
+                console.log(videoCue.interval[0]);
+                cclv.currentTime=videoCue.interval[0];cclv.play();
+                const timeupdate=
+                  (e)=>
+                      {
+                        const target = e.target;
+                        console.log("currentTime:" + target.currentTime);
+                        if (target.currentTime >= videoCue.interval[1])
+                        {
+                          target.pause();
+                          target.removeEventListener('timeupdate',timeupdate);
+                        }
+                      };
+                cclv.addEventListener('timeupdate',timeupdate);
+              });
+          const cclv=document.getElementById(videoCue.videoID);
           button.innerHTML="&trianglerighteq;";
           e.after(button);
         }
@@ -210,7 +229,7 @@
       </h2>
       <h2 class="nocount Title">Spring 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
-      <h3 class="nocount Title">Revision: 1.0.11
+      <h3 class="nocount Title">Revision: 1.0.12
         <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
 
             target="_blank">git logs</a>) </sup><br>
@@ -377,7 +396,7 @@
               controls and by using the cue buttons (<button> ⊵ </button>) next
               to each step in the succeeding <b>Instructions</b>
               sub-section,&nbsp; Pressing a step's cue button (<button> ⊵ </button>)
-              jumps to the corresponding video segment.&nbsp;&nbsp; </li>
+              plays the corresponding video segment and then pauses.&nbsp;&nbsp; </li>
             <li><strong>Adjusting Video Size</strong>: You can independently
               adjust the displayed size of the <b>Video</b> sub-window and the
               <b>Instructions</b> sub-window in order achieved your preferred

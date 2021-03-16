@@ -923,10 +923,23 @@
                         class="File_Name">BarChart.html</span></span><br>
                     <ol>
                       <li>Copy and paste the final updated code from Part III
-                        and port it into your <span><span class="File_Name">BarChart.html<br>
-                          </span></span><span class="Git_Commit">Git add and
-                          commit</span> the file(s) with message "-Ported Part
-                        III notebook code" </li>
+                        and port it into your <span><span class="File_Name">BarChart.html</span></span>.
+                        <br>
+                        Note:&nbsp; The Observable notebook code uses several
+                        functions that are not part of D3 or
+                        JavaScript.&nbsp;&nbsp;&nbsp; To port the notebook code
+                        make the following substitutions:
+                        <ul>
+                          <li>instead of Observable FileAttachment read about
+                            and use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload"
+                              target="_blank">FileReader.onload</a> with an HTML
+                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">&lt;input&gt;</a>
+                            of type="file".</li>
+                        </ul>
+                      </li>
+                      <li><span><span class="File_Name"></span></span><span class="Git_Commit">Git
+                          add and commit</span> the file(s) with message
+                        "-Ported Part III notebook code" </li>
                       <li>Making the following modifications to the code:<br>
                         <ol>
                           <li>Apply the same adjustments you performed in

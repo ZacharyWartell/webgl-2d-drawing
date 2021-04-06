@@ -67,10 +67,10 @@
         const Project=
         	{
               courseNumber :"5121",
-              number :"T4",
-              numberLongDir : "Tutorial_4",
-              name : "D3_Tutorial",
-              git : "itcs-5121-t4-d3-tutorial"
+              number :"P1",
+              numberLongDir : "Project_1",
+              name : "D3_Beginner_Project",
+              git : "d3-beginner-project"
         	}
         let elements = document.querySelectorAll('span[data-course-number]');
         for(let e of elements)
@@ -223,24 +223,20 @@
   <body onload="onload_Body()"> _<!-- IF_TOC -->
     <div id="toc"> </div>
     <div style="margin-left: 250px;">
-      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
-
-          data-project-number=""></span> - D3 Tutorial <br>
+      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
+          data-project-number=""></span> - D3 Beginner Project<br>
       </h2>
       <h2 class="nocount Title">Spring 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
-      <h3 class="nocount Title">Revision: 1.0.14
-        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
-
+      <h3 class="nocount Title">Revision: 1.0.1
+        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
             target="_blank">git logs</a>) </sup><br>
       </h3>
       <hr>
-      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
-
+      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
             alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
         <span>"ITCS <span data-course-number=""></span> : <span data-project-name-dir="">Generic
-            Instructions</span>" </span>by <a href="https://webpages.uncc.edu/zwartell/"
-
+            Instructions</span>" </span>by <a href="https://webpages.uncc.edu/zwartell/"
           rel="cc:attributionURL" target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
           Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -255,11 +251,9 @@
       <section>
         <h3 class="nocount">Objectives</h3>
         <ol>
-          <li>Read and play with tutorial code snippets on D3 and create some
-            trivial HTML5 pages with D3.</li>
-          <li>Read and play with tutorial code snippets on SVG.</li>
-          <li>Develop very minimal understanding of SVG.</li>
-          <li>Develop a basic understanding of D3.</li>
+          <li>Apply knowledge from prior tutorials on D3 and the HTML5 ecosystem
+            to understand and extend a simple D3 project.</li>
+          <li>Develop a basic development skills in D3.</li>
         </ol>
         <!--
         Resources In the project skeleton code in the code comment's, there are        several references and hyperlinks to other specific, external resources        (comments are prefixed by "Student Note:").        				-->
@@ -273,10 +267,8 @@
         <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>           -->
         <form name="System_Configuration">
           <fieldset> <legend>Display Configuration:&nbsp;</legend> <label><b>Staff_Notes:</b>
-            </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
-
-              onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
-
+            </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
+              onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
               type="checkbox"> <label for="Staff_Notes">Visible</label> </fieldset>
         </form>
         <hr> </section>
@@ -292,10 +284,8 @@
           <li>Try out and experiment with a variety of code snippets embedded in
             the reading.&nbsp;&nbsp; </li>
         </ul>
-        <p>You will create the HTML5 pages using your preferred code editor or <a
-
-            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
-
+        <p>You will create the HTML5 pages using your preferred code editor or <a
+            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
             target="_blank">IDE.</a>&nbsp; (For brevity, the term <em>IDE</em>
           will be used to refer to either such tool).<br>
           You will perform your experiments with the code snippets by using the
@@ -337,10 +327,8 @@
         <h1 class="toc">Git Repo</h1>
         <span class="Exercise_Title">Exercise</span>: <span> Git Repo </span>
         <ol class="Instruction">
-          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
-
-                data-course-number=""></span>_<span data-project-number=""></span>_<span
-
+          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
+                data-course-number=""></span>_<span data-project-number=""></span>_<span
                 data-project-name-dir=""></span></span>.<br>
             <ol>
               <li>Remember to make your remote repository <b>"Private"</b> .</li>
@@ -349,8 +337,7 @@
             <br>
           </li>
           <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-
+            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
               border="1">
               <tbody>
                 <tr>
@@ -359,8 +346,7 @@
                     <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                         ~/ITCS_<span data-course-number=""></span>/</code><br>
                       <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-
+                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
                         class="Shell_Code_Input"><span style="File_Name"><span data-project-git="">3120_P2_Planet_Mobile</span></span>.git
                         <span data-project-number-long-dir="Project_2"></span></code>2<br>
                       <code class="Shell_Code_Output">Cloning into '<span data-project-number-long-dir="">Project_X</span>'...<br>
@@ -377,670 +363,11 @@
         </ol>
       </section>
       <section>
-        <h1 class="toc">Chrome Console Log - Chapter Procedure </h1>
-        <p>For a number of Chapters that you will read, you will be saving one
-          Chrome Console log file&nbsp; per Chapter.<br>
-          If you take a prolonged break in your progress in the middle of a
-          Chapter, save the Chapter's log file into multiple per-Chapter logs
-          files, with names like <span class="File_Name">chapter-2-part-1-log.txt</span>,
-          <span class="File_Name">chapter-2-part-2-log.txt</span>,&nbsp; etc.</p>
-        <section>
-          <h2 class="toc"> Details </h2>
-          <p>For <u>each</u> reading Chapter or tutorial Section where the
-            instructions explicitly indicates you must use the Console Log
-            feature, you should setup the Console and log for that chapter as
-            described in the video and written instructions below.</p>
-          <ul>
-            <li><strong>Viewing the Video</strong>:&nbsp; The video in the <b>Video</b>
-              sub-section below can be controlled both using the standard video
-              controls and by using the cue buttons (<button> ⊵ </button>) next
-              to each step in the succeeding <b>Instructions</b>
-              sub-section,&nbsp; Pressing a step's cue button (<button> ⊵ </button>)
-              plays the corresponding video segment and then pauses.&nbsp;&nbsp;
-            </li>
-            <li><strong>Adjusting Video Size</strong>: You can independently
-              adjust the displayed size of the <b>Video</b> sub-window and the
-              <b>Instructions</b> sub-window in order achieved your preferred
-              balance of the <a class="Term" href="https://www.usabilityfirst.com/glossary/screen-real-estate/index.html"
-
-                target="_blank">screen real estate</a> alotted to their two
-              sub-windows.&nbsp; Hover the mouse over the lower-right corner of
-              either sub-section's black border and the mouse cursor changes to
-              a double vertical arrow which enables the resizing.</li>
-          </ul>
-          <div class="VideoInstructions">
-            <h4 class="nocount"> Video </h4>
-            <div> <video id="ChromeConsoleLog" controls="controls" preload="auto"
-
-                width="500px"> <source src="videos/ChromeConsoleLog.mp4" type="video/mp4">
-                <!--
-              <track label="English" kind="subtitles" srclang="en" src="videos/ChromeConsoleLog.vtt"                  default="">               -->
-                <u> Sorry, your browser doesn't support embedded videos. </u> </video>
-            </div>
-            <h4 class="nocount"> Instructions </h4>
-            <div>
-              <ol class="Instruction">
-                <li><u><a name="Chapter-Setup-Procedure" id="Chapter-Setup-Procedure"></a>Procedure</u>:&nbsp;
-                  "Chapter Console Log Setup" &nbsp;&nbsp;&nbsp;&nbsp;<u> </u><br>
-                  <u> </u><br>
-                  <ol>
-                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[0,16]}">Open
-                        the Chapter's hyperlink in a Chrome tab.</span></li>
-                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[16.1,23.33]}">
-                        In Chrome, open Chrome DevTools window </span> </li>
-                    <li> Initialize the Console as follows:
-                      <ol>
-                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[23.33,30.33 ]}">
-                            Open the Console via "Show console drawer" </span>
-                        </li>
-                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[31.00 ,41 ]}">
-                            In the Console Settings Panel, <u>enable</u><em> </em>"Preserve
-                            Log"</span> <br>
-                          <u>Note</u>: Without this your log file may fail to
-                          record your Console activity!</li>
-                        <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[23.33,30.33 ]}">
-                            Clear the Console log from any Console input from
-                            the prior chapters. </span> </li>
-                      </ol>
-                      <br>
-                      <u>Purpose</u>: You will use the Console to enter and
-                      experiment with single-line pieces of code from the
-                      referenced reading. <br>
-                    </li>
-                    <li>Create a Snippet as follows:<br>
-                      <ol>
-                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[44,46.33 ]}">Open
-                            the Sources Panel</span></li>
-                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[46.33,47.33 ]}">Open
-                            the Snippet tab</span></li>
-                        <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[47.33,56 ]}">In
-                            the Snippet tab create a "New snippet"</span><br>
-                        </li>
-                      </ol>
-                      <u><br>
-                        Purpose</u>: You can use the Snippet feature to enter
-                      and experiment with multi-line pieces of code from the
-                      referenced reading. </li>
-                  </ol>
-                </li>
-                <li> <u>Procedure</u>: Perform the logged exercises described
-                  in the tutorial section.<br>
-                  <ol>
-                    <li><u>Demonstration</u>:&nbsp; In the video the user is
-                      performing part of one of the exercises in this tutorial
-                      typing in code alternately at the Console and using the
-                      Snippet.</li>
-                  </ol>
-                </li>
-                <u> </u>
-                <li><a name="Chapter-Log-Save-Procedure" id="Chapter-Log-Save-Procedure"></a><u>Procedure</u>:&nbsp;
-                  "Save Chapter or Section Console Log File"<br>
-                  <ol>
-                    <li><span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[60+45,60+55]}">
-                        Save the Console to a log file based on the chapter or
-                        section name such as, <span class="File_Name">ConsolePlay1.log.</span>
-                      </span> </li>
-                    <li> <span class="VideoCue" data-video-cue="{videoID:'ChromeConsoleLog',interval:[60+58,120+14]}">
-                        Verify the log file looks correct using the shell. </span>
-                    </li>
-                    <li><span class="Git_Commit">Git commit</span> the log
-                      file(s) with an appropriate message such as "-log file for
-                      Console Play 1"</li>
-                  </ol>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </section>
-      </section>
-      <section>
-        <h1 class="toc">Part I</h1>
-        <section>
-          <h2 class="toc">D3 - Console Play 1</h2>
-          Section: <span class="Grade_Points" data-points="25"></span>
-          <p>This part involves reading the introduction at <a href="https://d3js.org/"
-
-              target="_blank">https://d3js.org/</a>, creating small HTML5 page
-            and trying out and playing with tiny code snippets from the reading
-            in the Chrome Console.</p>
-          <ol class="Instruction">
-            <li>Create a directory <span class="File_Name"> ConsolePlay1 </span>
-              inside your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
-            </li>
-            <li>Inside <span class="File_Name">ConsolePlay1</span>, create bare
-              bones HTML file <span class="File_Name">ConsolePlay1.html</span>
-              <br>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span> <span><span class="File_Name">ConsolePlay1.html</span></span><br>
-                  <ol>
-                    <li>Add 5 paragraph elements to the body.&nbsp; In the first
-                      paragraph, include an short, joke that would be
-                      appropriate for sharing with the class.</li>
-                    <li><span class="Git_Commit">git commit</span> with message
-                      'preliminary files'</li>
-                  </ol>
-                </li>
-              </ol>
-            </li>
-            <li><a href="https://d3js.org/" target="_blank">[https://d3js.org/</a>]&nbsp;
-              Read the first paragraph. Add the suggested &lt;script&gt; element
-              to your <span class="File_Name">ConsolePlay1.html</span></li>
-            <li><a href="https://d3js.org/#introduction" target="_top">d3js#Introduction</a>
-              Read all.</li>
-            <li>Use the <a href="#Chapter-Setup-Procedure">"Chapter Console Log
-                Setup"</a> procedure to prepare the Console and Console logging.</li>
-            <li><a href="https://d3js.org/#selections" target="_blank">d3js#Selections</a>
-              &nbsp; Read all.<br>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span> <span>Selections</span> <br>
-                  <br>
-                  Type in the example code snippets in this section on the
-                  Console.&nbsp;&nbsp; <br>
-                  Optionally, also experiment a bit with variations of these
-                  snippets.</li>
-              </ol>
-            </li>
-            <li><a href="https://d3js.org/#properties" target="_blank">d3js#Dynamic
-                Properties</a>: Read all. While reading do the following
-              exercise.
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span><span> Dynamic Properties</span> <br>
-                  <br>
-                  Type in the example code snippets in this section on the
-                  Console.&nbsp;&nbsp; <br>
-                  Optionally, also experiment a bit with variations of these
-                  snippets.</li>
-              </ol>
-            </li>
-            <li><a href="https://d3js.org/#enter-exit" target="_blank">d3js#Enter
-                and Exit</a>: Read all. While reading do the following exercise.
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span><span> Enter and Exit</span> <br>
-                  <br>
-                  Type in the example code snippets in this section on the
-                  Console.&nbsp;&nbsp; <br>
-                  Optionally, also experiment a bit with variations of these
-                  snippets.</li>
-              </ol>
-            </li>
-            <li><a href="https://d3js.org/#transformation" target="_blank">d3js#Transformation,
-                Not Representation</a>:&nbsp; Read all. </li>
-            <li>Using your IDE, modify the file <span class="File_Name">ConsolePlay1.html</span>
-              as follows:<br>
-              <ol>
-                <li>Inserting the following element after the last &lt;p&gt;
-                  element:<br>
-                  <img src="images/image2-svg.png" alt="    &lt;svg version=&quot;1.1&quot;          baseProfile=&quot;full&quot;          width=&quot;300&quot; height=&quot;500&quot;          xmlns=&quot;http://www.w3.org/2000/svg&quot;&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;150&quot; r=&quot;10&quot; fill=&quot;green&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;250&quot; r=&quot;10&quot; fill=&quot;red&quot;&gt;&lt;/circle&gt;         &lt;circle cx=&quot;150&quot; cy=&quot;350&quot; r=&quot;10&quot; fill=&quot;yellow&quot;&gt;&lt;/circle&gt;     &lt;/svg&gt;"></li>
-                <li>Save the file changes.</li>
-                <li>Refresh the page in the Chrome browser to see the change.
-                  You should see 3 colored circles at the bottom of the page.</li>
-                <li class="Git_Commit"><span class="Git_Commit">git commit</span>
-                  with message '-added svg element'</li>
-              </ol>
-            </li>
-            <li><a href="https://d3js.org/#transitions" target="_blank">d3js#Transistions</a>:&nbsp;
-              Read all.&nbsp;&nbsp; While reading do the following exercise.<br>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span> <span>Transitions</span><br>
-                  <br>
-                  <div class="Errata"><strong>Errata</strong>:<br>
-                    <br>
-                    In this steps readings, when you reach the code below, use
-                    the <u>Replacement</u>: code instead:<br>
-                    <u>Original</u>:<br>
-                    <img style="margin-left : 30px" src="images/image1-correction.png"
-
-                      alt="" width="50%"><br>
-                    <u> Replacement</u>:<br>
-                    <img style="margin-left : 30px" src="images/image3-correction.png"
-
-                      alt="d3.select(&quot;svg&quot;).selectAll(&quot;circle&quot;)          .data([2,5,35])     .transition()     .duration(750)     .delay(function(d, i) { return i * 10; })     .attr(&quot;r&quot;, function(d) { return d; });"><code
-
-                      style="margin-left : 30px"></code> </div>
-                  <br>
-                  While reading through this section, type in the example code
-                  snippets on the Console.&nbsp;&nbsp; <br>
-                  Optionally, experiment a bit with variations of these
-                  snippets. <br>
-                  <br>
-                </li>
-              </ol>
-            </li>
-            <li style="counter-increment: instructionLevel2 1;">Save Console log
-              to file<span> </span><span class="File_Name" style="font-family: Courier, monospace;">console-play-1-log.txt.</span></li>
-            <li class="Git_Commit"><span class="Git_Commit">git commit</span>
-              all changes with message 'completed D3 - Console Play 1'</li>
-          </ol>
-        </section>
-        <section>
-          <h2 class="toc">SVG - Play</h2>
-          Section: <span class="Grade_Points" data-points="50"></span>
-          <p>D3 has is own set of Shape primitives (<a href="https://github.com/d3/d3/blob/master/API.md#shapes-d3-shape"
-
-              target="_blank">d3-shape)</a>.&nbsp; However, underneath the
-            covers&nbsp; D3 is by and large relying on SVG for all graphical
-            rendering&nbsp;&nbsp; Also there will be occasions when a developer
-            will discover the D3 Shape primitives do not provide some desired
-            capability, in which case the developer could directly use SVG (or
-            WebGL depending on the goal).&nbsp;&nbsp; Therefore, this tutorial
-            section walks you through a few exercises to impart a minimal
-            understanding of SVG.</p>
-          <ol class="Instruction">
-            <li>Create a directory<span style="font-family: Courier,monospace;">
-                SVG</span><span class="File_Name">Play </span> inside your
-              directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>
-            </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
-                target="_blank">MDN SVG Getting_Started</a>]&nbsp; Read all
-              sub-sections up to, but <u>not</u> including "A word on
-              Webservers" and using your IDE create the mentioned files in
-              directory <span style="font-family: Courier,monospace;">SVG</span><span
-
-                class="File_Name">Play </span>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span> <span> demo1.svg </span> <br>
-                  <br>
-                  -As described in the MDN reading, create the file demo1.svg,
-                  etc.<br>
-                  <span class="Git_Commit">-Git add and commit</span> the
-                  file(s) with message "-completed MDN SVG intro" </li>
-              </ol>
-            </li>
-            <li>[<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
-
-                target="_blank">MDN SVG Position</a>]&nbsp; Read all.</li>
-            <li>In you IDE, create a webpage, <span style="font-family: Courier,monospace;">SVG</span><span
-
-                class="File_Name">Play.html<span style="font-family: serif;"> i</span></span>nside
-              the directory<span style="font-family: Courier,monospace;"> SVG</span><span
-
-                class="File_Name">Pla<span style="font-family: serif;">y.&nbsp;</span></span>
-              The HTML page will have the capabilities described in the
-              exercises below.<br>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="5"></span> <span class="File_Name">SVGPlay.html</span>&nbsp;<br>
-                  <br>
-                  -Give the page a visible title and display your name as
-                  author.<br>
-                  -Copy the the svg element from demo1.svg into <span style="font-family: Courier,monospace;">SVG</span><span
-
-                    class="File_Name">Play.html<span style="font-family: serif;"></span></span>.<br>
-                  -<span class="Git_Commit">Git add and commit</span> the
-                  file(s) with message "-initial .html page" <br>
-                </li>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="30"></span> <span>Pan and Zoom</span> <br>
-                  <br>
-                  Based on your reading above in [<a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Positions"
-
-                    target="_blank">MDN SVG Position</a>] -- and knowledge of
-                  HTML, JavaScript, the DOM, EventListeners,etc. -- add the
-                  following pan and zoom interface to <span style="font-family: Courier,monospace;">SVG</span><span
-
-                    class="File_Name">Play.html<span style="font-family: serif;"></span></span>.&nbsp;
-                  Create additional files (JavaScript, etc.) as needed.<br>
-                  <br>
-                  -key 'w'&nbsp; : pan the viewbox&nbsp; upward<br>
-                  -key 's'&nbsp; : pan the viewbox&nbsp; downward<br>
-                  -key 'a'&nbsp; : pan the viewbox&nbsp; left<br>
-                  -key 'd'&nbsp; : pan the viewbox&nbsp; right<br>
-                  -key 'r'&nbsp; :&nbsp; zoom in (by shrinking the viewbox).<br>
-                  -key 'f'&nbsp; :&nbsp; zoom out (by enlarging the viewbox).<br>
-                  -<span class="Git_Commit">Git add/commit</span> the file(s)
-                  with message "-implemented SVG pan &amp; zoom interface" </li>
-              </ol>
-              <br>
-            </li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes">[MDN
-                SV Basic_Shapes</a>] Read all.&nbsp; While reading add at least
-              <u>one</u> example of each described shape to <span class="File_Name">SVGPlay.html<span
-
-                  style="font-family: serif;"> </span></span>
-              <ol>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                    data-points="10"></span><span>More shapes <span class="File_Name">SVGPlay.html</span>
-                  </span> <br>
-                  -While reading add at least <u>one</u> example of each
-                  described shape to <span class="File_Name">SVGPlay.html</span><br>
-                  -<span class="Git_Commit">Git add/commit</span> the file(s)
-                  with message "-more shapes" <span class="File_Name"></span></li>
-              </ol>
-            </li>
-          </ol>
-        </section>
-      </section>
-      <section>
-        <h1 class="toc">Part II</h1>
+        <h1 class="toc"><br>
+        </h1>
         <!--
         <div style="border: solid 1px">          <p style="background-color: yellow; color: red; text-align: center;"><em>[3/13/2021              - 12:05am] Section&nbsp; Under Construction<br>            </em></p>          <ul>            <li> The details of Part II remains under construction.&nbsp;              However, the points allocations for Part II are published below.</li>            <li>A Canvas Announcement will be posted as Part II is completed and              ready. </li>          </ul>        </div>        -->
-        <section>
-          <h2 class="toc">D3 - How Selections Work</h2>
-          Section:<span class="Grade_Points" data-points="25"></span><br>
-          <!--
-          <br>          <div style="border: solid 1px">            <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021                - 12:05am] Section&nbsp; Under Construction<br>              </em></p>            <p>ZJW:&nbsp; There are some flows in the referenced reading              material here that make it not work when used as a 'type in the              example code as you read' tutorial.&nbsp;&nbsp;&nbsp; I am working              to addressing them today. </p>            <p>Do <strong>not</strong> attempt to perform the exercises in this              section, until a Canvas Announcement is made indicating the flaws              are resolved.</p>          </div>          <br>          <div class="Staff_Notes"><br>            ZJW:&nbsp; Unfortunately, the last 10% of material at [<a href="https://bost.ocks.org/mike/selection/"              target="_blank">BOO Selections</a>] has some flaws that I only            discovered on 3/9 </div>					-->
-          <div>
-            <ol class="Instruction">
-              <li> Inside your directory <span class="File_Name" data-project-number-long-dir="">Project_2</span>,
-                create a sub-directory<span style="font-family: Courier,monospace;">
-                  D3Selections</span><span class="File_Name"> </span>. </li>
-              <li>Download the following two files: <a href="HowSelectionsWork-Example.html"
-
-                  download="">HowSelectionsWork-Example.html</a>, <a href="HowSelectionsWork-Example.css"
-
-                  download="">HowSelectionsWork-Example.css</a>,.&nbsp;&nbsp;&nbsp;
-                Copy them to directory <span style="font-family: Courier,monospace;">D3Selections</span><span
-
-                  class="File_Name"> <br>
-                </span><span class="Git_Commit">Git add and commit</span> the
-                file(s) with message "-initial&nbsp; D3 Selections files" </li>
-              <li>Open the file <span class="File_Name">HowSelectionsWork-Example.html</span>
-                in Chrome and follow the <a href="#Chapter-Setup-Procedure">Chapter
-                  Console Log Setup</a> procedure so you can use the Console to
-                explore and modify the DOM of this .html page.<br>
-                <br>
-              </li>
-              <li>In your top level class directory, clone the modified version
-                of Mike Bostock's "How Selections Work" article. <br>
-                <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-
-                  border="1">
-                  <tbody>
-                    <tr>
-                      <td><button>▽</button></td>
-                      <td>
-                        <div style="height: 75px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span data-course-number=""></span>/</code><br>
-                          <code class="Shell_Code_Input">$git clone
-                            https://cci-git.uncc.edu/zwartell/d3-how-selections-work.git
-                            <br>
-                            <code class="Shell_Code_Output">Cloning into
-                              'd3-how-selections-work'...<br>
-                            </code> </code></div>
-                        <code class="Shell_Code_Input"> </code></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <br>
-              </li>
-              <li>["How Selections Works"] Open the article <span style="font-family: Courier,monospace;">(</span><span
-
-                  class="File_Name">d3-how-selections-work/index.html</span>) in
-                a <u>separate</u> <u>window</u>.&nbsp;&nbsp; Arrange this
-                separate Chrome window side-by-side with the Chrome window
-                displaying <span class="File_Name">HowSelectionsWork-Example.html</span>
-                (see Figure 1 below).&nbsp; While reading the article, perform
-                Exercise 5.a below.<br>
-                <figure class="Screen_Capture" tabindex="1"> <img src="images/image4-side-by-side.png">
-                  <figcaption> Figure 1: Dual Browser Arrangement for Step 5 </figcaption>
-                </figure>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                      data-points="25"></span><span> </span>"How Selections
-                    Works" <br>
-                    <br>
-                    <ul>
-                      <li> While reading the article, use the Chrome Console in
-                        the browser displaying page <span class="File_Name">HowSelectionsWork-Example.html</span>
-                        (right-side browser in Figure 1) and enter all the
-                        example code in the "How Selections Works" article
-                        (left-side browser in Figure 1).</li>
-                      <li>When you are complete, save the Console log to a file
-                        named <span style="font-family: Courier,monospace;">D3Selections.log<span
-
-                            style="font-family: serif;"> following the </span></span><a
-
-                          href="#Chapter-Log-Save-Procedure">Save Section
-                          Console Log File</a> procedure. </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-completed D3Selection section" </li>
-                    </ul>
-                  </li>
-                </ol>
-              </li>
-              <!-- 
-            <li hidden="">??? <span class="Grade_Points" data-points="?"></span></li>						-->
-            </ol>
-          </div>
-        </section>
-        <section>
-          <h2 class="toc">D3 - Let's Make a Bar Chart</h2>
-          Section: <span class="Grade_Points" data-points="40"></span><br>
-          <br>
-          <!--
-          <div style="border: solid 1px">            <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021                - 12:05am] Section&nbsp; Under Construction<br>              </em></p>          </div>          <br>           This will be the final section of the tutorial. After          completing the tutorial, you will be prepared for the Programming          Assignment "P1: D3 Visualization" in which you will be given a set of          general software requirements and then you will individual required          develop all the code to meet the software specification.<br>          <br>          -->
-          For this section of the tutorial you will read Mike Bostock's four
-          part series "Let’s Make a Bar Chart" and create a separate D3 HTML
-          page based on extending the series' code.&nbsp;&nbsp; The series walks
-          you through creating a bar chart, incrementally increasing the
-          sophistication of the chart.<br>
-          <div>
-            <ol class="Instruction">
-              <li><span style="color: #0000ee;"></span>The "Let’s Make a Bar
-                Chart" series uses Observable which is a Web enabled "notebook"
-                style programming tool. &nbsp; <br>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise [Optional]</span>:
-                    Observable Notebook <br>
-                    <br>
-                    If you have used Mathematica, Jupyter, or any of the
-                    bazillion other notebook style IDE's, you can probably jump
-                    right to Step #2.&nbsp; <br>
-                    If you are not familiar with notebook style programming
-                    environments, watch the 6 minute video introduction to
-                    Observable notebook's at this <a href="https://observablehq.com/@observablehq/notebooks-cells?collection=@observablehq/learning-observable"
-
-                      target="_blank">link</a>.<br>
-                  </li>
-                </ol>
-              </li>
-              <li>Directory Setup:
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: Initial
-                    Files <br>
-                    <ol>
-                      <li> Inside your project directory <span class="File_Name"
-
-                          data-project-number-long-dir="">Project_2</span>,
-                        create a sub-directory <span class="File_Name">BarChart</span>.
-                      </li>
-                      <li> Inside directory <span class="File_Name">BarChart</span>,
-                        create an initial triple of files:
-                        <ul>
-                          <li><span class="File_Name">BarChart.html</span></li>
-                          <li><span class="File_Name">BarChart.css</span></li>
-                          <li><span class="File_Name">BarChart.js</span></li>
-                        </ul>
-                        Set up the .html file to load the .css file and .js file
-                        and add a visible title and your name to the .html file
-                      </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-initial BarChart files" </li>
-                    </ol>
-                    <br>
-                  </li>
-                </ol>
-              </li>
-              <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart"
-
-                  target="_blank">Let’s Make a Bar Chart - Part I</a><span style="color: #0000ee;">
-                  ] </span><span class="File_Name"></span>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: Part I -
-                    Reading and Playing<span> </span> <br>
-                    <br>
-                    Read through Part I.&nbsp;&nbsp; Experiment a bit with the
-                    notebook code to aid your understanding. <br>
-                    There is nothing to submit for this exercise. </li>
-                  <li> <span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                      data-points="10"></span> <span>Port "Part I" to <span class="File_Name">BarChart.html</span></span>
-                    <ol>
-                      <li>-Copy and paste the final code from Part I and port it
-                        into your <span><span class="File_Name">BarChart.html<br>
-                          </span></span><span class="Git_Commit">-Git add and
-                          commit</span> the file(s) with message "-Ported Part I
-                        notebook code" </li>
-                      <li>Making the following trivial modifications to the
-                        code:<br>
-                        <ol>
-                          <li>Change the color of the bars.</li>
-                          <li>Change the color of the data values text shown in
-                            the bars.</li>
-                          <li>Increase data values text size.</li>
-                          <li>Add a more numbers to the data set so there are
-                            twenty bars in total.</li>
-                        </ol>
-                      </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-completed Part I" </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/2"
-
-                  target="_blank">Let’s Make a Bar Chart - Part II</a><span style="color: #0000ee;">
-                  ]</span>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: Part II -
-                    Reading and Playing<span> </span> <br>
-                    <br>
-                    Part II starts using SVG instead of the HTML box model with
-                    div's.<br>
-                    Read through Part II.&nbsp;&nbsp; Experiment a bit with the
-                    notebook code to aid your understanding. <br>
-                    There is nothing to submit for this exercise. <br>
-                    <br>
-                  </li>
-                  <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                      data-points="10"></span> <span>Port "Part II" to <span class="File_Name">BarChart.html</span></span><br>
-                    <ol>
-                      <li>Copy and paste the final updated code from Part II and
-                        port it into your <span><span class="File_Name">BarChart.html<br>
-                          </span></span><span class="Git_Commit">Git add and
-                          commit</span> the file(s) with message "-Ported Part
-                        II notebook code" </li>
-                      <li>Making the following trivial modifications to the
-                        code:<br>
-                        <ol>
-                        </ol>
-                        <ul>
-                          <li>Port the same adjustments you performed in 3.b.ii.
-                            to this new SVG based code.</li>
-                        </ul>
-                      </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-completed Part II" </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/3"
-
-                  target="_blank">Let’s Make a Bar Chart - Part III</a><span style="color: #0000ee;">
-                  ]</span>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: Part III -
-                    Reading and Playing<span> </span> <br>
-                    <br>
-                    Part III replaces getting the chart's data from an JS array
-                    of constant numbers with getting -- more specifically
-                    loading -- the data from a CSV file.<br>
-                    Read through Part III.&nbsp;&nbsp; Experiment a bit with the
-                    notebook code to aid your understanding. <br>
-                    There is nothing to submit for this exercise. <br>
-                    <br>
-                  </li>
-                  <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                      data-points="10"></span> <span>Port "Part III" to <span
-
-                        class="File_Name">BarChart.html</span></span><br>
-                    <ol>
-                      <li>Copy and paste the final updated code from Part III
-                        and port it into your <span><span class="File_Name">BarChart.html</span></span>.
-                        <br>
-                        <u> Note</u>:&nbsp; The Observable notebook code uses
-                        several functions that are not part of D3 or
-                        JavaScript.&nbsp;&nbsp;&nbsp; To port the notebook code
-                        make the following substitutions:
-                        <ul>
-                          <li>instead of Observable FileAttachment read about
-                            and use <a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload"
-
-                              target="_blank">FileReader.onload</a> with an HTML
-                            <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">&lt;input&gt;</a>
-                            of type="file".</li>
-                          <li>place the example data in a separate file called <span
-
-                              class="File_Name">numbers.csv</span> in your
-                            project directory.</li>
-                        </ul>
-                      </li>
-                      <li><span><span class="File_Name"></span></span><span class="Git_Commit">Git
-                          add and commit</span> the file(s) with message
-                        "-Ported Part III notebook code" </li>
-                      <li>Integrate the same adjustments you performed in
-                        3.b.ii. to this new SVG based code. </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-completed Part III" </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-              <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/4"
-
-                  target="_blank">Let’s Make a Bar Chart - Part IV</a><span style="color: #0000ee;">
-                  ]</span>
-                <ol>
-                  <li><span class="Exercise_Title">Exercise</span>: Part IV -
-                    Reading and Playing<span> </span> <br>
-                    <br>
-                    Part IV improves the visual quality and uses a larger
-                    dataset..<br>
-                    Read through Part IV.&nbsp;&nbsp; Experiment a bit with the
-                    notebook code to aid your understanding. <br>
-                    There is nothing to submit for this exercise. <br>
-                    <br>
-                  </li>
-                  <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
-
-                      data-points="10"></span> <span>Port "Part IV" to <span class="File_Name">BarChart.html</span></span><br>
-                    <ol>
-                      <li>Integrate the final updated notebook code from Part IV
-                        and port it into your <span><span class="File_Name">BarChart.html<br>
-                          </span></span> Download and add the mentioned data
-                        file, <span class="File_Name">alphabet.csv</span> to
-                        your project directory.<br>
-                      </li>
-                      <li><span class="Git_Commit">Git add and commit</span> the
-                        file(s) with message "-completed Part IV" </li>
-                    </ol>
-                  </li>
-                </ol>
-              </li>
-            </ol>
-          </div>
-        </section>
+        <section> </section>
       </section>
     </div>
     <div style="margin-left:250px">
@@ -1134,16 +461,14 @@
                   <li>save console log to dir "ConsolePlay1" file and git submit</li>
                 </ul>
               </ul>
-              <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
+              <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
                   target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
               <ul>
                 <li>grading:&nbsp; console log ?</li>
               </ul>
               <li>Understanding D3 "join" in mild depth - <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a>
               </li>
-              <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
-
+              <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
                   target="_blank">https://bost.ocks.org/mike/selection/ <br>
                 </a></li>
               <ul>
@@ -1154,8 +479,7 @@
             </ul>
             <li>SVG</li>
             <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
                   target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
             </ul>
             <li>D3</li>
@@ -1173,8 +497,7 @@
             <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span>
               directory, where you did yours previous projects. Verify you have
               a directory structure as shown below:<br>
-              <table class="Code_Example" id="Code_Example1" style="width: 100%;"
-
+              <table class="Code_Example" id="Code_Example1" style="width: 100%;"
                 border="1">
                 <tbody>
                   <tr>
@@ -1223,8 +546,7 @@
               <br>
             </li>
             <li>Now clone your remote repo:<br>
-              <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-
+              <table class="Code_Example" id="Code_Example5" style="width: 100%;"
                 border="1">
                 <tbody>
                   <tr>
@@ -1233,8 +555,7 @@
                       <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                           ~/ITCS_<span data-course-number=""></span>/</code><br>
                         <code class="Shell_Code_Input">$git clone
-                          https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-
+                          https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
                           class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                           <span data-project-number-long-dir="Project_2"></span></code>2<br>
                         <code class="Shell_Code_Output">Cloning into
@@ -1251,8 +572,7 @@
             <li>Next, retrieve the skeleton code:<br>
               (The mechanics below are common git technique called 'fork'ing).<br>
               &nbsp;
-              <table class="Code_Example" id="Code_Example3" style="width: 100%;"
-
+              <table class="Code_Example" id="Code_Example3" style="width: 100%;"
                 border="1">
                 <tbody>
                   <tr>
@@ -1263,8 +583,7 @@
                         <code class="Shell_Code_Prompt">lucretius@Monad42
                           ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                         <code class="Shell_Code_Input">$git remote add upstream
-                          https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
-
+                          https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
                             class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                         <span class="Shell_Code_Comment">[... the above connects
                           to the original 'upstream' remote, to which you have
@@ -1278,8 +597,7 @@
                           remote: Compressing objects: 100% (28/28), done.<br>
                           remote: Total 30 (delta 11), reused 0 (delta 0)<br>
                           Unpacking objects: 100% (30/30), done.<br>
-                          From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
-
+                          From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
                             data-course-number=""></span>_Planet_Mobile<br>
                           * [new branch] master -&gt; upstream/master<br>
                           <br>
@@ -1298,8 +616,7 @@
               <br>
             </li>
             <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-              <table class="Code_Example" id="Code_Example7" style="width: 100%;"
-
+              <table class="Code_Example" id="Code_Example7" style="width: 100%;"
                 border="1">
                 <tbody>
                   <tr>
@@ -1316,8 +633,7 @@
                           Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,
                           done.<br>
                           Total 30 (delta 11), reused 0 (delta 0)<br>
-                          To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
-
+                          To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
                             data-project-number-long-dir="Project_2"></span>.git<br>
                           * [new branch] master -&gt; master<br>
                           Branch master set up to track remote branch master
@@ -1334,8 +650,7 @@
               <br>
             </li>
             <li>Verify your directory structure:<br>
-              <table class="Code_Example" id="Code_Example8" style="width: 100%;"
-
+              <table class="Code_Example" id="Code_Example8" style="width: 100%;"
                 border="1">
                 <tbody>
                   <tr>
@@ -1407,5 +722,38 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduct
         </section>
       </section>
     </div>
+    <template>
+      <div>
+        <ol class="Instruction">
+          <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/4" target="_blank">Let’s
+              Make a Bar Chart - Part IV</a><span style="color: #0000ee;"> ]</span>
+            <ol>
+              <li><span class="Exercise_Title">Exercise</span>: Part IV -
+                Reading and Playing<span> </span> <br>
+                <br>
+                Part IV improves the visual quality and uses a larger dataset..<br>
+                Read through Part IV.&nbsp;&nbsp; Experiment a bit with the
+                notebook code to aid your understanding. <br>
+                There is nothing to submit for this exercise. <br>
+                <br>
+              </li>
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                  data-points="10"></span> <span>Port "Part IV" to <span class="File_Name">BarChart.html</span></span><br>
+                <ol>
+                  <li>Integrate the final updated notebook code from Part IV and
+                    port it into your <span><span class="File_Name">BarChart.html<br>
+                      </span></span> Download and add the mentioned data file, <span
+                      class="File_Name">alphabet.csv</span> to your project
+                    directory.<br>
+                  </li>
+                  <li><span class="Git_Commit">Git add and commit</span> the
+                    file(s) with message "-completed Part IV" </li>
+                </ol>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </template>
   </body>
 </html>

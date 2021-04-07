@@ -317,6 +317,15 @@ span.Grade_Points:after {
     content: "[" attr(data-points) " pts ]";
 }
 
+span.Extra_Credit_Points {
+    font-weight: bold;
+}
+
+span.Extra_Credit_Points:after {
+    content: "[Extra Credit:" attr(data-points) " pts ]";
+}
+
+
 
 a.Term
 {

@@ -236,6 +236,7 @@ function onLoad() {
      */
     let rubric = document.querySelector("#RubricTable > tbody");
     let prevSection = "";
+    let total=0;
     const REGEX = /Symbol\(([^)]*)\)/; // for removing Symbol sub-string
     let ri=0;
     for (let instruction of instructions.instructions) {
@@ -274,6 +275,8 @@ function onLoad() {
         rubric.append(row);
         ri++;
     }
+    let ttd = document.getElementById("Total");
+    ttd.nextElementSibling.innerText = total;
 
     /*
      *  serialize DOM created Rubric table to .xml

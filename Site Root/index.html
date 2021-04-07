@@ -197,6 +197,7 @@
         }
 
         let RubricTable = document.getElementById("RubricTable");
+        let total = 0;
         const tbody = RubricTable.querySelector(':scope tbody');
         for (let ri of _Rubric.items)
         {
@@ -213,7 +214,10 @@
                         <td style="${ri.parentTag === "Exercise:" ? "text-align : left;" : "text-align : center;"}">${ri.points}</td>
                   </tr>
                   `;
+          total += parseInt(ri.points);
         }
+        const ttd = document.getElementById("Total");
+        ttd.nextElementSibling.innerText = total.toString();
         
       }
     </script>
@@ -388,7 +392,8 @@
               <span class="Exercise_Title"></span></li>
             <li><span class="Exercise_Title">File Organization</span>: <span class="Grade_Points"
 
-                data-points="5"></span> Create initial files as follows:<br>
+                data-points="5"></span> <span>Create initial files</span>as
+              follows:<br>
               <ol>
                 <li>In your project directory, create a subdirectory <span class="File_Name">libs</span></li>
                 <li>Download the latest version of D3 from <a href="https://d3js.org/">https://d3js.org/</a>.&nbsp;
@@ -416,7 +421,7 @@
             </li>
             <li><span class="Exercise_Title">Port</span>:&nbsp; n <span class="Grade_Points"
 
-                data-points="15"></span> Port Observable <a href="https://observablehq.com/@d3/connected-scatterplot"
+                data-points="15"></span> <span>Port Observable </span> <a href="https://observablehq.com/@d3/connected-scatterplot"
 
                 target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a>
               D3 code to to your JS and HTML<br>
@@ -433,18 +438,46 @@
                   with message "-ported connected scatter plot" </li>
               </ol>
             </li>
-            <li>
-							xxx	
+            <li><span class="Exercise_Title">Feature</span>:&nbsp; n <span class="Grade_Points"
+
+                data-points="15"></span> <span>Pan and Zoom: </span>Add a pan
+              and zooming a user interface.&nbsp; The input control method is up
+              to you.&nbsp; That is you can use a set of keyboard keys, or
+              implement a mouse interface or a multi-touch user interface&nbsp;
+              (see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+
+                target="_blank">MDN Touch_events</a>).
+              <div class="Hint">
+                <ul>
+                  <li> Panning and zooming is done in SVG by adjusting the
+                    viewbox (see <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox">
+                      MDN viewBox</a></li>
+                  <li>For touch the option see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+
+                      target="_blank">MDN Touch_events</a>.</li>
+                </ul>
+              </div>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"
+
+                <="" a=""> target="_blank"&gt;MDN viewbox)</a></li>
+            <li><span class="Exercise_Title">Feature</span>:&nbsp; n <span class="Grade_Points"
+
+                data-points="10"></span> <span>Data Point Selection:&nbsp; Add
+                the ability to hover the the mouse pointer over any data point
+                and display a pop-up window with label numberical values of all
+                three of the data points 3 dimensional attributes (year, miles
+                per person per year, cost per gallon).<br>
+                <div class="Hint">See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event"
+
+                    target="_blank">MDN Mouseover Event </a> </div>
+              </span>
+              <div> </div>
             </li>
           </ol>
         </div>
       </section>
     </div>
-    <div style="margin-left: 250px;">
-      <section>
-        <div> </div>
-      </section>
-    </div>
+    <div style="margin-left: 250px;"> </div>
     <div style="margin-left: 210px;">
       <section>
         <div>
@@ -539,7 +572,8 @@
             </strong><u>Exercise</u><strong>:'s.<br>
               <br>
             </strong>ZJW: 3/12/2021:&nbsp; The rubric is nearly complete<strong>.<br>
-            </strong></div>
+            </strong>
+          </div>
           <table id="RubricTable" style="width: 100%" border="1">
             <tbody>
               <tr>
@@ -553,9 +587,8 @@
                 </td>
                 <td style="border:none"><br>
                 </td>
-                <td style="border:none; text-align: right;"><strong>Total</strong></td>
-                <td style="text-align: center;"><strong>150</strong><br>
-                </td>
+                <td style="border:none; text-align: right;" id="Total"><strong>Total</strong></td>
+                <td style="text-align: center;"><strong>_computed_</strong> </td>
               </tr>
             </tbody>
           </table>

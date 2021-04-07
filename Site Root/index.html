@@ -223,20 +223,24 @@
   <body onload="onload_Body()"> _<!-- IF_TOC -->
     <div id="toc"> </div>
     <div style="margin-left: 250px;">
-      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
+      <h2 class="nocount Title">ITCS <span data-course-number=""></span>: <span
+
           data-project-number=""></span> - D3 Beginner Project<br>
       </h2>
       <h2 class="nocount Title">Spring 2021</h2>
       <h3 class="nocount Title">Professor: Zachary Wartell</h3>
       <h3 class="nocount Title">Revision: 1.0.1
-        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
+        <!-- $REVISION$ --> <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
+
             target="_blank">git logs</a>) </sup><br>
       </h3>
       <hr>
-      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+      <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+
             alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
         <span>"ITCS <span data-course-number=""></span> : <span data-project-name-dir="">Generic
-            Instructions</span>" </span>by <a href="https://webpages.uncc.edu/zwartell/"
+            Instructions</span>" </span>by <a href="https://webpages.uncc.edu/zwartell/"
+
           rel="cc:attributionURL" target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary
           Justin Wartell</a> is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
           Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.
@@ -267,8 +271,10 @@
         <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>           -->
         <form name="System_Configuration">
           <fieldset> <legend>Display Configuration:&nbsp;</legend> <label><b>Staff_Notes:</b>
-            </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
-              onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
+            </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
+
+              onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
+
               type="checkbox"> <label for="Staff_Notes">Visible</label> </fieldset>
         </form>
         <hr> </section>
@@ -284,8 +290,10 @@
           <li>Try out and experiment with a variety of code snippets embedded in
             the reading.&nbsp;&nbsp; </li>
         </ul>
-        <p>You will create the HTML5 pages using your preferred code editor or <a
-            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
+        <p>You will create the HTML5 pages using your preferred code editor or <a
+
+            class="Term" href="https://en.wikipedia.org/wiki/Integrated_development_environment"
+
             target="_blank">IDE.</a>&nbsp; (For brevity, the term <em>IDE</em>
           will be used to refer to either such tool).<br>
           You will perform your experiments with the code snippets by using the
@@ -324,50 +332,197 @@
         </ul>
       </section>
       <section>
-        <h1 class="toc">Git Repo</h1>
-        <span class="Exercise_Title">Exercise</span>: <span> Git Repo </span>
-        <ol class="Instruction">
-          <li>Create a new remote repository on the Git server called <span style="File_Name">"<span
-                data-course-number=""></span>_<span data-project-number=""></span>_<span
-                data-project-name-dir=""></span></span>.<br>
-            <ol>
-              <li>Remember to make your remote repository <b>"Private"</b> .</li>
-              <li>Remember to give the TA and Professor "Reporter" Access.</li>
-            </ol>
-            <br>
-          </li>
-          <li>Now clone your remote repo:<br>
-            <table class="Code_Example" id="Code_Example5" style="width: 100%;"
-              border="1">
-              <tbody>
-                <tr>
-                  <td><button>▽</button></td>
-                  <td>
-                    <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
-                        ~/ITCS_<span data-course-number=""></span>/</code><br>
-                      <code class="Shell_Code_Input">$git clone
-                        https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-                        class="Shell_Code_Input"><span style="File_Name"><span data-project-git="">3120_P2_Planet_Mobile</span></span>.git
-                        <span data-project-number-long-dir="Project_2"></span></code>2<br>
-                      <code class="Shell_Code_Output">Cloning into '<span data-project-number-long-dir="">Project_X</span>'...<br>
-                        warning: You appear to have cloned an empty repository.<br>
-                      </code> </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <br>
-          </li>
-          <!--
-          <li>Next, retrieve the skeleton code:<br>            (The mechanics below are common git technique called 'fork'ing).<br>            &nbsp;            <table class="Code_Example" id="Code_Example3" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Input">$cd                        <span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_X"></span></code><br>                      <code class="Shell_Code_Input">$git remote add upstream                        https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code                          class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>                      <span class="Shell_Code_Comment">[... the above connects                        to the original 'upstream' remote, to which you have                        read-only access ...]</span><br>                      <br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git fetch upstream</code><br>                      <code class="Shell_Code_Output">remote: Counting objects:                        30, done.<br>                        remote: Compressing objects: 100% (28/28), done.<br>                        remote: Total 30 (delta 11), reused 0 (delta 0)<br>                        Unpacking objects: 100% (30/30), done.<br>                        From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span data-course-number=""></span>_Planet_Mobile<br>                        * [new branch] master -&gt; upstream/master<br>                        <br>                      </code> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git merge upstream/master</code><br>                      <span class="Shell_Code_Comment">[... the above 2 commands                        merge the 'upstream' remote into the local repo...]</span><br>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          </li>          <li>Push the skeleton code to <u><b>your</b></u> repo.<br>            <table class="Code_Example" id="Code_Example7" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$git push -u origin master</code><br>                      <code class="Shell_Code_Output">Counting objects: 30,                        done.<br>                        Delta compression using up to 8 threads.<br>                        Compressing objects: 100% (28/28), done.<br>                        Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,                        done.<br>                        Total 30 (delta 11), reused 0 (delta 0)<br>                        To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span                          data-project-number-long-dir="Project_2"></span>.git<br>                        * [new branch] master -&gt; master<br>                        Branch master set up to track remote branch master from                        origin.<br>                        <br>                      </code> <span class="Shell_Code_Comment">[... this pushes                        the local repo to your remote repo and ensures further                        git operations will default to using your remote ...]</span>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          </li>          <li>Verify your directory structure:<br>            <table class="Code_Example" id="Code_Example8" style="width: 100%;"              border="1">              <tbody>                <tr>                  <td><button>▽</button></td>                  <td>                    <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>                      <code class="Shell_Code_Input">$cd ..</code><br>                      <code class="Shell_Code_Prompt">lucretius@Monad42                        ~/ITCS_<span data-course-number=""></span></code><br>                      <code class="Shell_Code_Input">$find . -maxdepth 2<br>                      </code><br>                      <code class="Shell_Code_Output">.<br>                        ./lib<br>                        ./lib/cuon-matrix.js<br>                        ./lib/cuon-utils.js<br>                        <span class="Shell_Code_Comment">[...the new                          uncc_webgl_utils...]</span><br>                        ./lib/uncc_webgl_utils<br>                        ./lib/webgl-debug.js<br>                        ./lib/webgl-guide<br>                        ./lib/webgl-utils.js<br>                        <span class="Shell_Code_Comment">[...your other tutorial                          and project stuff ...]</span><br>                        <span class="Shell_Code_Comment">[...your new project                          ...]</span><br>                        ./Project_1<br>                        ./Project_1/.git<br>                        ./Project_1/README.txt<br>                        &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>                        <span class="Shell_Code_Comment">[...the WebGL book                          code, etc...]</span><br>                        ./WebGL_Programming_Guide<br>                        ./WebGL_Programming_Guide/.git<br>                        ./WebGL_Programming_Guide/Appendix<br>                        ./WebGL_Programming_Guide/ch02<br>                      </code><br>                      &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>                    </div>                  </td>                </tr>              </tbody>            </table>            <br>          				</li>        <li>All your future <span style="File_Name">git push</span> operations            will be to the <b>origin</b> . (If you try to push to upstream, it            will fail because students have read-only permission to the upstream            repository).				</li>-->
-        </ol>
+        <h1 class="toc">D3 Beginner Project</h1>
+        <p>For project you will extend the Observable notebook project <a href="https://observablehq.com/@d3/connected-scatterplot"
+
+            target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a></p>
+        <div>
+          <ol class="Instruction">
+            <li><span class="Exercise_Title">Git Repo</span><br>
+              <ol>
+                <li>Create a new remote repository on the Git server called <span
+
+                    style="File_Name">"<span data-course-number=""></span>_<span
+
+                      data-project-number=""></span>_<span data-project-name-dir=""></span></span>.<br>
+                  <ol>
+                    <li>Remember to make your remote repository <b>"Private"</b></li>
+                    <li>Remember to give the TA and Professor "Reporter" Access.</li>
+                  </ol>
+                </li>
+                <li>Now clone your remote repo:<br>
+                  <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
+                    border="1">
+                    <tbody>
+                      <tr>
+                        <td><button>▽</button></td>
+                        <td>
+                          <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
+                              ~/ITCS_<span data-course-number=""></span>/</code><br>
+                            <code class="Shell_Code_Input">$git clone
+                              https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
+                              class="Shell_Code_Input"><span style="File_Name"><span
+
+                                  data-project-git="">3120_P2_Planet_Mobile</span></span>.git
+                              <span data-project-number-long-dir="Project_2"></span></code>2<br>
+                            <code class="Shell_Code_Output">Cloning into '<span
+
+                                data-project-number-long-dir="">Project_X</span>'...<br>
+                              warning: You appear to have cloned an empty
+                              repository.<br>
+                            </code> </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <br>
+                </li>
+              </ol>
+            </li>
+            <li>Briefly study the example and code at <a href="https://observablehq.com/@d3/connected-scatterplot"
+
+                target="_blank">https://observablehq.com/@d3/connected-scatterplot.<br>
+              </a><br>
+              <span class="Exercise_Title"></span></li>
+            <li><span class="Exercise_Title">File Organization</span>: <span class="Grade_Points"
+
+                data-points="5"></span> Create initial files as follows:<br>
+              <ol>
+                <li>In your project directory, create a subdirectory <span class="File_Name">libs</span></li>
+                <li>Download the latest version of D3 from <a href="https://d3js.org/">https://d3js.org/</a>.&nbsp;
+                  Copy the D3 source .js files to <span class="File_Name">libs</span>.</li>
+                <li>Create two files in your project directory <span class="File_Name">index.html</span>
+                  and <span class="File_Name">connected-scatterplot.js</span></li>
+                <li>Initialize <span class="File_Name">index.html</span> as a
+                  basic HTML page that:<br>
+                  <ol>
+                    <li>loads D3 from directory <span class="File_Name">libs</span>.</li>
+                    <li>loads <span class="File_Name">connected-scatterplot.js</span>.</li>
+                  </ol>
+                </li>
+                <li>&nbsp;Make <span class="File_Name">connected-scatterplot.js</span>
+                  import D3 as a JavaScript <span class="File_Name">import</span>
+                  module. (Read MDN documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+
+                    target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</a>
+                  if you are not familiar with JS module's).</li>
+                <li>Add a function main() to <span class="File_Name">connected-scatterplot.js</span>&nbsp;
+                  that prints "Hello World" to the console log.</li>
+                <li><span class="Git_Commit">Git add and commit</span> all files
+                  with message "-setup inital file organization" </li>
+              </ol>
+            </li>
+            <li><span class="Exercise_Title">Port</span>:&nbsp; n <span class="Grade_Points"
+
+                data-points="15"></span> Port Observable <a href="https://observablehq.com/@d3/connected-scatterplot"
+
+                target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a>
+              D3 code to to your JS and HTML<br>
+              <ol>
+                <li>Port the JavaScript source code from the Observable notebook
+                  to your <span class="File_Name">connected-scatterplot.js</span>
+                  creating functions and classes as necessary.</li>
+                <li>Download any referenced data files for <a href="https://observablehq.com/@d3/connected-scatterplot"
+
+                    target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a>into
+                  your project directory.</li>
+                <li>Verify the code works in the Chrome browser</li>
+                <li><span class="Git_Commit">Git add and commit</span> all files
+                  with message "-ported connected scatter plot" </li>
+              </ol>
+            </li>
+            <li>
+							xxx	
+            </li>
+          </ol>
+        </div>
       </section>
+    </div>
+    <div style="margin-left: 250px;">
       <section>
-        <h1 class="toc"><br>
-        </h1>
-        <!--
-        <div style="border: solid 1px">          <p style="background-color: yellow; color: red; text-align: center;"><em>[3/13/2021              - 12:05am] Section&nbsp; Under Construction<br>            </em></p>          <ul>            <li> The details of Part II remains under construction.&nbsp;              However, the points allocations for Part II are published below.</li>            <li>A Canvas Announcement will be posted as Part II is completed and              ready. </li>          </ul>        </div>        -->
-        <section> </section>
+        <div> </div>
+      </section>
+    </div>
+    <div style="margin-left: 210px;">
+      <section>
+        <div>
+          <ol class="Instruction">
+            <li>.</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+    <div style="margin-left: 250px;">
+      <section>
+        <div>
+          <ol class="Instruction">
+            <li>
+              <ol>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+    <div style="margin-left: 210px;">
+      <section>
+        <div>
+          <ol class="Instruction">
+            <li>
+              <ol>
+                <li>...<br>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </section>
+    </div>
+    <div style="margin-left: 250px;">
+      <section>
+        <div>
+          <ol class="Instruction">
+            <li>
+              <ol>
+                <li>
+                  <ul>
+                  </ul>
+                </li>
+              </ol>
+            </li>
+            <li><a href="https://observablehq.com/@d3/lets-make-a-bar-chart/4" target="_blank">Let’s
+                Make a Bar Chart - Part IV</a><span style="color: #0000ee;"> ]</span>
+              <ol>
+                <li><span class="Exercise_Title">Exercise</span>: Part IV -
+                  Reading and Playing<span> </span> <br>
+                  <br>
+                  Part IV improves the visual quality and uses a larger
+                  dataset..<br>
+                  Read through Part IV.&nbsp;&nbsp; Experiment a bit with the
+                  notebook code to aid your understanding. <br>
+                  There is nothing to submit for this exercise. <br>
+                  <br>
+                </li>
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
+                    data-points="10"></span> <span>Port "Part IV" to <span class="File_Name">BarChart.html</span></span><br>
+                  <ol>
+                    <li>Integrate the final updated notebook code from Part IV
+                      and port it into your <span><span class="File_Name">BarChart.html<br>
+                        </span></span> Download and add the mentioned data file,
+                      <span class="File_Name">alphabet.csv</span> to your
+                      project directory.<br>
+                    </li>
+                    <li><span class="Git_Commit">Git add and commit</span> the
+                      file(s) with message "-completed Part IV" </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
       </section>
     </div>
     <div style="margin-left:250px">
@@ -461,14 +616,16 @@
                   <li>save console log to dir "ConsolePlay1" file and git submit</li>
                 </ul>
               </ul>
-              <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+              <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
                   target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
               <ul>
                 <li>grading:&nbsp; console log ?</li>
               </ul>
               <li>Understanding D3 "join" in mild depth - <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a>
               </li>
-              <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
+              <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
+
                   target="_blank">https://bost.ocks.org/mike/selection/ <br>
                 </a></li>
               <ul>
@@ -479,7 +636,8 @@
             </ul>
             <li>SVG</li>
             <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+              <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
+
                   target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
             </ul>
             <li>D3</li>
@@ -497,7 +655,8 @@
             <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span data-course-number=""></span>
               directory, where you did yours previous projects. Verify you have
               a directory structure as shown below:<br>
-              <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+              <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+
                 border="1">
                 <tbody>
                   <tr>
@@ -546,7 +705,8 @@
               <br>
             </li>
             <li>Now clone your remote repo:<br>
-              <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+              <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
                 border="1">
                 <tbody>
                   <tr>
@@ -555,7 +715,8 @@
                       <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                           ~/ITCS_<span data-course-number=""></span>/</code><br>
                         <code class="Shell_Code_Input">$git clone
-                          https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                          https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                           class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                           <span data-project-number-long-dir="Project_2"></span></code>2<br>
                         <code class="Shell_Code_Output">Cloning into
@@ -572,7 +733,8 @@
             <li>Next, retrieve the skeleton code:<br>
               (The mechanics below are common git technique called 'fork'ing).<br>
               &nbsp;
-              <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+              <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+
                 border="1">
                 <tbody>
                   <tr>
@@ -583,7 +745,8 @@
                         <code class="Shell_Code_Prompt">lucretius@Monad42
                           ~/ITCS_<span data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                         <code class="Shell_Code_Input">$git remote add upstream
-                          https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+                          https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+
                             class="Shell_Code_Input">ITCS_<span data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                         <span class="Shell_Code_Comment">[... the above connects
                           to the original 'upstream' remote, to which you have
@@ -597,7 +760,8 @@
                           remote: Compressing objects: 100% (28/28), done.<br>
                           remote: Total 30 (delta 11), reused 0 (delta 0)<br>
                           Unpacking objects: 100% (30/30), done.<br>
-                          From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
+                          From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
+
                             data-course-number=""></span>_Planet_Mobile<br>
                           * [new branch] master -&gt; upstream/master<br>
                           <br>
@@ -616,7 +780,8 @@
               <br>
             </li>
             <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-              <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+              <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+
                 border="1">
                 <tbody>
                   <tr>
@@ -633,7 +798,8 @@
                           Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,
                           done.<br>
                           Total 30 (delta 11), reused 0 (delta 0)<br>
-                          To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
+                          To https://cci-git.uncc.edu/zwartell/ITCS_<span data-course-number=""></span>_<span
+
                             data-project-number-long-dir="Project_2"></span>.git<br>
                           * [new branch] master -&gt; master<br>
                           Branch master set up to track remote branch master
@@ -650,7 +816,8 @@
               <br>
             </li>
             <li>Verify your directory structure:<br>
-              <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+              <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+
                 border="1">
                 <tbody>
                   <tr>
@@ -737,12 +904,14 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduct
                 There is nothing to submit for this exercise. <br>
                 <br>
               </li>
-              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+              <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                   data-points="10"></span> <span>Port "Part IV" to <span class="File_Name">BarChart.html</span></span><br>
                 <ol>
                   <li>Integrate the final updated notebook code from Part IV and
                     port it into your <span><span class="File_Name">BarChart.html<br>
-                      </span></span> Download and add the mentioned data file, <span
+                      </span></span> Download and add the mentioned data file, <span
+
                       class="File_Name">alphabet.csv</span> to your project
                     directory.<br>
                   </li>

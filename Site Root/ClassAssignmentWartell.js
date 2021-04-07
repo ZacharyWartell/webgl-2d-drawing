@@ -186,6 +186,10 @@ function collectionInstructions(section, sectionLabel) {
 
 }
 
+/*
+ [STATUS: NOT DEPLOYED] [work-in-progress]
+ Currently the <script> in the .html does an approximation of some of what the code below will eventually do.
+ */
 function onLoad() {
     // [STATUS=not deployed] work-in-progress
     {

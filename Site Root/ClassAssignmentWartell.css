@@ -175,6 +175,13 @@ figure.Screen_Capture:focus {
 /*
  *   Misc.
  */
+
+span.DataField:before
+{
+    content: "[ComputedField]";
+    font-style: italic;
+}
+
 div.Time_Todo {
     color: grey;
 }

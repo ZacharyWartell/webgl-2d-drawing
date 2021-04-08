@@ -27,6 +27,16 @@ p {
 }
 
 /*
+ *  Menu bar
+ */
+table.Menu
+{
+    background-color: lightgray;
+    border: solid 2px;
+    border-color : grey;
+}
+
+/*
  *   SectionRubric
  *   Table at head of each <section> with basic rubric info and menu
  */
@@ -50,12 +60,6 @@ table.SectionRubric > tbody > tr:nth-child(2) > td
 }
 
 
-table.Menu
-{
-    background-color: lightgray;
-    border: solid 2px;
-    border-color : grey;
-}
 
 /*
  * Rubric Table
@@ -83,9 +87,8 @@ table.Rubric td.Empty
 }
 
 /*
- *  Code Examples
+ *  Code Example
  */
-
 /*   Code Examples are put in small 1x1 table */
 table.Code_Example {
     width: 100%;
@@ -119,8 +122,9 @@ table.Code_Example > tbody > tr > td > div {
 }
 
 /*
-Displays figures that are Screen_Capture's and which are zoomable when clicked.
-(Resourse [R1])
+* Screen Capture Figures
+  Displays figures that are Screen_Capture's and which are zoomable when clicked.
+  (Resourse [R1])
 */
 figure.Screen_Capture {
     width: 500px;
@@ -168,6 +172,35 @@ figure.Screen_Capture:focus {
     z-index: 9999;
 }
 
+/*
+ *   Misc.
+ */
+div.Time_Todo {
+    color: grey;
+}
+
+/* ZJW: in progress idea , add auto-counting, add auto collection of todo items */
+div.Doc_Todo {
+    color: grey;
+}
+
+span.Updated_Text {
+    color: red;
+    background-color: yellow;
+}
+
+span.File_Name {
+    font-family: Courier, monospace;
+}
+
+span.Function_Name {
+    font-family: Courier, monospace;
+}
+
+/*
+ *   Shell Coding Instructions
+ */
+
 /*   Shell Code Input */
 code.Shell_Code_Input {
     font-family: "Courier", monospace;
@@ -196,15 +229,8 @@ code.Shell_Code_Prompt {
     text-decoration-style: dotted;
 }
 
-span.File_Name {
-    font-family: Courier, monospace;
-}
-
-span.Function_Name {
-    font-family: Courier, monospace;
-}
-
-/*   Comments in Shell Code
+/*
+* Comments in Shell Code
 */
 span.Shell_Code_Comment {
     font-family: Courier, monospace;
@@ -218,21 +244,9 @@ span.Shell_Code_Comment {
 }
 
 
-div.Time_Todo {
-    color: grey;
-}
 
-/* ZJW: in progress idea , add auto-counting, add auto collection of todo items */
-div.Doc_Todo {
-    color: grey;
-}
-
-span.Updated_Text {
-    color: red;
-    background-color: yellow;
-}
-
-/*   Hierarchical List of Instructions
+/*
+*  Hierarchical List of Instructions
 */
 ol.Instruction {
     font-size: medium;
@@ -288,6 +302,9 @@ ol.Instruction li.Git_Commit
     margin-top: 1em;
 }
 
+/*
+ * Misc.
+ */
 div.Errata
 {
     border-style: solid;
@@ -309,6 +326,10 @@ table#RubricTable > tbody > tr:nth-child(1) > td
     text-align: center;
 }
 
+
+/*
+ * Grade_Points, etc.
+ */
 span.Grade_Points {
     font-weight: bold;
 }
@@ -332,6 +353,10 @@ a.Term
     text-underline: darkgray dash;
 }
 
+/*
+ * Hint
+ */
+
 div.Hint:before
 {
     content: "Hint: ";
@@ -344,6 +369,9 @@ div.Hint
 }
 
 
+/*
+ * VideoInstructions
+ */
 div.VideoInstructions > div:nth-of-type(1)
 {
     border : solid 1px;
@@ -365,6 +393,9 @@ div.VideoInstructions > div:nth-of-type(2)
     resize: vertical;
 }
 
+/*
+ * Staff_Notes
+ */
 div.Staff_Notes
 {
     border : dashed 1px;

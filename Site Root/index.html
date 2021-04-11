@@ -1,12 +1,14 @@
+<!DOCTYPE html>
 <!--
-\author Zachary Wartell\copyright Copyright 2015. Zachary Wartell.  All rights reserved.Developed in NetBeans and Seamonkey Composer.-->
-<!DOCTYPE html><html>
+\author Zachary Wartell\copyright Copyright 2015. Zachary Wartell.  All rights reserved.
+-->
+<html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
     <link href="toc.css" rel="stylesheet" type="text/css">
     <link href="ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
-    <title>ITCS 5121: T4-D3 Tutorial</title>
+    <title>ITCS xyza: Wartell Generic Instructions </title>
     <script type="application/json" class="js-hypothesis-config">      {        "openSidebar": false      }    </script>
     <script src="https://hypothes.is/embed.js" async=""></script>
     <script src="libs/jquery-3.5.1.min.js"></script>
@@ -626,55 +628,36 @@
           <p class="UnderConstruction"> </p>
         </section>
         <section class="Staff_Only">
-          <h1>Appendix III: &nbsp; [Teaching Staff Only] Notes</h1>
-          <p></p>
+          <h1>Appendix III: &nbsp; [Teaching Staff Only] Usage Instructions</h1>
+          <h2>Best Practices</h2>
+          <ol class="Instruction">
+            <li>Create a branch in the main repo <a href="https://gitlab.com/zwartell/zjw-generic-instructions.git"
+                target="_blank">https://gitlab.com/zwartell/zjw-generic-instructions.git
+                </a>&nbsp; for the new assignment. </li>
+            <li><span style="color: #0000ee;"></span>git checkout that branch
+              and make all assignment specific changes to that branch</li>
+            <li>Update the text of this.html to suit the assignment<br>
+              <ol>
+                <li>Update the &lt;title&gt;</li>
+                <li>In function onload_Body() update the Project JS Object
+                  properties to reflect the current assignment.<br>
+                  This will cause various htmlText elements thatinitially
+                  display <em>[ComputedField]</em> to be updated on page load
+                  with text specific to the new assignment's title, course, etc.</li>
+                <li>Update the .html file to reflect the new asignment</li>
+                <li>Just use copy&amp;paste to re-use and modify the various
+                  customize HTML element's in this document as templates for the
+                  new assignment </li>
+              </ol>
+            </li>
+            <li> Back port any updates, enhancements, bug fixes that are useful
+              to the master </li>
+          </ol>
+          <h2>Todo</h2>
+          <p><br>
+          </p>
           <ol class="Instruction">
           </ol>
-          <p></p>
-          <ul>
-            <li>Sequence</li>
-            <ul>
-              <li>Taste of D3 - <a href="https://d3js.org/" target="_blank">https://d3js.org/</a></li>
-              <ul>
-                <li>instructions</li>
-                <ul>
-                  <li>create directory "ConsolePlay1"</li>
-                  <li>cd ConsolePlay1</li>
-                  <li>create "ConsolePlay1.html"</li>
-                  <li>enable console logging</li>
-                  <li>read introduction and use Chrome Console to try out code
-                    snippets</li>
-                  <li>save console log to dir "ConsolePlay1" file and git submit</li>
-                </ul>
-              </ul>
-              <li>Taste of SVG - <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-                  target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
-              <ul>
-                <li>grading:&nbsp; console log ?</li>
-              </ul>
-              <li>Understanding D3 "join" in mild depth - <a href="https://bost.ocks.org/mike/join/">https://bost.ocks.org/mike/join/</a>
-              </li>
-              <li>Understanding D3 "join" in super-depth - <a href="https://bost.ocks.org/mike/join/"
-                  target="_blank">https://bost.ocks.org/mike/selection/ <br>
-                </a></li>
-              <ul>
-                <li>grading:&nbsp; console log</li>
-              </ul>
-              <li><br>
-              </li>
-            </ul>
-            <li>SVG</li>
-            <ul>
-              <li><a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started"
-                  target="_blank">https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Getting_Started</a></li>
-            </ul>
-            <li>D3</li>
-            <ul>
-              <li><a href="https://d3js.org/" target="_blank">https://d3js.org/</a></li>
-              <li><a href="https://bost.ocks.org/mike/join/" target="_blank">https://bost.ocks.org/mike/join/
-                  </a></li>
-            </ul>
-          </ul>
         </section>
         <section class="Staff_Only">
           <h1>Appendix IV: [Teaching Staff Only]&nbsp; Code Retrieval and Repo
@@ -897,21 +880,7 @@
         </section>
         <section class="Staff_Only">
           <h1>Appendix V: [Teaching Staff Only] Resources</h1>
-          <p><u>WebGL Book</u>:&nbsp; The WebGL book Chapters you read for
-            previous project should be sufficient for this assignment in terms
-            of WebGL itself. </p>
-          <p><u>Other Resources</u>:<br>
-            The following resources may also be useful to understand the high
-            level aspects of HTML5 and DOM:</p>
-          <ul>
-            <li> <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction">
-https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction</a> - High
-              level of description of HTML5 is sufficient along with the WebGL
-              book's tutorial. </li>
-            <li> <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">
-https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction</a>
-              - High level description of the Document Object Model (DOM) </li>
-          </ul>
+          <br>
         </section>
       </section>
     </div>

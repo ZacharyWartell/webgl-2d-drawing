@@ -31,8 +31,7 @@
                 target="_blank">https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork</a></li>
           </ul>
           <!--
-          See <br>          <br>          <table class="Code_Example" id="Code_Example1" style="width: 100%;" border="1">            <tbody>              <tr>                <td> <button>▽</button> </td>                <td>                  <div style="height: 100px;"><code class="Shell_Code_Input">$                      git clone                      https://gitlab.com/zwartell/zjw-generic-instructions.git<br>                      $ cd </code><code class="Shell_Code_Input"><code class="Shell_Code_Input">zjw-generic-instructions</code>                    </code><code class="Shell_Code_Input"><span data-project-number-long-dir="Project_2"></span></code>2<br>                    <code class="Shell_Code_Input">$ git remote rename origin                      upstream<br>                      $ git branch <span class="User_Input">new-project</span><br>                    </code></div>
-                  <div style="height: 100px;"><code class="Shell_Code_Input"><br>                    </code></div>                </td>              </tr>            </tbody>          </table>-->
+          See <br>          <br>          <table class="Code_Example" id="Code_Example1" style="width: 100%;" border="1">            <tbody>              <tr>                <td> <button>▽</button> </td>                <td>                  <div style="height: 100px;"><code class="Shell_Code_Input">$                      git clone                      https://gitlab.com/zwartell/zjw-generic-instructions.git<br>                      $ cd </code><code class="Shell_Code_Input"><code class="Shell_Code_Input">zjw-generic-instructions</code>                    </code><code class="Shell_Code_Input"><span data-project-number-long-dir="Project_2"></span></code>2<br>                    <code class="Shell_Code_Input">$ git remote rename origin                      upstream<br>                      $ git branch <span class="User_Input">new-project</span><br>                    </code></div>                  <div style="height: 100px;"><code class="Shell_Code_Input"><br>                    </code></div>                </td>              </tr>            </tbody>          </table>-->
         </li>
         <li>In clone the forked repo and setup a new branch as follows::
           <table class="Code_Example" id="Code_Example1" style="width: 100%;" border="1">
@@ -60,6 +59,17 @@ style="color:#cc7832;">only</span>:<br>  - master</pre>
           with <br>
           <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
 style="color:#cc7832;">only</span>:<br>  - Your-Forked-Repo-Branch-Name</pre>
+        </li>
+        <li>Customize the following standard components of the index.html<br>
+          <ol>
+            <li>&lt;title&gt;&lt;/title&gt;</li>
+            <li>In function onload_Body() modify string names in Object project</li>
+            <li>? other stuff ?&nbsp; <br>
+              <ol>
+                <li>check for \todo items in index.html</li>
+              </ol>
+            </li>
+          </ol>
         </li>
         <li>Develop project specific features in the branch</li>
         <li>If you make updates, bug fixes, improvements relevant to generic the

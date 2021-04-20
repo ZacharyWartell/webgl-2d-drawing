@@ -401,6 +401,14 @@ div.VideoInstructions > div:nth-of-type(2)
 }
 
 /*
+ *  https://ieeeauthorcenter.ieee.org/wp-content/uploads/IEEE-Reference-Guide.pdf
+ */
+ol.References > li.reference-www > span:nth-child(1)
+{
+    font-style: italic;
+}
+
+/*
  * Staff_Notes
  */
 div.Staff_Notes

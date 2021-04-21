@@ -1,0 +1,49 @@
+body
+{
+    height : 100%;
+    overflow: hidden;
+}
+
+/*
+ *   Toolbar and Menu claases
+ */
+div#Toolbar
+{
+    border: solid black 2px;
+    padding-left: 242px;
+}
+
+div#Toolbar > div
+{
+    border: solid black 1px;
+}
+
+div.Menu
+{
+    background-color : lightgrey;
+}
+ul.SubMenu
+{
+    list-style-type: none;
+    background-color : lightgrey;
+    position : absolute;
+    top: 15px;
+    padding: 0px;
+}
+
+ul.SubMenu > li
+{
+    border : black 1px solid;
+    padding : 0px;
+    align-items: center;
+}
+
+
+/*
+ *   section classes
+ */
+section#MainWindow
+{
+    overflow-y: scroll;
+    height : 95vh;;
+}

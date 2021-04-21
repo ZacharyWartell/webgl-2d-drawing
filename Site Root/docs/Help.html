@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!-- saved from url=(0130)file:///D:/Users/Zachary/Dropbox%20(UNC%20Charlotte)/classes/Repository_Usage/new/ITCS%203120%20Fall%202016%20-%20Project%202.html -->
+<!--
+  References  - [R1] https://css-tricks.com/expanding-images-html5/                - [R2] http://philarcher.org/diary/2013/headingnumbers/-->
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Guide To Reading</title>
+    <!-- ZJW: experimenting with the toc.min.js, but it has problems -- I think because of my pages hide/unhide scheme -->    
+    <script src="../libs/jquery-3.1.0.js"></script>
+    <script src="../libs/toc.min.js"></script>
+    <!-- <script  src="libs/w3.css"></script> -->
+    
+    <script>
+      /* \author Zachary Wartell
+       *   
+       */
+      function onload_Body()
+      {              
+        /* smoothScrolling isn't working well, perhaps because of my page structure */
+        $('#toc').toc( {'smoothScrolling': false});
+      }
+    </script>
+    <link href="../toc.css" rel="stylesheet" type="text/css">
+    <link href="../ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
+    <script></script>
+    <style media="print" type="text/css">        
+            /*
+            If printing, don't use scroll bars, just expand code examples to full height.
+            When printing to PDF, from the Chromne Browser you must also enable "Background Graphics" in
+            the print Dialog box.
+            */
+            table.Code_Example > tbody > tr > td > div {width: 100%;
+                                                        height: 100% !important;
+                                                        overflow-y: hidden;}    
+    </style>
+  </head>
+  <body onload="onload_Body();">
+    <!-- w3.css stuff I experimented with
+    <div  style="top: 112px;"  class="w3-sidenav w3-collapse w3-slim"  id="sidenav">      <div  style="padding-top: 112px;"  id="leftmenuinner">        <div  class="w3-light-grey"  id="leftmenuinnerinner"> <a  href="javascript:void(0)"  onclick="close_menu()"  class="w3-closebtn w3-hide-large w3-large"             style="padding:3px 12px;">×</a> </div>      </div>    </div>    <div  class="w3-main w3-light-grey"  id="belowtopnav"  style="margin-left: 220px; padding-top: 0px;">      <div  class="w3-row w3-white">        <div  class="w3-col l10 m12"  id="main">          -->
+    <!-- IF_TOC -->
+    <div id="toc"> </div>
+    <div style="margin-left:250px">
+      <div align="center">
+        <h1 class="Title nocount">Guide to Reading</h1>
+        <br>
+      </div>
+      <section>
+        <h1 id="Guide_to_Reading_these_Instructions"> Guide to Reading</h1>
+        <ul>
+          <li><strong>Generic vs Specific Instructions</strong>: Various
+            sections, sub-sections and specific numbered instructions are either
+            “generic” or "specific" to a particular operating system or Git
+            server. When there is a list of instructions that vary for each
+            specific system, these instructions are numbered using Greek
+            letters: α,β, γ, etc. -- this indicates the reader should perform
+            only <u>one</u> of the listed instructions.<br>
+            <br>
+          </li>
+          <li><b>Server:&nbsp; </b>Your instructor will tell you which Git
+            server you will use for your course work. It will be one of the
+            following:
+            <ul>
+              <li><span class="File_Name">cci-git.uncc.edu </span></li>
+            </ul>
+            <ul>
+              <li><span class="File_Name">bitbucket.org</span></li>
+            </ul>
+            <p> Instructions in this document that are specific to one of the
+              above Git servers will have the following headings:</p>
+            <ul>
+              <li>[<i>YourServer</i>=<span class="File_Name">cci-git</span>] </li>
+            </ul>
+            <ul>
+              <li> [<i>YourServer</i>=<span class="File_Name">Bitbucket</span>]<br>
+              </li>
+            </ul>
+            <br>
+            As long as you configure the settings in the <a href="#Document-Configuration">Document
+              Configuration</a> section (above), then the detailed instructions
+            will only be displayed for the Git server you selected (while the
+            details for the other servers will remain hidden). <br>
+            <br>
+          </li>
+          <li><b>Operating System:</b> Your instructor will tell you which
+            operating systems you must use for your course work. Instructions in
+            this document that are specific to a particular operating system
+            will have the following headings:
+            <ul>
+              <li>[<i>OS</i>=<b>Windows</b>]</li>
+              <li>[<i>OS</i>=<b>Linux</b>] </li>
+              <li>[<i>OS</i>=<b>Mac</b>]</li>
+            </ul>
+            <p>Depending on the course you are taking you may be required to use
+              only one designated operating system. This information will be
+              given to you in class.<br>
+              <br>
+              As long as you configure the settings in the <a href="#Document-Configuration">Document
+                Configuration</a> section (above), then the detailed
+              instructions will only be displayed for the operating system you
+              selected (while the details for the other os's will remain
+              hidden).</p>
+          </li>
+          <li><b>Screen Shot Figures</b>: Most screen captures in this document
+            can be zoomed to full size by clicking on the image.&nbsp;&nbsp;
+            Click anywhere outside the zoomed image to return the image to its
+            original size. For example, click on the image below:<br>
+            <figure class="Screen_Capture" tabindex="1"> <img src="images/Screen_Capture.png"
+
+                alt="Screen_Capture"> </figure>
+          </li>
+          <li><b>Fonts:</b>
+            <ul>
+              <li><span class="User_Input">your_user_id</span> – this indicates
+                you should input a specific text string. The specifics will be
+                indicated in the instructions. </li>
+              <li> <span class="User_Input_Generic">path_to_a_directory_where_you_can_save_your_work</span>
+                – this indicates you should input a specific text string. It is
+                assumed the reader can interpret what to type based on the
+                context and their general computer science knowledge. </li>
+              <li> <span class="Shell_Code_Comment"> […additional output will
+                  appear…] </span> – this a comment describing output from a
+                command-line command. </li>
+            </ul>
+          </li>
+          <li><b>Shell Code Examples:</b> Shell code instructions appear in
+            black boxes. For lengthy code examples there is an interactive
+            scroll bar on the right. Additionally, on the right there is a
+            button,&nbsp;<span class="Text_Button">&nbsp;▽&nbsp;</span> ,
+            clicking the button will expand the box to display it's entire
+            contests without scrolling. An example is below:<br>
+            <table class="Code_Example" id="Code_Example_Example" border="1">
+              <tbody style="height: 150px;">
+                <tr>
+                  <td> <button onclick="Code_Example_Toggle('Code_Example_Example');">
+                      ▽ </button> </td>
+                  <td>
+                    <div style="height: 100px;"> <code class="Shell_Code_Prompt">
+                        lucretius@CCIWD-435B-1 ~/ITCS_4120<br>
+                      </code> <code class="Shell_Code_Input"> $ ls -la <br>
+                      </code> <code class="Shell_Code_Output"> total 20<br>
+                        drwxr-xr-x 1 lucretius 197609 0 Sep 23 21:57 ./<br>
+                        drwxr-xr-x 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius</code> 197609 0
+                        Sep 23 21:37 ../<br>
+                        -rw-r--r-- 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius</code> 197609 0
+                        Sep 23 21:55 'The Hitchhickers Guide to the Galaxy.azw'<br>
+                        -rw-r--r-- 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius</code> 197609 0
+                        Sep 23 21:36 'On the nature of things - Lucretius.pdf'<br>
+                        -rw-r--r-- 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius</code> 197609 0
+                        Sep 23 21:56 'Ethica - Spinzoa.pdf'<br>
+                        -rw-r--r-- 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius</code> 197609 0
+                        Sep 23 21:57 'Moses the Egyptian: The Memory of Egypt in
+                        Western Monotheism.azw'<br>
+                        -rw-r--r-- 1 </code><code class="Shell_Code_Output"><code
+
+                          class="Shell_Code_Output">lucretius </code>197609 0
+                        Sep 23 21:37 Notes.docx<br>
+                        <span class="Shell_Code_Comment"> […misc additional
+                          output will appear…] </span> </code> </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

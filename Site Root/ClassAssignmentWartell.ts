@@ -341,7 +341,7 @@ export function main()
                 document.body.appendChild(a);
                 const url = URL.createObjectURL(new Blob([htmlOut], {type: 'plain/text'}));
                 a.href = url;
-                a.download = "zaw-presentation.html";
+                a.download = "zjw-instructions-bak.html";
                 a.click();
                 document.body.removeChild(a);
 
@@ -351,6 +351,36 @@ export function main()
             {
                 throw err;
             }
+        });
+
+    const inputFile : HTMLInputElement = <HTMLInputElement> document.getElementById("loadFile");
+    inputFile.addEventListener('change',
+        ( e: InputEvent)=>
+        {
+            const reader = new FileReader();
+            //const captureThis = this;
+            /*
+             must be 'loadend' on mobile phone 'load' event triggers multiple times for large files
+             */
+            reader.addEventListener('loadend', (event : ProgressEvent<FileReader> ) =>
+            {
+                /**
+                 * Load the instructions content Html Fragment into DOM
+                 */
+                const mw : HTMLElement = document.querySelector("section.MainWindow");
+                mw.innerHTML = event.target.result.toString();
+
+                /**
+                 * Update JS Objects
+                 */
+                // \todo Update JS Objects
+            });
+            reader.readAsText((<HTMLInputElement>e.target).files[0]);
+            //console.log((<HTMLInputElement>e.currentTarget).value);
+            /*
+            slides.loadFile((<HTMLInputElement>e.target).files[0]);
+            (<HTMLElement>e.target).parentElement.parentElement.hidden = true;
+            */
         });
     
     /*

@@ -142,7 +142,8 @@
     <div id="Toolbar" class="Toolbar">
       <div class="Menu"> <button id="fileMenu" onclick="document.getElementById('fileSubMenu').hidden=false; console.log('Hello');">File</button>
         <ul id="fileSubMenu" class="SubMenu" hidden="">
-          <li> <input id="presentation" name="presentation" accept="/html" type="file">
+          <li>
+              <input id="loadFile" name="loadFile" accept="/html" type="file">
           </li>
           <li><button id="save">Save</button></li>
           <li><button id="exportAll">Download</button></li>

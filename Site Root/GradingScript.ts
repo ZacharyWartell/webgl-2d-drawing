@@ -11,6 +11,23 @@
  **** WORK IN PROGRESS *****/
 
 /**
+ Misc. Global variables
+ */
+var Global =
+    {
+        /**
+         * @brief directory for student being graded
+         * @type {string}
+         */
+        studentDirectory : "",
+        /**
+         * \todo make this configuration by application
+         */
+        visualStudio : "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\devenv.exe"
+    };
+
+
+/**
  \brief GradingScript generates and downloads a Bash script from the browser that
  when executed on the client PC automates various parts of the task of grading a particular <section>'s
  set of instructions (ol.Instructions)

@@ -15,7 +15,11 @@
     <script src="https://hypothes.is/embed.js" async=""></script>
     <script src="libs/jquery-3.5.1.min.js"></script>
     <script src="libs/toc.min.js"></script>
-    <script>
+
+    <script type="module" src="ClassAssignmentWartell.js"></script>
+    <script type="module">
+      import {main} from "./ClassAssignmentWartell.js";
+      main();
       /*  \author Zachary Wartell
        *  \brief toggle the "hidden" attribute of all elements of class "Class"
        *  @param {String} - name of class
@@ -273,15 +277,20 @@
         </h2>
         <h2 class="nocount Title">Spring 2021</h2>
         <h3 class="nocount Title">Professor: Zachary Wartell</h3>
-        <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
+        <h3 class="nocount Title">Revision: $REVISION$ <sup> (<a href="https://gitlab.com/zwartell/zjw-generic-instructions/commits/master"
+
               target="_blank">git logs</a>) </sup><br>
         </h3>
         <hr>
-        <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+        <div style="text-align: center;"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img
+
               alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></a><br>
-          <span>"ITCS <span class="DataField" data-course-number=""></span> : <span
-              data-project-name-dir="">Generic Instructions</span>" </span>by <a
-            href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL" target="_blank"
+          <span>"ITCS <span class="DataField" data-course-number=""></span> : <span
+
+              data-project-name-dir="">Generic Instructions</span>" </span>by <a
+
+            href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL" target="_blank"
+
             title="https://webpages.uncc.edu/zwartell/">Zachary Justin Wartell</a>
           is licensed under a <a rel="license" href="http://creativecommons.org/lice%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20nses/by-nc-sa/4.0/">Creative
             Commons Attribution-NonCommercial-ShareAlike 4.0 International
@@ -312,8 +321,10 @@
         <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>           -->
           <form name="System_Configuration">
             <fieldset> <legend>Display Configuration:&nbsp;</legend> <label><b>Staff_Notes:</b>
-              </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
-                onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
+              </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
+
+                onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
+
                 type="checkbox"> <label for="Staff_Notes">Visible</label> </fieldset>
           </form>
           <hr> </section>
@@ -324,7 +335,8 @@
           To access the guide to reading and navigation these instructions press
           the "Help" button in the menu bar above.<br>
           <br>
-          For this project you will port <a href="https://observablehq.com/@d3/connected-scatterplot"
+          For this project you will port <a href="https://observablehq.com/@d3/connected-scatterplot"
+
             target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a>
           to a stand-alone HTML5 page and add multiple new features and
           improvements to the original code. All files are submitted through
@@ -355,15 +367,19 @@
         </section>
         <section>
           <h1 class="toc">D3 Beginner Project</h1>
-          <p>For project you will extend the Observable notebook project <a href="https://observablehq.com/@d3/connected-scatterplot"
+          <p>For project you will extend the Observable notebook project <a href="https://observablehq.com/@d3/connected-scatterplot"
+
               target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a></p>
           <div>
             <ol class="Instruction">
               <li><span class="Exercise_Title">Git Repo</span><br>
                 <ol>
-                  <li>Create a new remote repository on the Git server called <span
-                      style="File_Name">"<span class="DataField" data-course-number=""></span>-<span
-                        class="DataField" data-project-number=""></span>-<span class="DataField"
+                  <li>Create a new remote repository on the Git server called <span
+
+                      style="File_Name">"<span class="DataField" data-course-number=""></span>-<span
+
+                        class="DataField" data-project-number=""></span>-<span class="DataField"
+
                         data-project-name-dir=""></span></span>".<br>
                     <ol>
                       <li>Remember to make your remote repository <b>"Private"</b></li>
@@ -372,7 +388,8 @@
                     </ol>
                   </li>
                   <li>Now clone your remote repo:<br>
-                    <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+                    <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
                       border="1">
                       <tbody>
                         <tr>
@@ -381,11 +398,14 @@
                             <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                                 ~/ITCS_<span class="DataField" data-course-number=""></span>/</code><br>
                               <code class="Shell_Code_Input">$git clone
-                                https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
-                                class="Shell_Code_Input"><span style="File_Name"><span
+                                https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
+                                class="Shell_Code_Input"><span style="File_Name"><span
+
                                     data-project-git="">3120_P2_Planet_Mobile</span></span>.git
                                 <span data-project-number-long-dir="Project_2"></span></code>2<br>
-                              <code class="Shell_Code_Output">Cloning into '<span
+                              <code class="Shell_Code_Output">Cloning into '<span
+
                                   data-project-number-long-dir="">Project_X</span>'...<br>
                                 warning: You appear to have cloned an empty
                                 repository.<br>
@@ -398,11 +418,13 @@
                   </li>
                 </ol>
               </li>
-              <li>Briefly study the example and code at <a href="https://observablehq.com/@d3/connected-scatterplot"
+              <li>Briefly study the example and code at <a href="https://observablehq.com/@d3/connected-scatterplot"
+
                   target="_blank">https://observablehq.com/@d3/connected-scatterplot.<br>
                 </a><br>
                 <span class="Exercise_Title"></span></li>
-              <li><span class="Exercise_Title">File Organization</span>: <span
+              <li><span class="Exercise_Title">File Organization</span>: <span
+
                   class="Grade_Points" data-points="5"></span> <span>Create
                   initial files </span>as follows:<br>
                 <ol>
@@ -420,7 +442,8 @@
                   </li>
                   <li>&nbsp;Make <span class="File_Name">connected-scatterplot.js</span>
                     import D3 as a JavaScript <span class="File_Name">import</span>
-                    module. (Read MDN documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+                    module. (Read MDN documentation: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import"
+
                       target="_blank">https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import</a>
                     if you are not familiar with JS module's).</li>
                   <li>Add a function main() to <span class="File_Name">connected-scatterplot.js</span>&nbsp;
@@ -429,12 +452,15 @@
                     files with message "-setup inital file organization" </li>
                 </ol>
               </li>
-              <li><span class="Exercise_Title">Port</span>:&nbsp; <span class="Grade_Points"
-                  data-points="15"></span> <span>Port Observable </span> <a href="https://observablehq.com/@d3/connected-scatterplot"
+              <li><span class="Exercise_Title">Port</span>:&nbsp; <span class="Grade_Points"
+
+                  data-points="15"></span> <span>Port Observable </span> <a href="https://observablehq.com/@d3/connected-scatterplot"
+
                   target="_blank">https://observablehq.com/@d3/connected-scatterplot</a>'s
                 D3 code to your JS and HTML files.<br>
                 <ol>
-                  <li>Download any referenced data files for <a href="https://observablehq.com/@d3/connected-scatterplot"
+                  <li>Download any referenced data files for <a href="https://observablehq.com/@d3/connected-scatterplot"
+
                       target="_blank">https://observablehq.com/@d3/connected-scatterplot.</a>into
                     your project directory.</li>
                   <li>Port the JavaScript source code from the Observable
@@ -442,7 +468,8 @@
                     creating functions and classes as necessary.
                     <div class="Hint"><br>
                       <ul>
-                        <li> See the Canvas Announcement <a href="https://uncc.instructure.com/courses/146720/discussion_topics/1054444"
+                        <li> See the Canvas Announcement <a href="https://uncc.instructure.com/courses/146720/discussion_topics/1054444"
+
                             target="_blank">Notebook Cell 'auto-magic'</a></li>
                         <li><span style="color: rgb(0, 0, 0); font-family: &quot;Times New Roman&quot;; font-size: large; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: left; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">The
                             Observable notebook code uses several functions that
@@ -450,7 +477,8 @@
                             To port the notebook code make the following
                             substitutions:</span><span style="font-family: &quot;Times New Roman&quot;;">&nbsp;
                             </span>instead of Observable FileAttachment read
-                          about and use<span>&nbsp;</span><a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload"
+                          about and use<span>&nbsp;</span><a href="https://developer.mozilla.org/en-US/docs/Web/API/FileReader/onload"
+
                             target="_blank">FileReader.onload</a><span>&nbsp;</span>with
                           an HTML<span>&nbsp;</span><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input">&lt;input&gt;</a><span>&nbsp;</span>of
                           type="file".</li>
@@ -462,25 +490,30 @@
                     files with message "-ported connected scatter plot" </li>
                 </ol>
               </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="15"></span> <span>Pan and Zoom: </span>Add a
                 pan and zooming a user interface.&nbsp; The input control method
                 is up to you.&nbsp; That is you can use a set of keyboard keys,
                 or implement a mouse interface or a multi-touch user
-                interface&nbsp; (see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+                interface&nbsp; (see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+
                   target="_blank">MDN Touch_events</a>).
                 <div class="Hint">
                   <ul>
                     <li> Panning and zooming is done in SVG by adjusting the
                       viewbox (see <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox">
                         MDN viewBox</a></li>
-                    <li>For touch the option see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+                    <li>For touch the option see <a href="https://developer.mozilla.org/en-US/docs/Web/API/Touch_events"
+
                         target="_blank">MDN Touch_events</a>.</li>
                   </ul>
                 </div>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"
+                <a href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/viewBox"
+
                   target="_blank">MDN viewbox)</a> </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="10"></span> <span>Data Point Selection:</span>
                 Add the ability to hover the the mouse pointer over any data
                 point and display a pop-up window with labeled numerical values
@@ -488,11 +521,14 @@
                 miles per person per year, cost per gallon).<br>
                 <span class="Git_Commit">Git add and commit</span> with message
                 "-[feature] <span>Data Point Selection</span>" <br>
-                <div class="Hint">See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event"
-                    target="_blank">MDN Mouseover Event </a><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups"
+                <div class="Hint">See <a href="https://developer.mozilla.org/en-US/docs/Web/API/Element/mouseover_event"
+
+                    target="_blank">MDN Mouseover Event </a><a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups"
+
                     target="_blank">MDN Popups</a></div>
               </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="10"></span> <span>Time Range Selection:</span>
                 Add a GUI element slider to select an time internal (i.e. a
                 start year and end year). The extreme possible values, min and
@@ -506,7 +542,8 @@
                     end year.&nbsp; For full credit you must also implement the
                     logical that prevents the user from sliding the start year
                     higher than the end year or vice-versa.
-                    <div class="Hint">See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
+                    <div class="Hint">See <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range"
+
                         target="_blank">MDN Input Range <br>
                       </a> </div>
                   </li>
@@ -516,11 +553,13 @@
                     these, but the extra credit task here is to learn some more
                     SVG and implement you own concept. A example library that
                     demonstrates what you are to create is the jQuery Range
-                    slider shown at <a href="https://jqueryui.com/slider/#range"
+                    slider shown at <a href="https://jqueryui.com/slider/#range"
+
                       target="_blank">https://jqueryui.com/slider/#range</a></li>
                 </ol>
                 <strong> </strong> </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="10"></span> <span>Time Range Highlighting:</span>&nbsp;
                 Modify the drawing of the plotted curve to highlight the section
                 of the curve corresponding to the time range selected in the UI
@@ -528,7 +567,8 @@
                 <span class="Git_Commit">Git add and commit</span> with message
                 "-[feature] <span>Time Range Highlighting</span><span></span>"
               </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="10"></span><span>Color Coding Bivariate Delta
                   Values:</span> In addition to the year, each plot point has
                 two data values. As we move from one year to the next these two
@@ -539,13 +579,15 @@
                 coding and color code the plot points using that color coding<br>
                 <span class="Git_Commit">Git add and commit</span> with message
                 "-[feature] Color Coding Bivariate Delta Values<span></span>" </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="5"></span><span> Color Coding Legend:</span>&nbsp;
                 Add a color coding legend to the page.&nbsp;&nbsp; See Figure
                 4.36 in the textbook for an example.<br>
                 <span class="Git_Commit">Git add and commit</span> with message
                 "-[feature] Color Coding Bivariate Delta Values<span></span>" </li>
-              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+              <li><span class="Exercise_Title">Feature</span>:&nbsp; <span class="Grade_Points"
+
                   data-points="15"></span><span> Generalizing for Other Data
                   Sets:</span>&nbsp; <br>
                 <ol>
@@ -668,11 +710,13 @@
             <h1>Appendix IV: [Teaching Staff Only]&nbsp; Code Retrieval and Repo
               Setup</h1>
             <ol class="Instruction">
-              <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span class="DataField"
+              <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_<span class="DataField"
+
                   data-course-number=""></span> directory, where you did yours
                 previous projects. Verify you have a directory structure as
                 shown below:<br>
-                <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+                <table class="Code_Example" id="Code_Example1" style="width: 100%;"
+
                   border="1">
                   <tbody>
                     <tr>
@@ -713,7 +757,8 @@
                   </tbody>
                 </table>
               </li>
-              <li>Create a new remote repository on the Git server called <span
+              <li>Create a new remote repository on the Git server called <span
+
                   style="File_Name">"3120_P2_Planet_Mobile"</span>.<br>
                 <ol>
                   <li>Remember to make your remote repository <b>"Private"</b>
@@ -723,7 +768,8 @@
                 <br>
               </li>
               <li>Now clone your remote repo:<br>
-                <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+                <table class="Code_Example" id="Code_Example5" style="width: 100%;"
+
                   border="1">
                   <tbody>
                     <tr>
@@ -732,7 +778,8 @@
                         <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
                             ~/ITCS_<span class="DataField" data-course-number=""></span>/</code><br>
                           <code class="Shell_Code_Input">$git clone
-                            https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                            https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+
                             class="Shell_Code_Input"><span style="File_Name">3120_P2_Planet_Mobile</span>.git
                             <span data-project-number-long-dir="Project_2"></span></code>2<br>
                           <code class="Shell_Code_Output">Cloning into
@@ -749,7 +796,8 @@
               <li>Next, retrieve the skeleton code:<br>
                 (The mechanics below are common git technique called 'fork'ing).<br>
                 &nbsp;
-                <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+                <table class="Code_Example" id="Code_Example3" style="width: 100%;"
+
                   border="1">
                   <tbody>
                     <tr>
@@ -758,18 +806,22 @@
                         <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
                             <span data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                               data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Input">$git remote add
-                            upstream https://cci-git.uncc.edu/UNCC_Graphics/</code><code
-                            class="Shell_Code_Input"><code class="Shell_Code_Input">ITCS_<span
+                            upstream https://cci-git.uncc.edu/UNCC_Graphics/</code><code
+
+                            class="Shell_Code_Input"><code class="Shell_Code_Input">ITCS_<span
+
                                 class="DataField" data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                           <span class="Shell_Code_Comment">[... the above
                             connects to the original 'upstream' remote, to which
                             you have read-only access ...]</span><br>
                           <br>
                           <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                               data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Input">$git fetch upstream</code><br>
                           <code class="Shell_Code_Output">remote: Counting
@@ -777,12 +829,14 @@
                             remote: Compressing objects: 100% (28/28), done.<br>
                             remote: Total 30 (delta 11), reused 0 (delta 0)<br>
                             Unpacking objects: 100% (30/30), done.<br>
-                            From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
+                            From https://cci-git.uncc.edu/UNCC_Graphics/ITCS_<span
+
                               data-course-number=""></span>_Planet_Mobile<br>
                             * [new branch] master -&gt; upstream/master<br>
                             <br>
                           </code> <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                               data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Input">$git merge
                             upstream/master</code><br>
@@ -797,14 +851,16 @@
                 <br>
               </li>
               <li>Push the skeleton code to <u><b>your</b></u> repo.<br>
-                <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+                <table class="Code_Example" id="Code_Example7" style="width: 100%;"
+
                   border="1">
                   <tbody>
                     <tr>
                       <td><button>▽</button></td>
                       <td>
                         <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                               data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Input">$git push -u origin
                             master</code><br>
@@ -815,7 +871,8 @@
                             Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s,
                             done.<br>
                             Total 30 (delta 11), reused 0 (delta 0)<br>
-                            To https://cci-git.uncc.edu/zwartell/ITCS_<span class="DataField"
+                            To https://cci-git.uncc.edu/zwartell/ITCS_<span class="DataField"
+
                               data-course-number=""></span>_<span data-project-number-long-dir="Project_2"></span>.git<br>
                             * [new branch] master -&gt; master<br>
                             Branch master set up to track remote branch master
@@ -832,14 +889,16 @@
                 <br>
               </li>
               <li>Verify your directory structure:<br>
-                <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+                <table class="Code_Example" id="Code_Example8" style="width: 100%;"
+
                   border="1">
                   <tbody>
                     <tr>
                       <td><button>▽</button></td>
                       <td>
                         <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@Monad42
-                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                               data-project-number-long-dir="Project_2"></span></code><br>
                           <code class="Shell_Code_Input">$cd ..</code><br>
                           <code class="Shell_Code_Prompt">lucretius@Monad42
@@ -894,7 +953,8 @@
       <template id="Instruction_Template">
         <div>
           <ol class="Instruction">
-            <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/4"
+            <li>[<a href="https://observablehq.com/@d3/lets-make-a-bar-chart/4"
+
                 target="_blank">Let’s Make a Bar Chart - Part IV</a><span style="color: #0000ee;">
                 ]</span>
               <ol>
@@ -908,7 +968,8 @@
                   There is nothing to submit for this exercise. <br>
                   <br>
                 </li>
-                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+                <li><span class="Exercise_Title">Exercise</span>: <span class="Grade_Points"
+
                     data-points="10"></span> <span>Port "Part IV" to <span class="File_Name">BarChart.html</span></span><br>
                   <ol>
                     <li>Integrate the final updated notebook code from Part IV
@@ -933,16 +994,19 @@
               <td>
                 <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
                     <span data-project-number-long-dir="Project_2"></span></code><br>
-                  <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+                  <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+
                       class="DataField" data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                   <code class="Shell_Code_Input">$git remote add upstream
-                    https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+                    https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+
                       class="Shell_Code_Input">ITCS_<span class="DataField" data-course-number=""></span>_Planet_Mobile.git</code></code><br>
                   <span class="Shell_Code_Comment">[... the above connects to
                     the original 'upstream' remote, to which you have read-only
                     access ...]</span><br>
                   <br>
-                  <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+                  <code class="Shell_Code_Prompt">lucretius@Monad42 ~/ITCS_<span
+
                       class="DataField" data-course-number=""></span>/<span data-project-number-long-dir="Project_2"></span></code><br>
                   <code class="Shell_Code_Input">$git fetch upstream</code><br>
                   <code class="Shell_Code_Output">remote: Counting objects: 30,
@@ -954,7 +1018,8 @@
                     * [new branch] master -&gt; upstream/master<br>
                     <br>
                   </code> <code class="Shell_Code_Prompt">lucretius@Monad42
-                    ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+                    ~/ITCS_<span class="DataField" data-course-number=""></span>/<span
+
                       data-project-number-long-dir="Project_2"></span></code><br>
                   <code class="Shell_Code_Input">$git merge upstream/master</code><br>
                   <span class="Shell_Code_Comment">[... the above 2 commands

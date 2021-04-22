@@ -7,23 +7,6 @@
  \status [STATUS=not deployed] work-in-progress
  */
 
-
-/**
- Misc. Global variables
- */
-var Global =
-    {
-        /**
-         * @brief directory for student being graded
-         * @type {string}
-         */
-        studentDirectory : "",
-        /**
-         * \todo make this configuration by application
-         */
-        visualStudio : "C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Community\\Common7\\IDE\\devenv.exe"
-    };
-
 /*
  * @type {Readonly<{READ: symbol, TODO: symbol, OVERVIEW: symbol, GENERAL: symbol, QUESTION: symbol}>}
  */
@@ -216,9 +199,160 @@ function collectionInstructions(section : HTMLElement, sectionLabel : string) {
 }
 
 /*
- [STATUS: NOT DEPLOYED] [work-in-progress]
+https://web.dev/file-system-access/
+*/
+async function writeFile(fileHandle, contents) {
+    // Create a FileSystemWritableFileStream to write to.
+    const writable = await fileHandle.createWritable();
+    // Write the contents of the file to the stream.
+    await writable.write(contents);
+    // Close the file and write the contents to disk.
+    await writable.close();
+}
+
+function apiCheck()
+{
+    // https://web.dev/file-system-access/
+    if ((<any>window).showSaveFilePicker === undefined)
+        //throw "Browser does not support window.showSaveFilePicker";
+        alert("Browser does not support window.showSaveFilePicker");
+}
+
+export function main()
+{
+    apiCheck();
+    
+    /**
+     **   Setup Menu Bar
+     **/
+
+    /*
+     *  add eventListners the close SubMenu on mouseleave 
+     */
+    let nl = document.querySelectorAll("ul.SubMenu");
+    nl.forEach(
+        (n)=>
+        {
+            n.addEventListener('mouseleave',
+                (e:MouseEvent)=>
+                {
+                    (<HTMLElement>e.target).hidden=true;
+                });
+        });
+
+    let input;
+    /*
+    *  Menu#File Download button
+    - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Working_with_files
+    - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/download
+    */
+
+    input = document.getElementById("save");
+    input.addEventListener('click',
+        (e:MouseEvent)=>
+        {
+            const options = {
+                types: [
+                    {
+                        description: 'Html Files',
+                        accept: {
+                            'text/html': ['.html'],
+                        },
+                    },
+                ],
+            };
+            (<any>window).showSaveFilePicker(options).
+            then(
+                (handle)=>
+                {
+                    console.log("Save " + handle);
+                    return writeFile(handle,document.querySelector('section.SlidesWindow').innerHTML);
+                }).
+            catch(
+                (e)=> { throw e;}
+            );
+            (<HTMLElement>e.target).parentElement.parentElement.hidden = true;
+        });
+    
+    /*
+    *  Menu#File Download button
+    - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Working_with_files
+    - https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/download
+    */
+    input = document.getElementById("exportAll");
+    input.addEventListener("click",
+        ( e: InputEvent )=>
+        {
+            try{
+                let htmlOut : string = "";
+                const scs = document.querySelectorAll(`div.SlideContainer`);
+                scs.forEach((sc)=>{htmlOut += sc.outerHTML;});
+
+                const a = document.createElement("a");
+                document.body.appendChild(a);
+                const url = URL.createObjectURL(new Blob([htmlOut], {type: 'plain/text'}));
+                a.href = url;
+                a.download = "zaw-presentation.html";
+                a.click();
+                document.body.removeChild(a);
+
+                (<HTMLElement>e.target).parentElement.parentElement.hidden = true;
+            }
+            catch(err)
+            {
+                throw err;
+            }
+        });
+    
+    /*
+     *   Use XHR to load Chapter4.html
+     *   \todo extend to allow user to choose a chapter available from the server
+     *
+     *  - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/Using_XMLHttpRequest
+     *  - https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/HTML_in_XMLHttpRequest
+     */
+    //slides.url = "Chapter5.html";
+    // 4/11: keep for potential load from server file system (will require more work on the code below)
+
+    /*
+    let xhr = new XMLHttpRequest();
+
+    xhr.onload = function ()
+    {
+        console.log(this.responseXML);
+        const sw=document.querySelector("section.SlidesWindow");
+        const xhr_scs = this.responseXML.body.querySelectorAll("div.SlideContainer");
+        xhr_scs.forEach(
+            (e)=>
+            {
+                sw.appendChild(e);
+                slides.slides.push(new SP.Slide(<HTMLElement>e));
+            });
+        const scs = document.querySelectorAll("div.SlideContainer");
+        slides.count = slides.htmlCount = scs.length;
+
+    };
+    let url = window.location.href;
+    const name = "ITCS 5121/ITCS 5121 - IVPD - Chapter 6.html";
+    // handle fact that url comes uot differently when testing on localhost versus reomte browser
+    if (url[url.length-1]==='/')
+        url += name;//slides.url);
+    else
+        url = url.replace('index.html',name);
+    console.log(url);
+    xhr.open("GET", url);
+    xhr.responseType = "document";
+    xhr.send();    
+     */
+}
+
+/**
+ ******  [STATUS: NOT DEPLOYED] ******* 
+ ******  [work-in-progress]     *******
+ 
+ 
  Currently the <script> in the .html does an approximation of some of what the code below will eventually do.
- */
+ **/
 function onLoad() {
     // [STATUS=not deployed] work-in-progress
     {

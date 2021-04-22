@@ -18,56 +18,12 @@
 
     <script type="module" src="ClassAssignmentWartell.js"></script>
     <script type="module">
-      import {main} from "./ClassAssignmentWartell.js";
+      import {main,Visibility_Toggle} from "./ClassAssignmentWartell.js";
       main();
-      /*  \author Zachary Wartell
-       *  \brief toggle the "hidden" attribute of all elements of class "Class"
-       *  @param {String} - name of class
-       */
-      function Visibility_Toggle(Class) {
-        var list = document.querySelectorAll("." + Class);
-        for (i = 0; i < list.length; i++)
-        {
-          /*
-          if (list[i].previousElementSibling === null ||
-              list[i].previousElementSibling.tagName !== "BUTTON" ||
-              list[i].previousElementSibling.className !== "Div_Toggle_Button"
-             )
-          {// Hide button wasn't created yet, so insert it 
-            var unhideButton = document.createElement("BUTTON");
-            unhideButton.className = "Div_Toggle_Button";
-            unhideButton.setAttribute("style", "text-align:center;");
-            unhideButton.setAttribute("onclick", "Div_Toggle (" + '"' + Class + '"' + ")");
-            unhideButton.textContent = "Unhide ... ";
-            list[i].parentElement.insertBefore(unhideButton, list[i]);
-          }
-        	*/
+      window.Visibility_Toggle = Visibility_Toggle;
+      window.onload_Body = onload_Body;
 
-          if (!list[i].hasAttribute("hidden"))
-          {/* hide div and show Unhide button */
-            /* enable the unhide button */
-            //list[i].previousElementSibling.textContent = "Unhide";
-
-            /* hide this div */
-            list[i].setAttribute("hidden", "true");
-          }
-          else
-          {/* unhide div and show Hide button */
-            list[i].removeAttribute("hidden");
-            /* list[i].previousElementSibling.setAttribute("hidden","true"); */
-            //list[i].previousElementSibling.textContent = "Hide";
-          }                 
-        }
-        /*
-        * Re-Initialize toc module
-        */
-        $('#toc').toc(
-                { 'smoothScrolling': true,
-                  'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-                }
-        );
-      }      
-      function onload_Body()
+      export function onload_Body()
       {
         /*
         *  Initialize misc. content to reflect the current projects name, directory names, etc.
@@ -87,25 +43,25 @@
         {
           e.innerText = Project.courseNumber;
         }
-        
+
         elements = document.querySelectorAll('span[data-project-number]');
         for(let e of elements)
         {
           e.innerText = Project.number;
-        }  
-        
+        }
+
         elements = document.querySelectorAll('span[data-project-number-long-dir]');
         for(let e of elements)
         {
           e.innerText = Project.numberLongDir;
-        }          
-        
+        }
+
         elements = document.querySelectorAll('span[data-project-name-dir]');
         for(let e of elements)
         {
           e.innerText = Project.name;
-        }       
-        
+        }
+
         elements = document.querySelectorAll('span[data-project-git]');
         for(let e of elements)
         {
@@ -168,8 +124,8 @@
                   'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
                 }
         );
-        
-        
+
+
         /*
         *  Initialize rubric
         */
@@ -237,7 +193,7 @@
         }
         const ttd = document.getElementById("Total");
         ttd.nextElementSibling.innerText = total.toString();
-        
+
       }
     </script>
     <link rel="stylesheet" href="generic_instructions.css">

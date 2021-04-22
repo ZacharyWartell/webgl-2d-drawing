@@ -198,6 +198,55 @@ function collectionInstructions(section : HTMLElement, sectionLabel : string) {
     }
 }
 
+/*  \author Zachary Wartell
+ *  \brief toggle the "hidden" attribute of all elements of class "Class"
+ *  @param {String} - name of class
+ */
+export
+function Visibility_Toggle(Class)
+{
+    var list = document.querySelectorAll("." + Class);
+    for (let i = 0; i < list.length; i++)
+    {
+        /*
+        if (list[i].previousElementSibling === null ||
+            list[i].previousElementSibling.tagName !== "BUTTON" ||
+            list[i].previousElementSibling.className !== "Div_Toggle_Button"
+           )
+        {// Hide button wasn't created yet, so insert it
+          var unhideButton = document.createElement("BUTTON");
+          unhideButton.className = "Div_Toggle_Button";
+          unhideButton.setAttribute("style", "text-align:center;");
+          unhideButton.setAttribute("onclick", "Div_Toggle (" + '"' + Class + '"' + ")");
+          unhideButton.textContent = "Unhide ... ";
+          list[i].parentElement.insertBefore(unhideButton, list[i]);
+        }
+          */
+
+        if (!list[i].hasAttribute("hidden"))
+        {/* hide div and show Unhide button */
+            /* enable the unhide button */
+            //list[i].previousElementSibling.textContent = "Unhide";
+
+            /* hide this div */
+            list[i].setAttribute("hidden", "true");
+        }
+        else
+        {/* unhide div and show Hide button */
+            list[i].removeAttribute("hidden");
+            /* list[i].previousElementSibling.setAttribute("hidden","true"); */
+            //list[i].previousElementSibling.textContent = "Hide";
+        }
+    }
+    /*
+    * Re-Initialize toc module
+    */
+    document.getElementById('#toc')["toc"](
+        { 'smoothScrolling': true,
+            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+        }
+    );
+}
 /*
 https://web.dev/file-system-access/
 */
@@ -353,7 +402,7 @@ export function main()
  
  Currently the <script> in the .html does an approximation of some of what the code below will eventually do.
  **/
-function onLoad() {
+function onLoad_idea2() {
     // [STATUS=not deployed] work-in-progress
     {
         Global.studentDirectory = localStorage.getItem('studentDirectory') || "";

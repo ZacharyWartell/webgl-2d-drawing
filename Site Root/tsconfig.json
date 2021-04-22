@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    /* "module": "commonjs", */
+    "target": "es2015",
+    "sourceMap": true,
+
+    "baseUrl": ".",
+    "paths": {
+      "*": ["*.js"] // This mapping is relative to "baseUrl"
+    }
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "files": [
+    "main.ts"
+  ],
+}

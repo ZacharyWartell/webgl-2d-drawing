@@ -18,6 +18,7 @@
 
     <script type="module" src="ClassAssignmentWartell.js"></script>
     <script type="module">
+      import * as Rubric from "./Rubric.js";
       import {main,Visibility_Toggle} from "./ClassAssignmentWartell.js";
       main();
       window.Visibility_Toggle = Visibility_Toggle;
@@ -25,9 +26,9 @@
 
       export function onload_Body()
       {
-        /*
-        *  Initialize misc. content to reflect the current projects name, directory names, etc.
-        */
+        /**
+        ** Initialize misc. content to reflect the current projects name, directory names, etc.
+        **/
         let Project=
         	{
               courseNumber :"5121",
@@ -69,7 +70,7 @@
         }
 
         /*
-        *  remove DataField:before contents now that  data text is inserted
+        *  remove DataField:before contents now that data text is inserted
         */
         elements = document.querySelectorAll('span.DataField');
         for(let e of elements)
@@ -83,9 +84,9 @@
           e.hidden = true;
         }
 
-        /*
-        *    Create video cue buttons
-        */
+        /**
+        ***  Create video cue buttons
+        **/
         elements = document.querySelectorAll('span.VideoCue');
         for(let e of elements)
         {
@@ -116,9 +117,9 @@
           e.after(button);
         }
 
-        /*
-        *    Initialize toc module
-         */
+        /**
+        ***    Initialize toc module
+        **/
         $('#toc').toc(
                 { 'smoothScrolling': true,
                   'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
@@ -126,74 +127,10 @@
         );
 
 
-        /*
-        *  Initialize rubric
-        */
-        class RubricItem
-        {
-            constructor()
-            {
-              this.points = 10;
-              this.name = "";
-              this.shortDescription = "";
-              this.longDescription = "";
-              this.parentTag = "";
-            }
-        }
-        class Rubric
-        {
-            constructor()
-            {
-              this.items = [];
-            }
-        }
-        var _Rubric = new Rubric();
-
-        elements = document.querySelectorAll('span.Grade_Points')
-        for(let e of elements)
-        {
-            let ri = new RubricItem();
-            ri.parentTag = e.parentElement.tagName;
-            ri.points = e.dataset.points;
-            _Rubric.items.push(ri);
-            switch(e.parentElement.tagName)
-            {
-              case 'SECTION':
-                let header = e.parentElement.querySelector(":scope > h1,h2,h3,h4,h5");
-                ri.name = header.innerText;
-                break;
-              case 'LI':
-                const span = e.nextElementSibling;
-                ri.parentTag = "Exercise:";
-                if (span !== null && span.tagName === "SPAN") // by convention this contains the exercise's unique displayed name
-                  ri.name = span.innerText;
-                break;
-            }
-        }
-
-        let RubricTable = document.getElementById("RubricTable");
-        let total = 0;
-        const tbody = RubricTable.querySelector(':scope tbody');
-        for (let ri of _Rubric.items)
-        {
-          const row = document.createElement("tr");
-          //tbody.appendChild(row);
-          let tmp = tbody.querySelector(":scope > tr:nth-last-child(2)");
-          tbody.insertBefore(row,tmp);
-          row.outerHTML =
-                  `
-                  <tr>
-                        <td style="${ri.parentTag === "Exercise:" ? "text-align : right;" : "text-align : left;"}"> ${ri.parentTag} </td>
-                        <td>${ri.name}</td>
-                        <td>${ri.shortDescription}</td>
-                        <td style="${ri.parentTag === "Exercise:" ? "text-align : left;" : "text-align : center;"}">${ri.points}</td>
-                  </tr>
-                  `;
-          total += parseInt(ri.points);
-        }
-        const ttd = document.getElementById("Total");
-        ttd.nextElementSibling.innerText = total.toString();
-
+        /**
+        ***  Initialize Rubric <section>
+        **/
+        Rubric.main();
       }
     </script>
     <link rel="stylesheet" href="generic_instructions.css">

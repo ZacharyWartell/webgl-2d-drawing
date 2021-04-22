@@ -30,52 +30,48 @@
       import {main,Visibility_Toggle} from "./ClassAssignmentWartell.js";
 
       main();
-
       window.Visibility_Toggle = Visibility_Toggle;
-      window.onload_Body = onload_Body;
-
-      export function onload_Body()
+      window.rubricMain = Rubric.main;
+      console.log("window.rubricMain");
+    </script>
+    <script>
+      function onload_Body()
       {
         /**
-        ** Initialize misc. content to reflect the current projects name, directory names, etc.
-        **/
-        let Project=
-        	{
-              courseNumber :"5121",
-              number :"p1",
-              numberLongDir : "p1-d3-beginner-project",
-              name : "d3-beginner-project",
-              git : ""
-        	};
+         ** Initialize misc. content to reflect the current projects name, directory names, etc.
+         **/
+        let Project =
+                {
+                  courseNumber: "5121",
+                  number: "p1",
+                  numberLongDir: "p1-d3-beginner-project",
+                  name: "d3-beginner-project",
+                  git: ""
+                };
         Project.git = Project.courseNumber + "-" + Project.numberLongDir;
 
         let elements = document.querySelectorAll('span[data-course-number]');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.innerText = Project.courseNumber;
         }
 
         elements = document.querySelectorAll('span[data-project-number]');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.innerText = Project.number;
         }
 
         elements = document.querySelectorAll('span[data-project-number-long-dir]');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.innerText = Project.numberLongDir;
         }
 
         elements = document.querySelectorAll('span[data-project-name-dir]');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.innerText = Project.name;
         }
 
         elements = document.querySelectorAll('span[data-project-git]');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.innerText = Project.git;
         }
 
@@ -83,68 +79,64 @@
         *  remove DataField:before contents now that data text is inserted
         */
         elements = document.querySelectorAll('span.DataField');
-        for(let e of elements)
-        {
-          e.setAttribute("class","");
+        for (let e of elements) {
+          e.setAttribute("class", "");
         }
 
         elements = document.querySelectorAll('.Staff_Only');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           e.hidden = true;
         }
 
         /**
-        ***  Create video cue buttons
-        **/
+         ***  Create video cue buttons
+         **/
         elements = document.querySelectorAll('span.VideoCue');
-        for(let e of elements)
-        {
+        for (let e of elements) {
           // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
           const videoCue = Function('"use strict";return (' + e.dataset.videoCue + ')')();
           const button = document.createElement("button");
           button.addEventListener('click',
-            (e)=>
-              {
-                const cclv=document.getElementById(videoCue.videoID);
-                console.log(videoCue.interval[0]);
-                cclv.currentTime=videoCue.interval[0];cclv.play();
-                const timeupdate=
-                  (e)=>
-                      {
-                        const target = e.target;
-                        console.log("currentTime:" + target.currentTime);
-                        if (target.currentTime >= videoCue.interval[1])
-                        {
-                          target.pause();
-                          target.removeEventListener('timeupdate',timeupdate);
-                        }
-                      };
-                cclv.addEventListener('timeupdate',timeupdate);
-              });
-          const cclv=document.getElementById(videoCue.videoID);
-          button.innerHTML="&trianglerighteq;";
+                  (e) => {
+                    const cclv = document.getElementById(videoCue.videoID);
+                    console.log(videoCue.interval[0]);
+                    cclv.currentTime = videoCue.interval[0];
+                    cclv.play();
+                    const timeupdate =
+                            (e) => {
+                              const target = e.target;
+                              console.log("currentTime:" + target.currentTime);
+                              if (target.currentTime >= videoCue.interval[1]) {
+                                target.pause();
+                                target.removeEventListener('timeupdate', timeupdate);
+                              }
+                            };
+                    cclv.addEventListener('timeupdate', timeupdate);
+                  });
+          const cclv = document.getElementById(videoCue.videoID);
+          button.innerHTML = "&trianglerighteq;";
           e.after(button);
         }
 
         /**
-        ***    Initialize toc module
-        **/
+         ***    Initialize toc module
+         **/
         $('#toc').toc(
-                { 'smoothScrolling': true,
+                {
+                  'smoothScrolling': true,
                   'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
                 }
         );
 
         /**
-        ***  Initialize <table id="RubricTable">
-        **/
-        Rubric.main();
+         ***  Initialize <table id="RubricTable">
+         **/
+        window.rubricMain();
       }
     </script>
 
   </head>
-  <body onload="window.onload_Body();"> _<!-- IF_TOC -->
+  <body onload="window.onload_Body();"> <!-- IF_TOC -->
     <div id="toc"> </div>
     <div id="Toolbar" class="Toolbar">
       <div class="Menu"> <button id="fileMenu" onclick="document.getElementById('fileSubMenu').hidden=false; console.log('Hello');">File</button>

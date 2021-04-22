@@ -27,13 +27,23 @@ var Global =
 /*
  * @type {Readonly<{READ: symbol, TODO: symbol, OVERVIEW: symbol, GENERAL: symbol, QUESTION: symbol}>}
  */
+enum Category
+{
+    QUESTION,
+    GENERAL,
+    READ,
+    TODO,
+    OVERVIEW
+};
+/*
 const Category = Object.freeze({
     QUESTION: Symbol("Question"),
     GENERAL: Symbol("General"),
     READ: Symbol("Read"),
     TODO: Symbol("Todo"),
     OVERVIEW: Symbol("Overview")
-});
+})
+*/
 
 function getCategoryFromClass(element, returnNull) {
     if (element.className.includes("Instruction_Question"))
@@ -56,6 +66,8 @@ function getCategoryFromClass(element, returnNull) {
 
 class OptionSet
 {
+    name : string;
+    options : Array<any>;
     constructor(n)
     {
         this.name = n;
@@ -75,7 +87,16 @@ class OptionSet
            static TODO = 3;
     };*/
 class Instruction {
-    constructor(s, n, sh, c) {
+
+    section : string;
+    number : string;
+    id : string;
+    points : number;
+    comment : string;
+    short : string;
+    category : Category;
+
+    constructor(s : string, n : string  , sh : string , c) {
         this.section = s;
         this.number = n;
         this.short = sh;
@@ -88,6 +109,9 @@ class Instruction {
 
 class Instructions
 {
+    instructions : Array<Instruction>;
+    optionSets : Array<OptionSet>;
+
     constructor()
     {
         this.instructions = [];
@@ -108,21 +132,21 @@ function roman_lower (n)
     const roman = [ 'i','ii','iii','iv','v','vi','vii','viii','ix','x'];
     return roman[n-1];
 }
-function itemString(L1,L2,L3)
+function itemString(...args: number[])
 {
     const aCode = "a".charCodeAt(0);
     switch(arguments.length)
     {
         case 1:
-            return L1.toString();
+            return args[0].toString();
         case 2:
-            return L1.toString() + "." + String.fromCharCode(aCode+L2-1);
+            return args[0].toString() + "." + String.fromCharCode(aCode+args[1]-1);
         case 3:
-            return L1.toString() + "." + String.fromCharCode(aCode+L2-1) + "." + roman_lower(L3);
+            return args[0].toString() + "." + String.fromCharCode(aCode+args[1]-1) + "." + roman_lower(args[3]);
     }
 }
 
-function itemID(sectionLabel,L1,L2,L3)
+function itemID(sectionLabel : string,L1 : number,L2 : number,L3 : number)
 {
     let id;
     id = sectionLabel.replace('.','_');
@@ -130,10 +154,10 @@ function itemID(sectionLabel,L1,L2,L3)
     return id;
 }
 
-function collectionInstructions(section, sectionLabel) {
-    let l1c = 1, l2c = 1, l3c = 1;
+function collectionInstructions(section : HTMLElement, sectionLabel : string) {
+    let l1c : number = 1, l2c : number = 1, l3c : number = 1;
 
-    const temp = "self"+Date.now().toString();
+    const temp : string = "self"+Date.now().toString();
     section.id = temp;
     let olList = section.querySelectorAll(":scope > ol.Instruction");
     //section.id = "";
@@ -143,44 +167,50 @@ function collectionInstructions(section, sectionLabel) {
             let category = getCategoryFromClass(ol, false);
 
             l1c = 1;
-            for (let li1 of li1List) {
-                let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
+            li1List.forEach(
+                (n1)=>
+                {
+                    const li1 : HTMLElement = <HTMLElement>n1;
+                    let tmp, cat = (tmp = getCategoryFromClass(li1, true)) !== null ? tmp : category;
 
-                instructions.push(new Instruction(sectionLabel, itemString(l1c),
-                    li1.innerText.trimStart().slice(0, 10) + " ...", cat));
-                li1.id = instructions.instructions [instructions.instructions.length-1].id;
-                let ol1 = li1.querySelector(":scope > ol");
-                if (ol1 !== null && ol1.length !== 0) {
-                    let category1 = getCategoryFromClass(ol1, false);
+                    instructions.push(new Instruction(sectionLabel, itemString(l1c),
+                        li1.innerText.trimStart().slice(0, 10) + " ...", cat));
+                    li1.id = instructions.instructions [instructions.instructions.length-1].id;
+                    let ol1 = li1.querySelector(":scope > ol");
+                    if (ol1 !== null) {
+                        let category1 = getCategoryFromClass(ol1, false);
 
-                    let li2List = ol1.querySelectorAll(":scope > li"); // only children, no nested descendants
-                    l2c = 1;
-                    for (let li2 of li2List) {
-                        let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
+                        let li2List = ol1.querySelectorAll(":scope > li"); // only children, no nested descendants
+                        l2c = 1;
+                        for (let nli2 of li2List) {
+                            const li2 : HTMLOListElement = <HTMLOListElement>nli2;
+                            let tmp, cat = (tmp = getCategoryFromClass(li2, true)) !== null ? tmp : category1;
 
-                        instructions.instructions.push(new Instruction(sectionLabel, itemString(l1c ,l2c),
-                            li2.innerText.trimStart().slice(0, 10) + " ...",  cat));
-                        li2.id = instructions.instructions[instructions.instructions.length-1].id;
-                        let ol2 = li2.querySelector(":scope > ol");
-                        if (ol2 !== null && ol2.length !== 0) {
-                            let category2 = getCategoryFromClass(ol2, false);
+                            instructions.instructions.push(new Instruction(sectionLabel, itemString(l1c ,l2c),
+                                li2.innerText.trimStart().slice(0, 10) + " ...",  cat));
+                            li2.id = instructions.instructions[instructions.instructions.length-1].id;
+                            let ol2 = li2.querySelector(":scope > ol");
+                            if (ol2 !== null) {
+                                let category2 = getCategoryFromClass(ol2, false);
 
-                            let li3List = ol2.querySelectorAll(":scope > li"); // only children, no nested descendants
-                            l3c = 1;
-                            for (let li3 of li3List) {
-                                let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
+                                let li3List = ol2.querySelectorAll(":scope > li"); // only children, no nested descendants
+                                l3c = 1;
+                                for (let nli3 of li3List) {
+                                    const li3 : HTMLOListElement = <HTMLOListElement>nli3;
+                                    let tmp, cat = (tmp = getCategoryFromClass(li3, true)) !== null ? tmp : category2;
 
-                                instructions.instructions.push(new Instruction(sectionLabel, itemString(l1c , l2c ,l3c),
-                                    li3.innerText.trimStart().slice(0, 10) + " ...", cat));
-                                li3.id = instructions.instructions[instructions.instructions.length-1].id;
-                                l3c++;
+                                    instructions.instructions.push(new Instruction(sectionLabel, itemString(l1c , l2c ,l3c),
+                                        li3.innerText.trimStart().slice(0, 10) + " ...", cat));
+                                    li3.id = instructions.instructions[instructions.instructions.length-1].id;
+                                    l3c++;
+                                }
                             }
+                            l2c++;
                         }
-                        l2c++;
                     }
+                    l1c++;
                 }
-                l1c++;
-            }
+            );
         }
     }
 
@@ -268,19 +298,19 @@ function onLoad() {
                  <td><input type="text"></td>`;
         prevSection = instruction.section;
         row.querySelector('input[type="text"]').addEventListener('input',
-            (e) =>
+            (e : InputEvent ) =>
             {
-                const itemID=e.srcElement.parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('a').getAttribute('href');
-                const rowIndex=parseInt(e.srcElement.parentElement.parentElement.getAttribute("data-ri"));
+                const itemID=(<HTMLElement>e.currentTarget).parentElement.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.querySelector('a').getAttribute('href');
+                const rowIndex=parseInt((<HTMLElement>e.srcElement).parentElement.parentElement.getAttribute("data-ri"));
                 console.log(itemID.slice(1) + ":" + rowIndex + ":" + e);
                 console.log(instructions.instructions[rowIndex]);
-                instructions.instructions[rowIndex].comment = e.srcElement.valueOf().value;
+                instructions.instructions[rowIndex].comment = (<HTMLInputElement>e.currentTarget).value;
             });
         rubric.append(row);
         ri++;
     }
     let ttd = document.getElementById("Total");
-    ttd.nextElementSibling.innerText = total;
+    (<HTMLElement>ttd.nextElementSibling).innerText = total.toString();
 
     /*
      *  serialize DOM created Rubric table to .xml
@@ -291,7 +321,7 @@ function onLoad() {
         let url = URL.createObjectURL(new Blob([rubricTable_xmls], {type: 'application/xml; charset=UTF-16'}));
 
         // create button to open new browser tab with .xml file
-        document.querySelector("#CreateGradingRubricXML").onclick = () => {
+        (<HTMLElement>document.querySelector("#CreateGradingRubricXML")).onclick = () => {
             window.open(url);
         };
 
@@ -313,7 +343,7 @@ function onLoad() {
         let url = URL.createObjectURL(new Blob([rubricTable_json], {type: 'text/plain; charset=UTF-16'}));
 
         // create button to open new browser tab with .json file
-        document.querySelector("#CreateGradingRubricJSON").onclick = () => {
+        (<HTMLElement>document.querySelector("#CreateGradingRubricJSON")).onclick = () => {
             window.open(url);
         };
 
@@ -327,10 +357,10 @@ function onLoad() {
 
     // create <input> element to select studentDirectory
     document.querySelector("#StudentDirectory").addEventListener('change',
-        (e) =>
+        (e : InputEvent ) =>
         {
             console.log(e);
-            Global.studentDirectory = e.target.value;//files[0].match(/(.*)[\/\\]/)[1] || '';
+            Global.studentDirectory = (<HTMLInputElement>e.target).value;//files[0].match(/(.*)[\/\\]/)[1] || '';
             localStorage.setItem('studentDirectory', Global.studentDirectory);
             console.log(Global.studentDirectory);
         });
@@ -347,6 +377,8 @@ function onLoad() {
  */
 class GradingScript
 {
+    projectDirectory : string;
+    category : string;
     constructor(...args)
     {
         switch(args.length)

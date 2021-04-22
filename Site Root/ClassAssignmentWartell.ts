@@ -366,8 +366,10 @@ export function main()
             {
                 /**
                  * Load the instructions content Html Fragment into DOM
+                 *
+                 * - https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
                  */
-                const mw : HTMLElement = document.querySelector("section.MainWindow");
+                const mw : HTMLElement = window.frames[0].document.querySelector("section.MainWindow");
                 mw.innerHTML = event.target.result.toString();
 
                 /**

@@ -8,19 +8,23 @@
     <link href="toc.css" rel="stylesheet" type="text/css">
     <link href="ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
     <link href="GUI.css" rel="stylesheet" type="text/css">
-    <title>ITCS xyza: Wartell Generic Instructions </title>
+    <title>ZJW Generic Instructions</title>
     <script type="application/json" class="js-hypothesis-config">
           {"openSidebar": false}
     </script>
     <script src="https://hypothes.is/embed.js" async=""></script>
+
     <script src="libs/jquery-3.5.1.min.js"></script>
+
     <script src="libs/toc.min.js"></script>
 
     <script type="module" src="ClassAssignmentWartell.js"></script>
     <script type="module">
       import * as Rubric from "./Rubric.js";
       import {main,Visibility_Toggle} from "./ClassAssignmentWartell.js";
+
       main();
+
       window.Visibility_Toggle = Visibility_Toggle;
       window.onload_Body = onload_Body;
 
@@ -126,7 +130,6 @@
                 }
         );
 
-
         /**
         ***  Initialize Rubric <section>
         **/
@@ -138,31 +141,17 @@
   </head>
   <body onload="onload_Body()"> _<!-- IF_TOC -->
     <div id="toc"> </div>
-    <section>
-      <div id="Toolbar" class="Toolbar">
-        <div class="Menu"> <button id="fileMenu" onclick="document.getElementById('fileSubMenu').hidden=false; console.log('Hello');">File</button>
-          <ul id="fileSubMenu" class="SubMenu" hidden="">
-            <li> <input id="presentation" name="presentation" accept="/html" type="file">
-            </li>
-            <li><button id="save">Save</button></li>
-            <li><button id="exportAll">Download</button></li>
-          </ul>
-          <!--
-          | <button id="new">New</button> <button id="import">Kindle Import</button>          -->
-          | <button id="help" onclick='window.open("docs/help.html");'>Help</button>
-        </div>
-        <!--
-        <div> <label for="startSlide">Start #:</label> <input id="startSlide"
-            name="StartSlide" value="1" min="1" max="999" type="number"> | <input
-            id="ellipsis" type="checkbox"> <label for="ellipsis">[...]</label>          <input id="citations" checked="true" type="checkbox"> <label for="citations">Cite</label>
-          <input id="slides" checked="true" type="checkbox"> <label for="slides">Slides</label>        </div>
-        -->
-        <!--
-        <div>          <label for="screenWidth">ScreenWidth</label>
-          <input id="screenWidth" name="screenWidth" min="500" max="2000" type="range">            <label for="zoom">Zoom</label> <input id="zoom" name="zoom" value="1"
-                   min="1" max="2" step="0.1" type="range"> | <button id="fullscreen">Fullscreen</button>        </div>
-        --> </div>
-    </section>
+    <div id="Toolbar" class="Toolbar">
+      <div class="Menu"> <button id="fileMenu" onclick="document.getElementById('fileSubMenu').hidden=false; console.log('Hello');">File</button>
+        <ul id="fileSubMenu" class="SubMenu" hidden="">
+          <li> <input id="presentation" name="presentation" accept="/html" type="file">
+          </li>
+          <li><button id="save">Save</button></li>
+          <li><button id="exportAll">Download</button></li>
+        </ul>
+        | <button id="help" onclick='window.open("docs/help.html");'>Help</button>
+      </div>
+    </div>
     <section id="MainWindow">
       <div style="margin-left: 250px;">
         <h2 class="nocount Title">ITCS <span class="DataField" data-course-number=""></span>:
@@ -192,7 +181,6 @@
         <section>
           <h3 class="nocount">Compatibility</h3>
           <p>This page has been tested on Chrome.&nbsp;
-            <!-- A PDF version should be available under Canvas "Files\Projects\<em>xxxx</em>.pdf" -->
           </p>
         </section>
         <section>

@@ -271,7 +271,6 @@ export
 function Visibility_Toggle(Class : string, visible: boolean)
 {
     var list = document.querySelectorAll("." + Class);
-    //console.log("function Visibility_Toggle(Class)");
     for (let n of list)
     {
         const el : HTMLElement = <HTMLElement>n;
@@ -307,11 +306,10 @@ function Visibility_Toggle(Class : string, visible: boolean)
         }
         */
     }
+
     /*
     * Re-Initialize toc module
     */
-    //console.log (typeof document.getElementById('toc')["toc"]);
-    //console.log (typeof $('#toc')["toc"]);
     $('#toc')["toc"](
         {
             'smoothScrolling': true,

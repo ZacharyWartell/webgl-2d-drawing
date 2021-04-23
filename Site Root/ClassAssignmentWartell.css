@@ -492,3 +492,11 @@ h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.n
     content: "";
     counter-increment: none
 }
+
+/*
+ * div.Data
+ */
+div.Data
+{
+    display : none;
+}

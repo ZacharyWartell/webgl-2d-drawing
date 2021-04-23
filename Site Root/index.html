@@ -22,82 +22,22 @@
       import * as Rubric from "./Rubric.js";
       import * as CAW from "./ClassAssignmentWartell.js";
       CAW.main();
+
       window.Visibility_Toggle = CAW.Visibility_Toggle;
-      window.rubricMain = Rubric.main;
       window.onload_Body = onload_Body;
       console.log("window.rubricMain");
 
       function onload_Body()
       {
-          console.log("function onload_Body()");
-          /**
-          ** Initialize misc. content to reflect the current projects name, directory names, etc.
-          **/
-          let assignmentName = new CAW.AssignmentName
-            (
-              "5121", // courseNumber
-              "p1",   // number
-              "p1-d3-beginner-project", // numberLongDir
-              "d3-beginner-project", // name
-            );
-          assignmentName.insertText(document);
-
-        let elements = document.querySelectorAll('.Staff_Only');
-        for (let e of elements) {
-          e.hidden = true;
-        }
-
-        /**
-         ***  Create video cue buttons
-         **/
-        elements = document.querySelectorAll('span.VideoCue');
-        for (let e of elements) {
-          // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
-          const videoCue = Function('"use strict";return (' + e.dataset.videoCue + ')')();
-          const button = document.createElement("button");
-          button.addEventListener('click',
-                  (e) => {
-                    const cclv = document.getElementById(videoCue.videoID);
-                    console.log(videoCue.interval[0]);
-                    cclv.currentTime = videoCue.interval[0];
-                    cclv.play();
-                    const timeupdate =
-                            (e) => {
-                              const target = e.target;
-                              console.log("currentTime:" + target.currentTime);
-                              if (target.currentTime >= videoCue.interval[1]) {
-                                target.pause();
-                                target.removeEventListener('timeupdate', timeupdate);
-                              }
-                            };
-                    cclv.addEventListener('timeupdate', timeupdate);
-                  });
-          //const cclv = document.getElementById(videoCue.videoID);
-          button.innerHTML = "&trianglerighteq;";
-          e.after(button);
-        }
-
-        /**
-         ***    Initialize toc module
-         **/
-        $('#toc').toc(
-                {
-                  'smoothScrolling': true,
-                  'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
-                }
-        );
-
-        /**
-         ***  Initialize <table id="RubricTable">
-         **/
-        window.rubricMain();
+        console.log("function onload_Body()");
+        CAW.onload_InstructionsFile();
       }
     </script>
   </head>
   <body onload="window.onload_Body();">
     <!-- IF_TOC -->
     <div id="toc"> </div>
-    <div id="Toolbar" class="Toolbar">
+    <div id="Toolbar" class="Toolbar" hidden="">
       <div class="Menu"> <button id="fileMenu" onclick="document.getElementById('fileSubMenu').hidden=false; console.log('Hello');">File</button>
         <ul id="fileSubMenu" class="SubMenu" hidden="">
           <li> <input id="loadFile" name="loadFile" accept="/html" type="file">
@@ -109,6 +49,16 @@
       </div>
     </div>
     <section id="MainWindow">
+      <div id="AssignmentName" class="Data">
+        <!-- AssignmentName.courseNumber -->
+        <div>5121</div>
+        <!-- AssignmentName.number -->
+        <div>p1</div>
+        <!-- AssignmentName.numberLongDir -->
+        <div>p1-d3-beginner-project</div>
+        <!-- AssignmentName.name -->
+        <div>d3-beginner-project</div>
+      </div>
       <div style="margin-left: 250px;">
         <h2 class="nocount Title">ITCS <span class="DataField" data-course-number=""></span>:
           <span data-project-number=""></span> - D3 Beginner Project<br>
@@ -156,12 +106,13 @@
           <!--
         <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>           -->
           <form name="System_Configuration">
-            <fieldset> <legend>Display Configuration:&nbsp;</legend> <label><b>Staff_Notes:</b>
-              </label> <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
-
-                onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');"
-
-                type="checkbox"> <label for="Staff_Notes">Visible</label> </fieldset>
+            <fieldset>
+              <legend>Display Configuration:&nbsp;</legend>
+              <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
+                     onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');Visibility_Toggle('Toolbar');"
+                     type="checkbox">
+              <label for="Staff_Notes">Instructor Mode</label>
+            </fieldset>
           </form>
           <hr> </section>
         <section>

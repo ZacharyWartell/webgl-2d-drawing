@@ -25,17 +25,13 @@ class AssignmentName
     name: string;
     git: string;
 
-    constructor(
-        courseNumber: string,
-        number: string,
-        numberLongDir: string,
-        name: string
-        )
+    constructor(div : HTMLDivElement)
     {
-        this.courseNumber = courseNumber;
-        this.number = number;
-        this.numberLongDir = numberLongDir;
-        this.name = name;
+        this.courseNumber   = (<HTMLElement>div.children[0]).innerText;
+        this.number         = (<HTMLElement>div.children[1]).innerText;
+        this.numberLongDir  = (<HTMLElement>div.children[2]).innerText;
+        this.name           = (<HTMLElement>div.children[3]).innerText;
+
         this.git = this.courseNumber + "-" + this.numberLongDir;
     }
 
@@ -662,4 +658,71 @@ function onLoad_idea2() {
         });
 
     return;
+}
+
+export
+function onload_InstructionsFile()
+{
+    /**
+     ** Initialize misc. content to reflect the current assignment's name, directory names, etc.
+     **/
+    const assignmentName = new AssignmentName(<HTMLDivElement>document.getElementById("AssignmentName"));
+    assignmentName.insertText(document);
+
+    /**
+     ** Hide Staff_Only sections
+     */
+    let elements = document.querySelectorAll('.Staff_Only');
+    for (let e of elements)
+    {
+        (<HTMLElement>e).hidden = true;
+    }
+
+    /**
+     **  Create video cue buttons
+     *
+     **  \todo [PRIORITY=AS_NEEDED][GENERALIZE] Generalize for cases of multiple embedded video's
+     **/
+    elements = document.querySelectorAll('span.VideoCue');
+    for (let n of elements) {
+        const e = <HTMLElement>n;
+        // ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval
+        const videoCue = Function('"use strict";return (' + e.dataset.videoCue + ')')();
+        const button = document.createElement("button");
+        button.addEventListener('click',
+            (e) => {
+                const cclv : HTMLVideoElement = <HTMLVideoElement>document.getElementById(videoCue.videoID);
+                console.log(videoCue.interval[0]);
+                cclv.currentTime = videoCue.interval[0];
+                cclv.play();
+                const timeupdate =
+                    (e) => {
+                        const target = e.target;
+                        console.log("currentTime:" + target.currentTime);
+                        if (target.currentTime >= videoCue.interval[1]) {
+                            target.pause();
+                            target.removeEventListener('timeupdate', timeupdate);
+                        }
+                    };
+                cclv.addEventListener('timeupdate', timeupdate);
+            });
+        //const cclv = document.getElementById(videoCue.videoID);
+        button.innerHTML = "&trianglerighteq;";
+        e.after(button);
+    }
+
+    /**
+     ***  (Re)Initialize toc module
+     **/
+    $('#toc')["toc"](
+        {
+            'smoothScrolling': true,
+            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+        }
+    );
+
+    /**
+     ***  Initialize <table id="RubricTable">
+     **/
+    Rubric.main();
 }

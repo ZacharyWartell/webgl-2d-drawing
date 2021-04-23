@@ -57,11 +57,15 @@ export function main() {
     let RubricTable = document.getElementById("RubricTable");
     let total = 0;
     const tbody = RubricTable.querySelector(':scope tbody');
+    const totalRow = tbody.querySelector(":scope > tr:nth-last-child(2)");
+    // remove any previous entries (need in case of content reload)
+    for (let el=totalRow.previousElementSibling; el !== null; el = el.previousElementSibling)
+        tbody.removeChild(el);
+    // add entries based on collected grade points
     for (let ri of _Rubric.items) {
         const row = document.createElement("tr");
         //tbody.appendChild(row);
-        let tmp = tbody.querySelector(":scope > tr:nth-last-child(2)");
-        tbody.insertBefore(row, tmp);
+        tbody.insertBefore(row, totalRow);
         row.outerHTML =
             `
                   <tr>

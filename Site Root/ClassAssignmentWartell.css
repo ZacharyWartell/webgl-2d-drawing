@@ -38,7 +38,7 @@ table.Menu
 
 /*
  *   SectionRubric
- *   Table at head of each <section> with basic rubric info and menu
+ *   Table optionally at head of a <section> with basic rubric info for the exercises in that section (a menu is [wip])
  */
 table.SectionRubric
 {
@@ -61,6 +61,8 @@ table.SectionRubric > tbody > tr:nth-child(2) > td
 
 /*
  * Rubric Table
+ *
+ * The single Table in document with assignment Rubric
  */
 table.Rubric {
     border: solid 2px black;

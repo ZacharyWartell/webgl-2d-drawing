@@ -8,6 +8,7 @@
  */
 import "./libs/jquery-3.5.1.min.js";
 import "./libs/toc.min.js";
+import * as Rubric from "./Rubric.js";
 /*
  * @type {Readonly<{READ: symbol, TODO: symbol, OVERVIEW: symbol, GENERAL: symbol, QUESTION: symbol}>}
  */
@@ -243,8 +244,8 @@ function Visibility_Toggle(Class : string)
     /*
     * Re-Initialize toc module
     */
-    console.log (typeof document.getElementById('toc')["toc"]);
-    console.log (typeof $('#toc')["toc"]);
+    //console.log (typeof document.getElementById('toc')["toc"]);
+    //console.log (typeof $('#toc')["toc"]);
     $('#toc')["toc"](
         {
             'smoothScrolling': true,
@@ -389,6 +390,7 @@ export function main()
                  * Update JS Objects
                  */
                 // \todo Update JS Objects
+                Rubric.main();
             });
             reader.readAsText((<HTMLInputElement>e.target).files[0]);
             //console.log((<HTMLInputElement>e.currentTarget).value);

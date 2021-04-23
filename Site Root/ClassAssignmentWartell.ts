@@ -268,12 +268,13 @@ function collectionInstructions(section : HTMLElement, sectionLabel : string) {
  *  @param {String} - name of class
  */
 export
-function Visibility_Toggle(Class : string)
+function Visibility_Toggle(Class : string, visible: boolean)
 {
     var list = document.querySelectorAll("." + Class);
-    console.log("function Visibility_Toggle(Class)");
-    for (let i = 0; i < list.length; i++)
+    //console.log("function Visibility_Toggle(Class)");
+    for (let n of list)
     {
+        const el : HTMLElement = <HTMLElement>n;
         /*
         if (list[i].previousElementSibling === null ||
             list[i].previousElementSibling.tagName !== "BUTTON" ||
@@ -288,21 +289,23 @@ function Visibility_Toggle(Class : string)
           list[i].parentElement.insertBefore(unhideButton, list[i]);
         }
           */
-
+        el.hidden = !visible;
+        /*
         if (!list[i].hasAttribute("hidden"))
-        {/* hide div and show Unhide button */
-            /* enable the unhide button */
+        {// hide div and show Unhide button
+            // enable the unhide button
             //list[i].previousElementSibling.textContent = "Unhide";
 
-            /* hide this div */
+            // hide this div
             list[i].setAttribute("hidden", "true");
         }
         else
-        {/* unhide div and show Hide button */
+        {// unhide div and show Hide button
             list[i].removeAttribute("hidden");
-            /* list[i].previousElementSibling.setAttribute("hidden","true"); */
+            //list[i].previousElementSibling.setAttribute("hidden","true");
             //list[i].previousElementSibling.textContent = "Hide";
         }
+        */
     }
     /*
     * Re-Initialize toc module

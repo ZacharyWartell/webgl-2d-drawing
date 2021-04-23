@@ -26,7 +26,13 @@
       window.Visibility_Toggle = CAW.Visibility_Toggle;
       window.onload_Body = onload_Body;
       console.log("window.rubricMain");
-
+      document.getElementById("Instructor_Mode").addEventListener('change',
+          (e)=>
+          {
+            Visibility_Toggle('Staff_Notes',e.target.checked);
+            Visibility_Toggle('Staff_Only',e.target.checked);;
+            Visibility_Toggle('Toolbar',e.target.checked);
+          });
       function onload_Body()
       {
         console.log("function onload_Body()");
@@ -103,18 +109,19 @@
           <!-- <button class="Text_Button" onclick="Div_Toggle('Server_Supports_SSH');"> SSH </button> -->
           <p> Parts of this document contains notes only useful to teaching
             staff. Students should leave these parts non-visible.</p>
-          <!--
-        <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>           -->
+        <!--
+        // these are only relevant the original https://gitlab.com/zwartell/Git_Tutorial_and_Coding_Standards.git
+        <button class="Text_Button" onclick="Div_Toggle('Server_Git_Viscenter');Div_Toggle('Server_Supports_SSH');"> git-viscenter </button>           <button class="Text_Button" onclick="Div_Toggle('Server_Bitbucket');Div_Toggle('Server_Supports_SSH');"> Bitbucket </button>                 <button class="Text_Button" onclick="Div_Toggle('Server_Cci_Git');"> cci-git </button>
+        -->
           <form name="System_Configuration">
             <fieldset>
               <legend>Display Configuration:&nbsp;</legend>
-              <input name="Staff_Notes" id="Staff_Notes" value="Staff_Notes"
-                     onchange="Visibility_Toggle('Staff_Notes');Visibility_Toggle('Staff_Only');Visibility_Toggle('Toolbar');"
-                     type="checkbox">
-              <label for="Staff_Notes">Instructor Mode</label>
+              <input name="Instructor_Mode" id="Instructor_Mode" type="checkbox">
+              <label for="Instructor_Mode">Instructor Mode</label>
             </fieldset>
           </form>
-          <hr> </section>
+          <hr>
+        </section>
         <section>
           <h1 class="toc">Overview</h1>
           Total number of points for the project is 105 (see <a href="#RubricTable">Rubric

@@ -20,20 +20,19 @@
     </script>
     <script src="https://hypothes.is/embed.js" async=""></script>
 
-    <script src="libs/jquery-3.5.1.min.js"></script>
 
-    <script src="libs/toc.min.js"></script>
-
-    <script type="module" src="ClassAssignmentWartell.js"></script>
     <script type="module">
       import * as Rubric from "./Rubric.js";
-      import {main,Visibility_Toggle} from "./ClassAssignmentWartell.js";
+      import * as CAW from "./ClassAssignmentWartell.js";
 
-      main();
-      window.Visibility_Toggle = Visibility_Toggle;
+      CAW.main();
+      window.Visibility_Toggle = CAW.Visibility_Toggle;
       window.rubricMain = Rubric.main;
       console.log("window.rubricMain");
     </script>
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script src="libs/toc.min.js"></script>
     <script>
       function onload_Body()
       {

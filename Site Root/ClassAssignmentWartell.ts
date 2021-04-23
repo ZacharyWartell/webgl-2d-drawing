@@ -6,7 +6,8 @@
 
  \status [STATUS=not deployed] work-in-progress
  */
-
+import "./libs/jquery-3.5.1.min.js";
+import "./libs/toc.min.js";
 /*
  * @type {Readonly<{READ: symbol, TODO: symbol, OVERVIEW: symbol, GENERAL: symbol, QUESTION: symbol}>}
  */
@@ -203,9 +204,10 @@ function collectionInstructions(section : HTMLElement, sectionLabel : string) {
  *  @param {String} - name of class
  */
 export
-function Visibility_Toggle(Class)
+function Visibility_Toggle(Class : string)
 {
     var list = document.querySelectorAll("." + Class);
+    console.log("function Visibility_Toggle(Class)");
     for (let i = 0; i < list.length; i++)
     {
         /*
@@ -241,11 +243,22 @@ function Visibility_Toggle(Class)
     /*
     * Re-Initialize toc module
     */
-    document.getElementById('#toc')["toc"](
+    console.log (typeof document.getElementById('toc')["toc"]);
+    console.log (typeof $('#toc')["toc"]);
+    $('#toc')["toc"](
+        {
+            'smoothScrolling': true,
+            'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
+        }
+    );
+    /*
+    console.log (typeof document.getElementById('toc')["toc"]);
+    document.getElementById('toc')["toc"](
         { 'smoothScrolling': true,
             'selectors': 'h1.toc, h2.toc, h3.toc' //elements to use as headings
         }
     );
+     */
 }
 /*
 https://web.dev/file-system-access/
@@ -369,7 +382,7 @@ export function main()
                  *
                  * - https://developer.mozilla.org/en-US/docs/Web/API/Window/frames
                  */
-                const mw : HTMLElement = window.frames[0].document.querySelector("section.MainWindow");
+                const mw : HTMLElement = document.getElementById("MainWindow");
                 mw.innerHTML = event.target.result.toString();
 
                 /**

@@ -20,6 +20,86 @@
     <p><br>
     </p>
     <section>
+      <h1>Goals</h1>
+      <ol class="Instruction">
+        <li>Provide a "template" for an HTML5 document which follows
+          best-practices for presenting written instructions for typical
+          computer science assignments.&nbsp;&nbsp; These features include the
+          following (see also the instruction audience's manual <a href="Help.html">Help.html</a>):<br>
+          <ol>
+            <li>Support for &lt;span&gt; classes that visually designate simple
+              content such as file names, code variable name, function names,
+              user input, etc.</li>
+            <li>Support for &lt;span&gt;,&lt;div&gt; and &lt;table&gt; classes
+              that designate complex structured content such as<br>
+              <ol>
+                <li>Shell script (CLI) code with annotations</li>
+                <li>Zoomable screen captures</li>
+                <li>Embedded video with associated written instructions whose
+                  written steps each include a button that advanced the video to
+                  the video segment illustrated that written step.</li>
+              </ol>
+            </li>
+            <li><strong>Rubric Generation</strong>: Support &lt;span&gt; classes
+              with HTML data- attributes that encode the points different
+              exercises in the assignment are worth and automatically generate a
+              rubric &lt;table&gt; extracting these aattributes from the
+              document's instructions.</li>
+            <li><strong>Document Variables</strong>: Support automatic string
+              replacement of named "document variables" in the document text
+              with text strings specific to the assignment.&nbsp;&nbsp; For
+              example, the shell CLI examples may all display a path name that
+              user is working in.&nbsp;&nbsp; The path name text often is
+              specific the assignment name. The HTML written for displaying the
+              shell CLI examples will refer to a "document variable" that will
+              be replaced by a designated text string defined globally in the
+              assignments meta data.</li>
+          </ol>
+        </li>
+        <li>The template is git repo that the user clones and then redirects the
+          origin to their own repo.</li>
+        <li>HTML5 document should be a static web page, but otherwise the
+          template user must be able to include any HTML5 content -- SVG,
+          WebGL,Canvas, etc. -- in their instruction document.&nbsp;&nbsp; (This
+          is where relying on <code>C</code>ontent Management Systems, Learing
+          Management Systems, etc. -- instead of directly coding in HTML5 coding
+          -- always fall short and fails to meet my personal requirements).</li>
+        <li>Code modules provide with the template (called the "template
+          sub-modules") are distributed as git submodule in the template repo.</li>
+        <li>Template users alter the content of their parituclar instruction
+          document without needing to change the code modules provided by the
+          template </li>
+        <li>Template users may contribute updates, improvements, bug fixes, to
+          the template's code modules via the git submodule
+          mechanism.<br><br></li>
+        <li>[FUTURE]:
+          <ol>
+            <li>Provide functionally that allows common HTML5 editors such as
+              BlueGriffon instantied the various components listed in #1 using
+              the HTML5 &lt;template&gt; mechanism rather than copy and pasting
+              example HTML code.</li>
+            <li>? If (a) is no feasibly in a short amount of time, provide a
+              simple builtin HTML5 editor based on, that is augmented with GUI
+              that can insert the &lt;template&gt;'s, and format selected text
+              with with specialized &lt;span&gt; classes discussed in 1.a</li>
+          </ol>
+        </li>
+        <li>
+          <p>[CAVEATS]</p>
+          <ol>
+            <li><strong>Only support the Chrome browser:</strong> All my course
+              HTML5 based projects require the student varify their assigment's
+              code run in Chrome.&nbsp; This is the target browser the TA uses
+              for testing all assignments.&nbsp; Neither I, nor students in most
+              CS courses, have time to address all the madness of cross-browser
+              compatibility.&nbsp;&nbsp;&nbsp; That type of code development
+              requirement is typically only appropriate in specialied courses in
+              "Web Application Developement" or perhaps "Software Engineering"..</li>
+          </ol>
+          <ol>
+          </ol>
+        </li>
+      </ol>
       <h1>Usage</h1>
       <p><br>
       </p>
@@ -49,18 +129,17 @@
               </tr>
             </tbody>
           </table>
-          <figure>
-            <img style="border: solid black 1px;" src="images/file-organization.png" alt="images/file-organization.png"
-                 title="images/file-organization.png">
-            <figcaption>File Organization</figcaption>
-          </figure>
+          <figure> <img style="border: solid black 1px;" src="images/file-organization.png"
+
+              alt="images/file-organization.png" title="images/file-organization.png">
+            <figcaption>File Organization</figcaption> </figure>
         </li>
-        <li>Customize the following standard components of the index.html<br>
+        <li>Customize the following standard components of the ./index.html<br>
           <ol>
             <li>&lt;title&gt;&lt;/title&gt;</li>
           </ol>
         </li>
-        <li>Customize the following standard elements of the content.html<br>
+        <li>Customize the following standard elements of the ./content.html<br>
           <ol>
             <li>&lt;div id="AssignmentName" class="Data"z<br>
               Documentationfor each field is in the class AssignmentName in <a

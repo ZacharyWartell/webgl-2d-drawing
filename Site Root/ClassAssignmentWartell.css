@@ -93,6 +93,7 @@ table.Rubric td.Empty
 table.Code_Example {
     width: 100%;
     background-color: black;
+    border: black 1px solid;
 }
 
 /*  Code Example Expand style when displaying at full height, instead of with scroll bar
@@ -144,7 +145,7 @@ figure.Screen_Capture {
 figure.Screen_Capture:before
 {
     content:  "Click to Enlarge";
-    text-color: black;
+    text-decoration-color: black;
     font-size : small;
     border: grey solid 3px;
     background-color: lightgray;
@@ -396,7 +397,7 @@ div.VideoInstructions > div:nth-of-type(2)
 {
     overflow-y: scroll;
     border: solid 1px;
-    height=500px;
+    height: 500px;
     resize: vertical;
 }
 

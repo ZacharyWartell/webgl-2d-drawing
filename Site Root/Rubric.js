@@ -31,7 +31,8 @@ export function main() {
     /*
      *  Collect all span.Grade_Points DOM Elements and their associated data- attributes
      */
-    let elements = document.querySelectorAll('span.Grade_Points')
+    let elements = document.querySelectorAll('span.Grade_Points');
+    _Rubric.items.length = 0;
     for (let e of elements) {
         let ri = new RubricItem();
         ri.parentTag = e.parentElement.tagName;

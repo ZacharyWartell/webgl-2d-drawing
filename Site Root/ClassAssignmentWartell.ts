@@ -679,6 +679,20 @@ function onload_InstructionsFile()
     }
 
     /**
+     ** Hide Staff_Only sections
+     */
+    elements = document.querySelectorAll('table.Code_Example button');
+    for (let e of elements)
+    {
+        (<HTMLElement>e).addEventListener('click',
+            (e : MouseEvent)=>
+            {
+                const el : HTMLElement = <HTMLElement>e.target;
+                el.parentElement.parentElement.parentElement.parentElement.classList.toggle('Code_Example_Expand');
+            });
+    }
+
+    /**
      **  Create video cue buttons
      *
      **  \todo [PRIORITY=AS_NEEDED][GENERALIZE] Generalize for cases of multiple embedded video's

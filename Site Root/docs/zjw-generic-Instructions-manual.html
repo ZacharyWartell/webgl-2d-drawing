@@ -22,7 +22,8 @@
     <section>
       <h1>Goals</h1>
       <ol class="Instruction">
-        <li>Provide a "template" for an HTML5 document which follows
+        <li><strong>Best practices for HTML based instruction documents</strong>:&nbsp;
+          Provide a "template" for an HTML5 document which follows
           best-practices for presenting written instructions for typical
           computer science assignments.&nbsp;&nbsp; These features include the
           following (see also the instruction audience's manual <a href="Help.html">Help.html</a>):<br>
@@ -64,15 +65,15 @@
           is where relying on <code>C</code>ontent Management Systems, Learing
           Management Systems, etc. -- instead of directly coding in HTML5 coding
           -- always fall short and fails to meet my personal requirements).</li>
-        <li>Code modules provide with the template (called the "template
+        <li>Code modules provided with the template (called "template
           sub-modules") are distributed as git submodule in the template repo.</li>
-        <li>Template users alter the content of their parituclar instruction
-          document without needing to change the code modules provided by the
-          template </li>
+        <li>Template users alter the content of their instruction document
+          without needing to change the code modules provided by the template.</li>
         <li>Template users may contribute updates, improvements, bug fixes, to
-          the template's code modules via the git submodule
-          mechanism.<br><br></li>
-        <li>[FUTURE]:
+          the template's code modules via the git submodule mechanism. <br>
+          <br>
+        </li>
+        <li><strong>[FUTURE]:</strong>
           <ol>
             <li>Provide functionally that allows common HTML5 editors such as
               BlueGriffon instantied the various components listed in #1 using
@@ -85,7 +86,7 @@
           </ol>
         </li>
         <li>
-          <p>[CAVEATS]</p>
+          <p><strong>[CAVEATS]</strong></p>
           <ol>
             <li><strong>Only support the Chrome browser:</strong> All my course
               HTML5 based projects require the student varify their assigment's
@@ -101,8 +102,6 @@
         </li>
       </ol>
       <h1>Usage</h1>
-      <p><br>
-      </p>
       <h2>Version "April" </h2>
       <ol class="Instruction">
         <li>Create an empty repo on gitlab.&nbsp;&nbsp; Assume repo's clone URL
@@ -129,8 +128,7 @@
               </tr>
             </tbody>
           </table>
-          <figure> <img style="border: solid black 1px;" src="images/file-organization.png"
-
+          <figure> <img style="border: solid black 1px;" src="images/file-organization.png"
               alt="images/file-organization.png" title="images/file-organization.png">
             <figcaption>File Organization</figcaption> </figure>
         </li>
@@ -142,8 +140,7 @@
         <li>Customize the following standard elements of the ./content.html<br>
           <ol>
             <li>&lt;div id="AssignmentName" class="Data"z<br>
-              Documentationfor each field is in the class AssignmentName in <a
-
+              Documentationfor each field is in the class AssignmentName in <a
                 href="../ClassAssignmentWartell.ts">../ClassAssignmentWartell.ts</a></li>
           </ol>
         </li>
@@ -171,11 +168,9 @@
         <li>Fork https://gitlab.com/zwartell/zjw-generic-instructions to project
           repository.<br>
           <ul>
-            <li>ZJW:&nbsp; <a href="https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805"
-
+            <li>ZJW:&nbsp; <a href="https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805"
                 target="_blank">https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805</a></li>
-            <li>Anyone else: <a href="https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork"
-
+            <li>Anyone else: <a href="https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork"
                 target="_blank">https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork</a></li>
           </ul>
           <!--
@@ -202,12 +197,10 @@
           <br>
         </li>
         <li>Modify the .gitlab-ci.yml file replacing the line <br>
-          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
-
+          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
 style="color:#cc7832;">only</span>:<br>  - master</pre>
           with <br>
-          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
-
+          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
 style="color:#cc7832;">only</span>:<br>  - Your-Forked-Repo-Branch-Name</pre>
         </li>
         <li>Customize the following standard components of the index.html<br>
@@ -232,8 +225,7 @@ style="color:#cc7832;">only</span>:<br>  - Your-Forked-Repo-Branch-Name</pre>
       <ol class="References">
         <li class="reference-www"><span>6.2 GitHub - Contributing to a Project</span>,
           <span>Source</span> 4/19/2021<span>[Online].</span> <span>Available:</span>
-          <span><a href="https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project"
-
+          <span><a href="https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project"
               target="_blank">https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project</a></span></li>
         <li> .</li>
       </ol>

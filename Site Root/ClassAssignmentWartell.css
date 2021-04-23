@@ -494,9 +494,29 @@ h1.nocount:before, h2.nocount:before, h3.nocount:before, h4.nocount:before, h5.n
 }
 
 /*
- * div.Data
+ * \brief div.Data is not displayed.  It contains an HTML structure that stores some type of data processed by the documents associated JavaScript code.
  */
 div.Data
 {
     display : none;
+}
+
+/*
+ * \brief div.Comment as nascent comment on the document
+ */
+div.Comment:before
+{
+    content: "Comment: ";
+    font-weight: bold;
+}
+
+div.Comment
+{
+    background-color: #ddffdd;
+}
+
+figcaption:before
+{
+    content: "Figure :";
+    font-weight: bold;
 }

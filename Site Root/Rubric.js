@@ -27,6 +27,10 @@ class Rubric
 var _Rubric = new Rubric();
 
 export function main() {
+
+    /*
+     *  Collect all span.Grade_Points DOM Elements and their associated data- attributes
+     */
     let elements = document.querySelectorAll('span.Grade_Points')
     for (let e of elements) {
         let ri = new RubricItem();
@@ -47,6 +51,9 @@ export function main() {
         }
     }
 
+    /*
+     *  Fill out <table id='RubricTable'> with the collected grade points
+     */
     let RubricTable = document.getElementById("RubricTable");
     let total = 0;
     const tbody = RubricTable.querySelector(':scope tbody');

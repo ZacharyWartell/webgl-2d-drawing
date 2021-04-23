@@ -59,14 +59,19 @@ table.SectionRubric > tbody > tr:nth-child(2) > td
     width: auto;
 }
 
-
-
 /*
  * Rubric Table
  */
 table.Rubric {
     border: solid 2px black;
     border-collapse: collapse;
+}
+
+table.Rubric > thead > tr > th
+{
+    border: solid 2px black;
+    text-align: center;
+    font-weight: bold;
 }
 
 table.Rubric td
@@ -80,11 +85,11 @@ table.Rubric tr td:nth-child(3)
     text-align: center;
 }
 
-
 table.Rubric td.Empty
 {
     border: 0px;
 }
+
 
 /*
  *  Code Example
@@ -328,11 +333,6 @@ span.Exercise_Title
     text-decoration: underline;
 }
 
-table#RubricTable > tbody > tr:nth-child(1) > td
-{
-    font-weight : bolder;
-    text-align: center;
-}
 
 
 /*

@@ -452,8 +452,7 @@ export function main()
                 /**
                  * Update JS Objects
                  */
-                // \todo Update JS Objects
-                Rubric.main();
+                onload_InstructionsFile();
             });
             reader.readAsText((<HTMLInputElement>e.target).files[0]);
             //console.log((<HTMLInputElement>e.currentTarget).value);

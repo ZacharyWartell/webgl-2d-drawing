@@ -21,13 +21,82 @@
     </p>
     <section>
       <h1>Usage</h1>
+      <p><br>
+      </p>
+      <h2>Version "April" </h2>
+      <ol class="Instruction">
+        <li>Create an empty repo on gitlab.&nbsp;&nbsp; Assume repo's clone URL
+          is <span class="User_Input">Your-Repo</span> </li>
+        <li>Clone and lightweight fork
+          https://gitlab.com/zwartell/zjw-generic-instructions-template into a
+          new repo for you new assignment.<br>
+          <table class="Code_Example" id="Code_Example1" style="width: 100%;" border="1">
+            <tbody>
+              <tr>
+                <td> <button>▽</button> </td>
+                <td>
+                  <div> <code class="Shell_Code_Input">$ git clone
+                      https://gitlab.com/zwartell/zjw-generic-instructions-template
+                      <span class="User_Input">Your-Repo-Directory</span> </code><br>
+                    <code class="Shell_Code_Input">$ git remote rename origin
+                      upstream <span class="User_Input">Your-Repo</span></code><br>
+                    <code class="Shell_Code_Input">$ git push origin</code><br>
+                    <code class="Shell_Code_Input">$ git submodule update
+                      --remote zjw-generic-instructions<br>
+                    </code><code class="Shell_Code_Input"><span class="User_Input"></span></code>
+                  </div>
+                  <code class="Shell_Code_Input"> </code></td>
+              </tr>
+            </tbody>
+          </table>
+          <figure>
+            <img style="border: solid black 1px;" src="images/file-organization.png" alt="images/file-organization.png"
+                 title="images/file-organization.png">
+            <figcaption>File Organization</figcaption>
+          </figure>
+        </li>
+        <li>Customize the following standard components of the index.html<br>
+          <ol>
+            <li>&lt;title&gt;&lt;/title&gt;</li>
+          </ol>
+        </li>
+        <li>Customize the following standard elements of the content.html<br>
+          <ol>
+            <li>&lt;div id="AssignmentName" class="Data"z<br>
+              Documentationfor each field is in the class AssignmentName in <a
+
+                href="../ClassAssignmentWartell.ts">../ClassAssignmentWartell.ts</a></li>
+          </ol>
+        </li>
+        <li>Develop your new assignments specific content in content.html using
+          the following protocol:<br>
+          <ol>
+            <li>
+              <div class="Comment">\todo elaborate</div>
+            </li>
+          </ol>
+        </li>
+        <li>If you make updates, bug fixes, improvements relevant to shared
+          subodule, zjw-generic-instructions, use following protocol<br>
+          <ol>
+            <li>
+              <div class="Comment">\todo elaborate</div>
+            </li>
+          </ol>
+        </li>
+      </ol>
+      <p></p>
+      <p></p>
+      <h2>Version "March" <em>[Being Retired]</em></h2>
       <ol class="Instruction">
         <li>Fork https://gitlab.com/zwartell/zjw-generic-instructions to project
           repository.<br>
           <ul>
-            <li>ZJW:&nbsp; <a href="https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805"
+            <li>ZJW:&nbsp; <a href="https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805"
+
                 target="_blank">https://gitlab.com/gitlab-org/gitlab-foss/-/issues/25805</a></li>
-            <li>Anyone else: <a href="https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork"
+            <li>Anyone else: <a href="https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork"
+
                 target="_blank">https://docs.gitlab.com/ee/user/project/repository/forking_workflow.html#creating-a-fork</a></li>
           </ul>
           <!--
@@ -54,10 +123,12 @@
           <br>
         </li>
         <li>Modify the .gitlab-ci.yml file replacing the line <br>
-          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
+          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
+
 style="color:#cc7832;">only</span>:<br>  - master</pre>
           with <br>
-          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
+          <pre style="background-color:#2b2b2b;color:#a9b7c6;font-family:'JetBrains Mono',monospace;font-size:12.0pt;"><span
+
 style="color:#cc7832;">only</span>:<br>  - Your-Forked-Repo-Branch-Name</pre>
         </li>
         <li>Customize the following standard components of the index.html<br>
@@ -82,7 +153,8 @@ style="color:#cc7832;">only</span>:<br>  - Your-Forked-Repo-Branch-Name</pre>
       <ol class="References">
         <li class="reference-www"><span>6.2 GitHub - Contributing to a Project</span>,
           <span>Source</span> 4/19/2021<span>[Online].</span> <span>Available:</span>
-          <span><a href="https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project"
+          <span><a href="https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project"
+
               target="_blank">https://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project</a></span></li>
         <li> .</li>
       </ol>

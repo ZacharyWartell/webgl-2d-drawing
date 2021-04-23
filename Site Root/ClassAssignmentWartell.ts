@@ -9,6 +9,73 @@
 import "./libs/jquery-3.5.1.min.js";
 import "./libs/toc.min.js";
 import * as Rubric from "./Rubric.js";
+
+
+/**
+ ** \brief AssignmentName contains various components used to describe the name/tile of the instruction's assignment.
+ *
+ *  These is are set the HTMLElement.innerText of various <span> elements which are distinguished by their having a number of special data- attributes.
+ **/
+export
+class AssignmentName
+{
+    courseNumber: string;
+    number: string;
+    numberLongDir: string;
+    name: string;
+    git: string;
+
+    constructor(
+        courseNumber: string,
+        number: string,
+        numberLongDir: string,
+        name: string
+        )
+    {
+        this.courseNumber = courseNumber;
+        this.number = number;
+        this.numberLongDir = numberLongDir;
+        this.name = name;
+        this.git = this.courseNumber + "-" + this.numberLongDir;
+    }
+
+    insertText( doc : HTMLDocument) : void
+    {
+        let elements = doc.querySelectorAll('span[data-course-number]');
+        for (let e of elements) {
+            (<HTMLElement>e).innerText = this.courseNumber;
+        }
+
+        elements = doc.querySelectorAll('span[data-project-number]');
+        for (let e of elements) {
+            (<HTMLElement>e).innerText = this.number;
+        }
+
+        elements = doc.querySelectorAll('span[data-project-number-long-dir]');
+        for (let e of elements) {
+            (<HTMLElement>e).innerText = this.numberLongDir;
+        }
+
+        elements = doc.querySelectorAll('span[data-project-name-dir]');
+        for (let e of elements) {
+            (<HTMLElement>e).innerText = this.name;
+        }
+
+        elements = doc.querySelectorAll('span[data-project-git]');
+        for (let e of elements) {
+            (<HTMLElement>e).innerText = this.git;
+        }
+
+        /*
+        *  remove DataField:before contents now that data text is inserted
+        */
+        elements = doc.querySelectorAll('span.DataField');
+        elements = doc.querySelectorAll('span.DataField');
+        for (let e of elements) {
+            e.setAttribute("class", "");
+        }        
+    }
+}
 /*
  * @type {Readonly<{READ: symbol, TODO: symbol, OVERVIEW: symbol, GENERAL: symbol, QUESTION: symbol}>}
  */

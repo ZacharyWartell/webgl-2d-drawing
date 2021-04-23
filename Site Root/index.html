@@ -15,68 +15,34 @@
           {"openSidebar": false}
     </script>
     <script src="https://hypothes.is/embed.js" async=""></script>
+
+    <script src="libs/jquery-3.5.1.min.js"></script>
+    <script src="libs/toc.min.js"></script>
     <script type="module">
       import * as Rubric from "./Rubric.js";
       import * as CAW from "./ClassAssignmentWartell.js";
-
       CAW.main();
       window.Visibility_Toggle = CAW.Visibility_Toggle;
       window.rubricMain = Rubric.main;
+      window.onload_Body = onload_Body;
       console.log("window.rubricMain");
-    </script>
-    <script src="libs/jquery-3.5.1.min.js"></script>
-    <script src="libs/toc.min.js"></script>
-    <script>
+
       function onload_Body()
       {
-        console.log("function onload_Body()");
-        /**
-         ** Initialize misc. content to reflect the current projects name, directory names, etc.
-         **/
-        let Project =
-                {
-                  courseNumber: "5121",
-                  number: "p1",
-                  numberLongDir: "p1-d3-beginner-project",
-                  name: "d3-beginner-project",
-                  git: ""
-                };
-        Project.git = Project.courseNumber + "-" + Project.numberLongDir;
+          console.log("function onload_Body()");
+          /**
+          ** Initialize misc. content to reflect the current projects name, directory names, etc.
+          **/
+          let assignmentName = new CAW.AssignmentName
+            (
+              "5121", // courseNumber
+              "p1",   // number
+              "p1-d3-beginner-project", // numberLongDir
+              "d3-beginner-project", // name
+            );
+          assignmentName.insertText(document);
 
-        let elements = document.querySelectorAll('span[data-course-number]');
-        for (let e of elements) {
-          e.innerText = Project.courseNumber;
-        }
-
-        elements = document.querySelectorAll('span[data-project-number]');
-        for (let e of elements) {
-          e.innerText = Project.number;
-        }
-
-        elements = document.querySelectorAll('span[data-project-number-long-dir]');
-        for (let e of elements) {
-          e.innerText = Project.numberLongDir;
-        }
-
-        elements = document.querySelectorAll('span[data-project-name-dir]');
-        for (let e of elements) {
-          e.innerText = Project.name;
-        }
-
-        elements = document.querySelectorAll('span[data-project-git]');
-        for (let e of elements) {
-          e.innerText = Project.git;
-        }
-
-        /*
-        *  remove DataField:before contents now that data text is inserted
-        */
-        elements = document.querySelectorAll('span.DataField');
-        for (let e of elements) {
-          e.setAttribute("class", "");
-        }
-
-        elements = document.querySelectorAll('.Staff_Only');
+        let elements = document.querySelectorAll('.Staff_Only');
         for (let e of elements) {
           e.hidden = true;
         }

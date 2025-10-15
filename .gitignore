@@ -6,3 +6,21 @@
 *.*~
 *.swp
 *.js.map
+
+# ignore generic temporary files
+**/node_modules
+*.bak
+*.*~
+*.swp
+*.js.map
+
+# ignore ZJWGI temporary files
+www-site-mirror
+
+# ignore symlinks
+scripts/zjwgi
+site/css/zjwgi
+site/images/zjwgi
+site/videos/zjwgi
+site/scripts/zjwgi
+site/html/zjwgi

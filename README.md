@@ -1,3 +1,4 @@
-@author Zachary Wartell
+WebGL 2D Drawing Project Description.
 
-CSS and JS files (i.e. code) used for Dr. Wartell's Assignment Instructions when written in HTML5.
+GIT: https://cci-git.charlotte.edu/zwartell/webgl-2d-drawing
+WWW: 

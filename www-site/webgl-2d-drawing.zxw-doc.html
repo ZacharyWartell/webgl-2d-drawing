@@ -4,7 +4,7 @@
 <body>
     <div id="UserDocument">
           <article>
-        <h1 class="Title">ITCS 3120 Project: Interactive 2D Drawing<br>
+        <h1 class="Title">ITCS 3120 - Project P1: Interactive 2D Drawing<br>
         </h1>
         <br>
         <h2 class="Title">Fall 2025</h2>
@@ -13,8 +13,9 @@
         <h3 class="nocount Title"> Revision: <span class="Revision"><!-- BUILDDATE-->2025-10-03 21:16:06 -0400</span> <sup> (<a
                         href="https://gitlab.com/zwartell/webgl-2d-drawing/-/commits/master" target="_blank">git logs</a>) </sup> </h3>
             <div style="text-align: center;"> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"> <img alt="Creative Commons License"
-                        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></img></a> <!--              --> <br> <span>"ITCS
-                    <span data-course-number="">3120</span> : WebGL Tutorial" </span> by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
+                        style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"></img></a> <!--              --> 
+                        <br> 
+                        This document by <a href="https://webpages.uncc.edu/zwartell/" rel="cc:attributionURL"
                     target="_blank" title="https://webpages.uncc.edu/zwartell/">Zachary Justin Wartell</a> is licensed under a <a rel="license"
                     href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
                     License</a>. </div>
@@ -22,7 +23,7 @@
             </hr>
           <section>
           <h1  class="nocount">Compatibility</h1>
-          <p>This page has been tested on Chrome v118.
+          <p>This page has been tested on Chrome v141.
           </p>
           <h1  class="nocount">Objectives</h1>
           <ol>
@@ -115,7 +116,7 @@
                             </code>
                             <code class="Shell_Code_Input-v2">cd lib </code>
                             <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/lib </code>
-                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/UNCC_Graphics_Teaching/uncc_webgl_utils.git </code>
+                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.charlotte.edu/UNCC_Graphics_Teaching/uncc_webgl_utils.git </code>
                             <code class="Shell_Code_Output"> 
                             Cloning into 'uncc_webgl_utils'... <br>
                             remote: Counting objects: 24, done.<br>
@@ -152,7 +153,7 @@
                         <div style="height: 50px;">
                             <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/
                             </code>
-                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/<span style="File_Name"><span class="DataField" data-project-number-long-dir=""></span></span>.git
+                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.charlotte.edu/<span style="File_Name"><span class="DataField" data-project-number-long-dir=""></span></span>.git
                               <span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
                             </code>
                             <code class="Shell_Code_Output-v2"> Cloning into 'Project_1'...<br>                              warning: You appear to have cloned an empty repository. <br>
@@ -179,7 +180,7 @@
                           <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1
                             ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
                           </code>
-                          <code class="Shell_Code_Input-v2">git remote add upstream https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing
+                          <code class="Shell_Code_Input-v2">git remote add upstream https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.charlotte.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing
                           </code>                            
                             <span class="Shell_Code_Comment">[... the above connects to
                             the original 'upstream' remote, to which you have
@@ -193,7 +194,7 @@
                             remote: Total 30 (delta 11), reused 0 (delta 0)<br>
                             Unpacking objects: 100% (30/30), done.<br>
                             From
-                            https://cci-git.uncc.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing<br>
+                            https://cci-git.charlotte.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing<br>
                             * [new branch] master -&gt; upstream/master<br>                            
                           </code>
                           <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir="">  </code>
@@ -224,7 +225,7 @@
                             Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s, done.<br>
                             Total 30 (delta 11), reused 0 (delta 0)<br>
                             To
-                            https://cci-git.uncc.edu/zwartell/ITCS_3120_Project_2.git<br>
+                            https://cci-git.charlotte.edu/zwartell/ITCS_3120_Project_2.git<br>
                             * [new branch] master -&gt; master<br>
                             Branch master set up to track remote branch master from
                             origin.<br>

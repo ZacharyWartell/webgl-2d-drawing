@@ -1,0 +1,684 @@
+<!--
+\author Zachary Wartell\copyright Copyright 2015. Zachary Wartell.  All rights reserved.Developed in NetBeans and Seamonkey Composer.-->
+<!DOCTYPE html><html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title></title>
+    <script>
+            /* 
+             *   Toggle a Code_Example table between scrolled presentation and expanded presentation
+             *   @param {String} - ID HTML Element ID of table
+             */
+            function Code_Example_Toggle(ID)
+            {
+                document.getElementById(ID).classList.toggle('Code_Example_Expand');
+            }
+        </script>
+    <style type="text/css">
+
+            /*   Shell Code Output  */
+            .File_Name
+            {
+                font-family: "Courier", monospace;
+            }
+
+            /*   Code Examples (put in 1x1 table) 
+            table.Hide_Code_Example:target
+            {
+                width: 400px;
+                position: relative;
+                margin: 10% auto;
+                padding: 5px 20px 13px 20px;
+                border-radius: 10px;
+                background-color: black;
+            }
+            */
+
+            /*   Code Examples are put in small 1x1 table */
+            table.Code_Example
+            {
+                width: 100%;
+                background-color: black;
+            }
+
+            /*  Code Example Expand style when displaying at full height, instead of with scroll bar
+            */
+            table.Code_Example_Expand > tbody > tr > td > div
+            {
+                width: 100%;
+                height: 100% !important;
+                /* overflow-y: scroll; */
+            }            
+
+            /*  Code Example Table Cell that contains expand button
+            */
+            table.Code_Example > tbody > tr > td:first-child
+            {
+                vertical-align:text-top;
+                text-align : left;
+                width: 25px;
+                background-color: transparent;
+                padding:0;
+                margin:0;
+            }            
+
+            /* Code Example Expand style when displaying code in compact, scrollable mode.               
+            */
+            table.Code_Example > tbody > tr > td > div
+            {
+                width: 100%;
+                overflow-y: scroll;
+            }
+
+            /*   Shell Code Input */
+            code.Shell_Code_Input
+            {
+                font-family: "Courier", monospace;
+                color: white;
+            }
+
+            /*   Shell Code Output  */
+            code.Shell_Code_Output
+            {
+                font-family: "Courier", monospace;
+                color: lightgreen;
+            }
+
+            /*   Shell Code Output  */
+            code.Shell_Code_Prompt
+            {
+                font-family: "Courier", monospace;
+                color: cyan;
+            }
+            
+            /*  User Input Required
+            */
+            .User_Input
+            {
+                background-color : grey;
+                font-style: italic;
+                color : black;
+                text-decoration: underline;
+                text-decoration-style: dotted;
+            }
+
+            span.File_Name
+            {
+                font-family: Courier, monospace;
+            }
+
+            span.Function_Name
+            {
+                font-family: Courier, monospace;
+            }            
+
+            /*   Comments in Shell Code
+            */
+            span.Shell_Code_Comment
+            {
+                font-family: Courier, monospace;
+                text-align: center;
+                color: pink;
+                background-color: grey;
+                font-style: italic;
+                font-weight : bold;
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+	    span.Updated_Text
+	    {
+		color : red; 
+		background-color : yellow;
+	    }
+
+            /*   Hierarchical List of Instructions
+            */
+            ol.Instruction
+            {
+                font-size: large;
+                list-style-type: decimal;
+            }
+
+            ol.Instruction > li > ol
+            {
+                font-size: large;
+                list-style-type: lower-alpha;
+            }
+
+            ol.Instruction > li > ol > li > ol
+            {
+                font-size: large;
+                list-style-type: lower-roman;
+            }
+
+            span.Grade_Points
+            {
+                font-weight: bold;
+            }
+            h1.Title, h2.Title, h3.Title
+            {
+                text-align : center
+            }
+        </style>
+    <style media="print" type="text/css">
+            /* 
+            If printing, don't use scroll bars, just expand code examples to full height.
+            
+            When printing to PDF, if in Chromne you must also enable "Background Graphics".
+            */
+            table.Code_Example > tbody > tr > td > div
+            {
+                width: 100%;
+                height: 100% ! important;
+                overflow-y: hidden;
+            }
+
+        </style>
+  </head>
+  <body>
+    <h1 class="Title">ITCS 3120 Project: Interactive 2D Drawing<br>
+    </h1>
+    <br>
+    <h2 class="Title">Fall 2020</h2>
+    <h2 class="Title">Professor: Zachary Wartell</h2>
+    <h3 class="Title">Revision: 12/2/2020<br>
+    </h3>
+    <section>
+      <h1>Compatibility</h1>
+      <p>This page has been tested on Firefox v41 and Chrome v46.&nbsp; A PDF
+        version is available under Canvas "Files\Projects\ITCS 3120 - 2D
+        Drawing.pdf"<br>
+      </p>
+      <h1>Objectives</h1>
+      <ol>
+        <li>Apply and extended knowledge from previous assignments regarding
+          WebGL for 2D graphics</li>
+        <li>Apply and extended knowledge from previous assignments regarding
+          HTML5 input event handling</li>
+        <li>Extended knowledge regarding HTML5 graphical user interface
+          components<br>
+        </li>
+        <li>Apply various 2D geometry computations discussed in class lecture<br>
+        </li>
+      </ol>
+    </section>
+    <section>
+      <h1>Preliminaries</h1>
+      <ol class="Instruction">
+        <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_3120 directory, where
+          you did your previous projects. Verify you have a directory structure
+          as shown below:<br>
+          <!-- <button onclick="Code_Example_Toggle('Code_Example1');"> Expand </button> -->
+          <table class="Code_Example" id="Code_Example1" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example1');">▽</button></td>
+                <td>
+                  <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120<br>
+                    </code> <code class="Shell_Code_Input"> $ find . -maxdepth
+                      2 </code> <br>
+                    <code class="Shell_Code_Output"> .<br>
+                      <span class="Shell_Code_Comment">[...the WebGL lib stuff
+                        ...]</span> <br>
+                      ./lib<br>
+                      ./lib/cuon-matrix.js<br>
+                      ./lib/cuon-utils.js<br>
+                      ./lib/webgl-debug.js<br>
+                      ./lib/webgl-guide<br>
+                      ./lib/webgl-utils.js<br>
+                      <span class="Shell_Code_Comment">[...your project 1 stuff
+                        ...]</span><br>
+                      ./Project_1<br>
+                      ./Project_1/.git<br>
+                      ./Project_1/ClickedPoints.html<br>
+                      ./Project_1/ClickedPoints.js<br>
+                      ./Project_1/ColoredPoints.html<br>
+                      <span class="Shell_Code_Comment">[...etc...]</span><br>
+                      <span class="Shell_Code_Comment">[...the WebGL book code
+                        ...]</span><br>
+                      ./WebGL_Programming_Guide<br>
+                      ./WebGL_Programming_Guide/.git<br>
+                      ./WebGL_Programming_Guide/Appendix<br>
+                      ./WebGL_Programming_Guide/ch02<br>
+                      ./WebGL_Programming_Guide/ch03<br>
+                      <span class="Shell_Code_Comment">[...etc...]</span><br>
+                    </code> </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li style="background-color: white;">Git clone additional UNCC WebGL
+          help code<br>
+          <table class="Code_Example" id="Code_Example1A" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example1A');">▽</button></td>
+                <td>
+                  <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120<br>
+                    </code> <code class="Shell_Code_Input"> $ cd lib<br>
+                    </code> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/lib<br>
+                    </code> <code class="Shell_Code_Input"> $ git clone
+                      https://cci-git.uncc.edu/UNCC_Graphics/uncc_webgl_utils.git
+                    </code> <code class="Shell_Code_Output"> <br>
+                      Cloning into 'uncc_webgl_utils'... <br>
+                      remote: Counting objects: 24, done.<br>
+                      remote: Compressing objects: 100% (22/22), done.<br>
+                      remote: Total 24 (delta 9), reused 0 (delta 0)<br>
+                      Unpacking objects: 100% (24/24), done.<br>
+                    </code> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/lib<br>
+                    </code> <code class="Shell_Code_Input"> $ cd ..<br>
+                    </code> <code>
+                      class="Shell_Code_Prompt"&gt;lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/<br>
+                    </code> </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li> Next, create a new remote repository on the Git server called <span
+            style="File_Name">"3120_P1_2D_Drawing"</span>.<br>
+          <ol>
+            <li>Remember to make your remote repository <b> "Private" </b>.</li>
+            <li>Remember to give the TA and Professor "Reporter" Access. </li>
+          </ol>
+          <br>
+        </li>
+        <li>Now clone your remote repo: <br>
+          <table class="Code_Example" id="Code_Example5" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example5');">▽</button></td>
+                <td>
+                  <div style="height: 50px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/</code><br>
+                    <code class="Shell_Code_Input">$git clone
+                      https://cci-git.uncc.edu/<span class="User_Input">your_user_id</span>/</code><code
+                      class="Shell_Code_Input"><span style="File_Name">3120_P1_2D_Drawing</span>.git
+                      Project_1</code><span style="color: white;"><span style="font-family: &quot;Courier&quot;,monospace;"></span></span><br>
+                    <code class="Shell_Code_Output"> Cloning into 'Project_4'...<br>
+                      warning: You appear to have cloned an empty repository. <br>
+                    </code> </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        </li>
+        <li> Next, retrieve the skeleton code: <br>
+          (The mechanics below are common git technique called 'fork'ing). <br>
+          &nbsp;
+          <table class="Code_Example" id="Code_Example3" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example3');">▽</button></td>
+                <td>
+                  <div style="height: 100px;"> <code class="Shell_Code_Input">$cd
+                      Project_1</code><br>
+                    <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/Project_1</code><br>
+                    <code class="Shell_Code_Input">$git remote add upstream
+                      https://cci-git.uncc.edu/UNCC_Graphics/</code><code class="Shell_Code_Input"><code
+                        class="Shell_Code_Input">ITCS_3120_2D_Drawing.git</code>
+                    </code><br>
+                    <span class="Shell_Code_Comment">[... the above connects to
+                      the original 'upstream' remote, to which you have
+                      read-only access ...]</span><br>
+                    <br>
+                    <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/Project_1</code><br>
+                    <code class="Shell_Code_Input">$git fetch upstream </code><br>
+                    <code class="Shell_Code_Output"> remote: Counting objects:
+                      30, done. <br>
+                      remote: Compressing objects: 100% (28/28), done.<br>
+                      remote: Total 30 (delta 11), reused 0 (delta 0)<br>
+                      Unpacking objects: 100% (30/30), done.<br>
+                      From
+                      https://cci-git.uncc.edu/UNCC_Graphics/ITCS_3120_2D_Drawing<br>
+                      * [new branch] master -&gt; upstream/master<br>
+                      <br>
+                    </code> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/Project_1</code><br>
+                    <code class="Shell_Code_Input">$git merge upstream/master</code><br>
+                    <span class="Shell_Code_Comment">[... the above 2 commands
+                      merge the 'upstream' remote into the local repo...]</span>
+                    <br>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        </li>
+        <li> Push the skeleton code to <u><b>your</b></u> repo.<br>
+          <table class="Code_Example" id="Code_Example7" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example7');">▽</button></td>
+                <td>
+                  <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/Project_1</code><br>
+                    <code class="Shell_Code_Input">$git push -u origin master </code><br>
+                    <code class="Shell_Code_Output"> Counting objects: 30, done.<br>
+                      Delta compression using up to 8 threads.<br>
+                      Compressing objects: 100% (28/28), done.<br>
+                      Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s, done.<br>
+                      Total 30 (delta 11), reused 0 (delta 0)<br>
+                      To
+                      https://cci-git.uncc.edu/zwartell/ITCS_3120_Project_2.git<br>
+                      * [new branch] master -&gt; master<br>
+                      Branch master set up to track remote branch master from
+                      origin.<br>
+                      <br>
+                    </code> <span class="Shell_Code_Comment">[... this pushes
+                      the local repo to your remote repo and ensures further git
+                      operations will default to using your remote ...]</span> </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        </li>
+        <li> Verify your directory structure: <br>
+          <table class="Code_Example" id="Code_Example8" style="width:
+            100%;" border="1">
+            <tbody>
+              <tr>
+                <td><button onclick="Code_Example_Toggle('Code_Example8');">▽</button></td>
+                <td>
+                  <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120/Project_1</code><br>
+                    <code class="Shell_Code_Input">$cd .. </code><br>
+                    <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                      ~/ITCS_3120</code><br>
+                    <code class="Shell_Code_Input">$find . -maxdepth 2<br>
+                    </code> <br>
+                    <code class="Shell_Code_Output"> .<br>
+                      ./lib<br>
+                      ./lib/cuon-matrix.js<br>
+                      ./lib/cuon-utils.js<br>
+                      <span class="Shell_Code_Comment">[...the new
+                        uncc_webgl_utils...]</span><br>
+                      ./lib/uncc_webgl_utils<br>
+                      ./lib/webgl-debug.js<br>
+                      ./lib/webgl-guide<br>
+                      ./lib/webgl-utils.js<br>
+                      <span class="Shell_Code_Comment">[...your other tutorial
+                        and project stuff ...]</span><br>
+                      <span class="Shell_Code_Comment">[...your new project ...]</span><br>
+                      ./Project_1<br>
+                      ./Project_1/.git<br>
+                      ./Project_1/README.txt<br>
+                      &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>
+                      <span class="Shell_Code_Comment">[...the WebGL book code,
+                        etc...]</span><br>
+                      ./WebGL_Programming_Guide<br>
+                      ./WebGL_Programming_Guide/.git<br>
+                      ./WebGL_Programming_Guide/Appendix<br>
+                      ./WebGL_Programming_Guide/ch02<br>
+                    </code><br>
+                    &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <br>
+        </li>
+        <li>All your future <span style="File_Name">git push</span> operations
+          will be to the <b> origin </b>. (If you try to push to upstream, it
+          will fail because students have read-only permission to the upstream
+          repository). </li>
+        <!--
+                                        <ol>                                            <li>sdaf</li>                                            <li>asdf</li>                                            <li>sdaf</li>                                            <ol>                                                <li>sadfasdf</li>                                                <li>asdfadsf</li>                                            </ol>                                            <li>                                                <br>                                            </li>                                        </ol>                                        <li>Do this:....</li>                -->
+      </ol>
+      <br>
+    </section>
+    <section>
+      <h1>Resources </h1>
+      <p><u>WebGL Book</u>:&nbsp; The WebGL book Chapters you read for previous
+        project should be sufficient for this assignment in terms of WebGL
+        itself.<br>
+      </p>
+      <p><u>Other Resources</u>:<br>
+        The following resources may also be useful to understand the high level
+        aspects of HTML5 and DOM:<br>
+      </p>
+      <ul>
+        <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction</a>
+          - High level of description of HTML5 is sufficient along with the
+          WebGL book's tutorial.</li>
+        <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction</a>
+          - High level description of the Document Object Model (DOM)</li>
+      </ul>
+      <p>In the project skeleton code in the code comment's, there are several
+        references and hyperlinks to other specific, external resources
+        (comments are prefixed by "Student Note:").<br>
+      </p>
+      <ul>
+      </ul>
+      <h1>The Project </h1>
+      <p>You will modify and augment the skeleton code for the drawing
+        application.&nbsp;&nbsp; We suggest you implement the requirements in
+        order of Part I, then Part II, then Part III.<br>
+      </p>
+      <p>Total number of points for the project is 100.<br>
+      </p>
+      <h2>Coding Standards:</h2>
+      <span class="Grade_Points"></span><span class="Grade_Points">[10 pts]</span>
+      points of your project grade will be based on following good programming
+      practices.&nbsp;&nbsp; Including the following:
+      <ul>
+        <li>consistent indentation, variable naming, etc.<br>
+        </li>
+        <li>commenting practice</li>
+        <ul>
+          <li>at least a comment per function, describing it's parameters and
+            function's purpose<br>
+          </li>
+        </ul>
+        <li>git commit log <br>
+        </li>
+        <ul>
+          <li>There should be at least one descriptive git commit message
+            associated with your achieving <u>each</u> of the <u>numbered</u>
+            requirements (listed below).&nbsp;&nbsp; Think of your git commit
+            messages as professional journal or blog.</li>
+          <li>Good programming practice would suggest you should be making
+            additional commit messages, as you develop your code and debug it,
+            etc.<br>
+            <br>
+          </li>
+          <li>Remember, you do <u>not</u> need to git push with the same
+            frequency as you git commit.<br>
+          </li>
+        </ul>
+      </ul>
+      <h2>Part I: </h2>
+      <p>Implement the following functionality by clicking with the mouse
+        button.<br>
+      </p>
+      <ol class="Instruction">
+        <li><u>Line Drawing</u> : <span class="Grade_Points">[ 0 pts]</span> :
+          In Line Mode, clicking a pair of points will draw a line between those
+          points.&nbsp; As new vertices are clicked a GL_POINT is drawn to
+          indicate the vertex location.&nbsp;&nbsp; The sample code already
+          implements this for you.<br>
+          <br>
+        </li>
+        <li><u>Triangle Drawing</u> : <span class="Grade_Points">[10 pts]</span>
+          : In Triangle Mode, clicking a three points will draw a filled
+          triangle using those points.&nbsp; Similar to Line Mode, as new
+          vertices are clicked a GL_POINT should be drawn to indicate the new
+          vertex location.&nbsp; After three points are selected the triangle is
+          drawn and the GL_POINTS at the vertices disappear.<br>
+          <br>
+        </li>
+        <li><u>Quad Drawing</u> : <span class="Grade_Points">[10 pts]</span> :
+          In Quad Mode, clicking four point will draw a quadrilateral. Similar
+          to the modes, vertices should be draw for visual feedback.&nbsp;&nbsp;
+          WebGL does not support quads, but only triangles. The WebGL book
+          Chapter 2 Section “Hello Rectangle (HelloQuad)” describes how to draw
+          a quadrilateral with triangle based primitives.&nbsp; After three
+          points are selected the triangle is drawn and the GL_POINTS at the
+          vertices disappear. </li>
+      </ol>
+      <h2>Part II:</h2>
+      <p>Using the second mouse button, you will be able to select <u>one</u>
+        object. <span class="Updated_Text"> (You may use either the right or
+          middle mouse button, whichever works best in your browser) </span> .
+        <br>
+      </p>
+      <ol class="Instruction">
+        <li value="4"><u>Line Selection</u> : <span class="Grade_Points">[10
+            pts]</span> : To determine if a line is selected, implement a
+          function that computes the distance of the mouse click point to each
+          line <u>segment</u>, if the distance is within a few pixels of line
+          L, line L becomes the selected object.<br>
+          <br>
+          <i>Detailed Requirements</i>:&nbsp; Implement the algorithm as
+          described in the following document:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a href="https://www.geometrictools.com/Documentation/DistancePointLine.pdf">https://www.geometrictools.com/Documentation/DistancePointLine.pdf</a><br>
+          Add the code to the file math2D.js in the function called
+          pointLineDist.&nbsp;&nbsp; <br>
+          <br>
+        </li>
+        <li><u>Triangle Selection</u> : <span class="Grade_Points">[15 pts]</span>
+          :&nbsp; To determine if a triangle is selected, implement a function
+          to test if a point is inside each triangle.&nbsp; If mouse the is
+          inside a triangle T, triangle T becomes the selected object.<br>
+          <i><br>
+          </i><i>Detailed Requirements</i>:&nbsp; Implement the
+          point-in-triangle test by computing the barycentric coordinate of
+          point <b>p</b> using the triangles vertices to define the barycentric
+          system.&nbsp;&nbsp; Test the values of the barycentric coordinates of
+          <b>p </b>as discussed in class to test whether <b>p </b>is inside
+          the triangle.&nbsp;&nbsp;&nbsp; Implement the algorithm as described
+          in class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight:
+              normal;">ITCS 4120-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
+              class=""><span style="font-weight: normal;">ITCS
+                4120-Scan_Conversion 2.pptm).</span></span></span>&nbsp;&nbsp;
+          Add the code to the math2D.js function called <span class="Function_Name">
+            barycentric()</span>.<br>
+          <br>
+        </li>
+        <li><u>Quad Selection</u>: <span class="Grade_Points">[10 pts]</span>
+          :&nbsp; To determine if a quad is selected, reuse the barycentric
+          coordinate triangle selection, but test again each triangle making up
+          the quad.&nbsp;&nbsp; If the mouse is inside a quad Q, Q becomes the
+          selected object.<br>
+          <br>
+        </li>
+        <li><u>Selected Object</u><u> Indicator</u>: <span class="Grade_Points">[5
+            pts]</span> :&nbsp; The vertices of the <span class="Updated_Text">
+            <u>one</u> </span>selected object should be drawn as GL_POINTS in
+          order to visually distinguish that the object is
+          selected.&nbsp;&nbsp;&nbsp; Once the object is no longer the selected
+          object, these GL_POINTS should disappear.&nbsp; Use a different color
+          for these points than those used when drawing.<br>
+          <br>
+        </li>
+        <li><u>Multiple Objects</u>: <span class="Grade_Points">[5 pts]</span>
+          :&nbsp;&nbsp; If multiple objects all pass their selection test, then
+          successive mouse clicks -- made without mouse movement -- should cycle
+          through selecting each of the object's that passed the selection
+          test.&nbsp;&nbsp; Remember, only <span class="Updated_Text"> <u>one</u>
+          </span>object is considered the selected object at a time, however.<br>
+        </li>
+      </ol>
+      <h2>Part III:</h2>
+      <ol class="Instruction">
+        <li value="9"><u>Delete Object</u> : <span class="Grade_Points">[10
+            pts]</span> :
+          <ol>
+            <li>Add a Delete button.&nbsp;&nbsp; Pressing the delete button
+              should delete only the <u>one</u> selected object.&nbsp; (If none
+              is selected, the button does nothing.)<br>
+            </li>
+          </ol>
+        </li>
+        <li><u>Color Change</u> : <span class="Grade_Points">[15 pts]</span> :
+          <ol>
+            <li>Use three sliders with labels Red, Green, Blue.&nbsp;&nbsp; The
+              their values should range between 0 and 1.&nbsp;</li>
+            <li>When a object is selected, that the sliders' values should
+              immediately change to be based on the object type's current color
+              (for simplicity all objects of the same type will be a single
+              color). <br>
+            </li>
+            <li>If you move a slider, the color of all objects of the selected
+              type (all lines, triangles, etc.) should change based on the
+              slider value.<br>
+            </li>
+          </ol>
+          <p><i>Comments</i>:&nbsp; The resources listed earlier give a
+            reasonable introduction to event handlers in HTML5 and
+            JavaScript.&nbsp;&nbsp; Sliders are implemented with &lt;input
+            type="range"&gt; HTML elements.&nbsp; The skeleton code provides the
+            3 sliders and initializes basic event handlers.&nbsp; You will have
+            to modify these as well as set the range's min and max,
+            etc.&nbsp;&nbsp; (<a target="_blank" href="https://www.w3.org/wiki/HTML/Elements/input/range">https://www.w3.org/wiki/HTML/Elements/input/range</a>)</p>
+        </li>
+      </ol>
+      <h1> Academic Integrity</h1>
+      <p>See the course syllabus regarding partial credit and the late penalty
+        policy. &nbsp; <br>
+      </p>
+      <p>This is an <strong>individual</strong> student project.&nbsp;&nbsp;
+        Each student should be writing and submitting their own code.&nbsp; <br>
+      </p>
+      <p>Students can discuss general aspects of the various API's (WebGL,
+        HTML5, etc) with each other and this is strongly encouraged.&nbsp;&nbsp;
+        Discussing algorithm's at the pseudo-code level is also acceptable.
+        &nbsp; <br>
+      </p>
+      <p>However, it is <u>not</u> permissible:<br>
+      </p>
+      <ul>
+        <li>to copy code from other students</li>
+        <li>copy code implementing entire functions or entire algorithms from
+          Internet resources</li>
+        <li>to copy code from other students from prior semesters<br>
+        </li>
+        <li>translate an algorithm found on the Internet implemented in
+          programming <i>X</i> and re-write it in language <i>Y</i>.</li>
+      </ul>
+      <p>For example, Objective 4 is to demonstrate the student's ability to
+        understand a geometric computation at the diagrammatic, algebraic and
+        pseudo-code level and then implement code that solves that geometric
+        problem.&nbsp; Copying code from the Internet that already implements
+        the algorithm (1) does not demonstrate programming ability nor the
+        ability to translate geometric computation from a high-level description
+        to code and (2) constitutes plagiarism if the resource is not cited
+        immediately next to the copied code segment. &nbsp; For these reasons
+        this would violate academic integrity.<br>
+      </p>
+      <p>If you have questions about whether using a particular resource is
+        acceptable or not, email the TA and/or Professor.<br>
+      </p>
+      <p><br>
+      </p>
+      <p><br>
+      </p>
+      <h1> </h1>
+      <ol class="Instruction">
+        <ol>
+          <ol>
+          </ol>
+        </ol>
+      </ol>
+    </section>
+  </body>
+</html>

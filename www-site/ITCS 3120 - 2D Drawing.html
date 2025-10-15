@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<!-- \author Zachary Wartell\copyright Copyright 2015. Zachary Wartell.  All rights reserved.-->
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+  <title>2D Drawing</title>
+  <script type="importmap">
+    {
+      "imports": {
+        "zjw-generic-instructions/": "./git-modules/zjw-generic-instructions/Site Root/"
+      }
+    }
+  </script>  
+  <!--
+  <link href="git-modules/zjw-generic-instructions/Site Root/libs/toc.css" rel="stylesheet" type="text/css">
+  -->
+  <link href="css/zjwgi/ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
+  <link href="css/zjwgi/GUI.css" rel="stylesheet" type="text/css">
+  <link href="css/zjwgi/generic_instructions.css" rel="stylesheet" type="text/css">
+  <link media="print" href="css/zjwgi/generic_instructions-print.css" rel="stylesheet" type="text/css">
+  <script type="application/json" class="js-hypothesis-config">
+        {
+            "openSidebar": false
+        }
+    </script>
+  <!--      -->
+    <script src="https://hypothes.is/embed.js" async=""></script>
+    
+    <!-- <script src="git-modules/zjw-generic-instructions/Site Root/libs/jquery-3.5.1.min.js"></script> -->
+  <script src="scripts/zjwgi/generic_instructions.js"></script>
+  <script type="module" lang="javascript">
+    import * as Rubric from "./scripts/zjwgi/Rubric.js";
+    import * as CAW from "./scripts/zjwgi/ClassAssignmentWartell.js";
+    window.BreadCrumb = Rubric.BreadCrumb;
+    CAW.main(250);
+    
+    window.Visibility_Toggle = CAW.Visibility_Toggle; 
+    console.log("window.rubricMain");
+
+    document.getElementById("Instructor_Mode").addEventListener('change', (e) => {
+      Visibility_Toggle('Instructor_Mode', e.target.checked); Visibility_Toggle('Staff_Only', e.target.checked); document.getElementById("fileMenu").disabled
+        = !e.target.checked;
+    }); 
+    function onload_Body()
+      { 
+        console.log("function onload_Body()"); 
+      }
+    window.onload_Body = onload_Body;
+
+    /**
+     * @source https://developer.mozilla.org/en-US/docs/Web/API/History_API
+     */
+    window.addEventListener("popstate", (event) => {
+      /*
+        alert(
+          `location: ${document.location}, state: ${JSON.stringify(event.state)}`,
+        );
+        */
+      });
+
+    window.addEventListener("hashchange", (event) => 
+    {
+      /*
+        alert(            
+    `"hashchange" 
+    location: ${document.location}, event: ${JSON.stringify(event)}`,); 
+    */
+      console.log(event);        
+      let split = event.newURL.split("#");
+      let e = document.getElementById(split[1]);        
+      console.log("split:",split,split[1]);
+      if (e !== null) 
+      {
+        console.log("e:",e);
+        e.scrollIntoView();           
+      }
+      // if (event.target instanceof HTMLElement)
+      // {
+      //   document.getElementById(event.newURL.split("#")[1]).scrollIntoView();           
+      //   console.log("2:",event.newURL.split("#")[1]);
+      // }
+          
+    });
+
+    /**
+     * temp hack
+     */
+    if (false)
+    {
+      let target = document.getElementById("RubricAwardedPointsClone");
+      let source = document.getElementById(target.dataset.clone);
+      let clone = source.cloneNode(true);
+      target.insertAdjacentElement('afterbegin',clone);
+    }
+
+    /**
+    *  for editting in Live Preview
+    */
+    if (true) {
+      const c = document.getElementById("cursor");
+      if (c !== null) {
+        console.log("debug: scrollIntoView", c);
+        c.scrollIntoView();
+      }
+    }         
+  </script>
+      <script type="application/json" id="AssignmentName">
+        {
+            "AssignmentName" : {
+                "courseNumber" : "3120",
+                "number" : "p1",
+                "numberLongDir" : "3120-p1-2d-drawing",
+                "name" : "2d-drawing"
+              }   
+        }
+    </script>
+</head>
+
+<body onload="onload_Body();">
+  <div class="window-container"> </div>
+  <div class="main-container">
+    <!-- disabled:  having problems getting HTML flexbox layout to open sidebar initially to show fit-content and still allow the sidebar to be shrunk
+      using CSS resize.                               
+
+       
+    -->
+    <div id="side-nav-bar" class="side_nav_bar">     
+      <div></div>      
+    </div>          
+    <div class="main-content" id="Content">
+      <div class="toolbar" id="Toolbar">
+        <div class="Menu"> <button id="help" class="DocButton" onclick='window.open("html/zjwgi/Help.html");'> Help </button> <b>|</b>
+          <div class="DocButton"> <input name="Beta_Mode" id="Beta_Mode" type="checkbox"> <label for="Beta_Mode">Beta Mode</label> </div>
+          <div id="BetaModeGUI" style="display:inherit;">
+            <div class="DocButton"> <button id="Question" class="DocButton" disabled="true">Q&amp;A</button> <span>Post question on <br>
+                selected text <a target="_blank" href="html/zjwgi/Help.html#DocButton_Question">(more)</a> </span> </div>
+            <b>|</b>
+            <div class="DocButton"> <button id="GoogleGroupButton" class="DocButton" disabled="true" onclick="window.open('https://groups.google.com/a/uncc.edu/g/computer-graphics-wartell-group','_blank')">Google
+                Group</button> <span>Open tab with class Google Group <br>
+                <!-- <a target="_blank" href="html/zjwgi/help.html#DocButton_Question">(more)</a> --> </span> 
+            </div>
+            <!--
+            <b>||</b>
+            <div class="DocButton"> <button id="back" class="DocButton" disabled="true">🡰</button> <span>Navigate Back <a href="html/zjwgi/help.html#DocButton_back"></a>
+              </span> 
+            </div>
+            <div class="DocButton"> <button id="forward" class="DocButton" disabled="true">🡲</button> <span>Navigate Forward <a href="html/zjwgi/help.html#DocButton_forward"></a>
+              </span> 
+            </div>
+            -->
+            <b>||</b>
+            <div> <input name="Instructor_Mode" id="Instructor_Mode" disabled="true" type="checkbox"> <label for="Instructor_Mode">TA Mode</label> <b>|</b>
+              |
+              <!--
+                    <a href="mailto:computer-graphics-wartell-group@uncc.edu">mail test</a>                                  <a id="SendComment" target="_blank" class="WindowOpenLeft">Send Comment</a>                     <a target="_blank" href="https://mail.google.com/mail/u/0/#inbox?compose=new">mail test #2 </a>                      -->
+              <button id="fileMenu" disabled="disabled" onclick="document.getElementById('fileSubMenu').hidden=false;">Rubric</button>
+              <ul id="fileSubMenu" class="SubMenu" hidden="">
+                <li> <input id="loadFile" name="loadFile" accept="/html" type="file"> </li>
+                <li><button id="Export">Export</button></li>
+                <li><button id="exportAll">Download</button></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <article>
+        <h1 class="Title">ITCS 3120 Project: Interactive 2D Drawing<br>
+        </h1>
+        <br>
+        <h2 class="Title">Spring 2024</h2>
+        <h2 class="Title">Professor: Zachary Wartell</h2>    
+        </h3>
+        <h3 class="nocount Title">Revision: <span class="Revision">Mon Mar 11 15:50:21 2024 -0400</span> <sup> (<a
+          href="https://cci-git.charlotte.edu/zwartell/webgl-2d-drawing/-/commits/main" target="_blank">git logs</a>)
+        </sup><br>
+        </h3>
+        <section>
+          <h1  class="nocount">Compatibility</h1>
+          <p>This page has been tested on Chrome v118.
+          </p>
+          <h1  class="nocount">Objectives</h1>
+          <ol>
+            <li>Apply and extend knowledge from previous assignments regarding
+              WebGL for 2D graphics</li>
+            <li>Apply and extend knowledge from previous assignments regarding
+              HTML5 input event handling</li>
+            <li>Extended knowledge regarding HTML5 graphical user interface
+              components<br>
+            </li>
+            <li>Apply various 2D geometry computations discussed in class lecture<br>
+            </li>
+          </ol>
+        </section>
+        <section><h1 class="nocount">Resources </h1>
+          
+          <u>Live Demo:</u> <a href="https://webpages.charlotte.edu/zwartell/ITCS%204120/current/interactive_examples/2D%20Drawing-Demo/2D%20Drawing.html">Project: 2D Drawing</a>
+          
+          <p><u>WebGL Book</u>:&nbsp; The WebGL book Chapters you read for previous
+            project should be sufficient for this assignment in terms of WebGL
+            itself.<br>
+          </p>
+          <!--
+          <p><u>Other Resources</u>:<br>
+            The following resources may also be useful to understand the high level
+            aspects of HTML5 and DOM:<br>
+          </p>
+          <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction">https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction</a>
+              - High level of description of HTML5 is sufficient along with the
+              WebGL book's tutorial.</li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction</a>
+              - High level description of the Document Object Model (DOM)</li>
+          </ul>
+          -->
+          <p>In the project skeleton code in the code comment's, there are several
+            references and hyperlinks to other specific, external resources
+            (comments are prefixed by "Student Note:").<br>
+          </p>
+          <ul>
+          </ul>
+        </section>        
+
+        <section ><h1 class="Section">The Project </h1>
+          The total points for this project is <span data-total-points=""></span>.   See <a href="#Section_Rubric">Section: Rubric</a> or the instruction outlines for more details.
+          <section data-point-fraction="5" class="Instruction_Section"><h2 class="Section">Preliminaries</h2>
+            <ol class="Instruction">
+              <li>Start your shell.&nbsp;&nbsp; cd to your ITCS_3120 directory, where
+                you did your previous projects. <br>
+                <!-- <button onclick="Code_Example_Toggle('Code_Example1');"> Expand </button> -->
+                <table class="Code_Example" id="Code_Example1" style="width: 100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example1');">▽</button></td>
+                      <td>
+                        <div> 
+                          <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1  ~/ITCS_<span class="DataField" data-course-number=""></span>
+                          </code>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <!-- 
+              <li>Copy the WebGL Program Guide's lib directory to your <br>
+                <table class="Code_Example" id="Code_Example1A" style="width:
+                  100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example1A');">▽</button></td>
+                      <td>
+                        <div style="height: 25px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>
+                          </code> <code class="Shell_Code_Input"> $ cp -r WebGL_Programming_Guide/lib lib<br>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>              
+              <li>Git clone the additional UNCC WebGL helper code<br>
+                <table class="Code_Example" id="Code_Example1-3" style="width: 100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example1-3');">▽</button></td>
+                      <td>
+                        <div style="height: 100px;">
+                           <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>
+                            </code>
+                            <code class="Shell_Code_Input-v2">cd lib </code>
+                            <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/lib </code>
+                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/UNCC_Graphics_Teaching/uncc_webgl_utils.git </code>
+                            <code class="Shell_Code_Output"> 
+                            Cloning into 'uncc_webgl_utils'... <br>
+                            remote: Counting objects: 24, done.<br>
+                            remote: Compressing objects: 100% (22/22), done.<br>
+                            remote: Total 24 (delta 9), reused 0 (delta 0)<br>
+                            Unpacking objects: 100% (24/24), done.<br>
+                          </code> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/lib<br>
+                          </code> <code class="Shell_Code_Input"> $ cd ..<br>
+                          </code> <code>
+                            class="Shell_Code_Prompt"&gt;lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<br>
+                          </code>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              -->
+              <li> Next, create a new remote repository on the Git server called <span style="File_Name"><span class="DataField" data-project-number-long-dir=""></span></span>.<br>
+                <p>
+                  Follow all the standard practices for the course, e.g. remote
+                  repository <b> "Private" </b>, Group Invite private group
+                  "Reporter" (see <a target="_blank" href="https://webpages.charlotte.edu/zwartell/Teaching/Git%20Tutorial/Git%20Tutorial.html#Section_11.1">"How to Create New Remote Repository") </a> 
+                </p>
+              </li>
+              <li>Now clone your remote repo: <br>
+                <table class="Code_Example" id="Code_Example5" style="width: 100% ;">
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example5');">▽</button></td>
+                      <td>
+                        <div style="height: 50px;">
+                            <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/
+                            </code>
+                            <code class="Shell_Code_Input-v2">git clone https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/<span style="File_Name"><span class="DataField" data-project-number-long-dir=""></span></span>.git
+                              <span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
+                            </code>
+                            <code class="Shell_Code_Output-v2"> Cloning into 'Project_1'...<br>                              warning: You appear to have cloned an empty repository. <br>
+                            </code> 
+                          </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+              </li>
+              <li> Next, retrieve the skeleton code: <br>
+                (The mechanics below are common git technique called 'fork'ing). <br>
+                &nbsp;
+                <table class="Code_Example" id="Code_Example3" style="width:
+                  100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example3');">▽</button></td>
+                      <td>
+                        <div style="height: 100px;"> 
+                          <code class="Shell_Code_Input-v2">cd <span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
+                          </code>
+                          <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
+                          </code>
+                          <code class="Shell_Code_Input-v2">git remote add upstream https://<span class="User_Input">your_user_id</span>:<span class="User_Input">your_PAT</span>@cci-git.uncc.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing
+                          </code>                            
+                            <span class="Shell_Code_Comment">[... the above connects to
+                            the original 'upstream' remote, to which you have
+                            read-only access ...]</span>                            
+                          <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
+                          </code>
+                          <code class="Shell_Code_Input-v2">git fetch upstream </code>
+                          <code class="Shell_Code_Output"> remote: Counting objects:
+                            30, done. <br>
+                            remote: Compressing objects: 100% (28/28), done.<br>
+                            remote: Total 30 (delta 11), reused 0 (delta 0)<br>
+                            Unpacking objects: 100% (30/30), done.<br>
+                            From
+                            https://cci-git.uncc.edu/UNCC_Graphics_Teaching/ITCS_3120_2D_Drawing<br>
+                            * [new branch] master -&gt; upstream/master<br>                            
+                          </code>
+                          <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1 ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir="">  </code>
+                          <code class="Shell_Code_Input-v2">git merge upstream/master</code>
+                          <span class="Shell_Code_Comment">[... the above 2 commands
+                            merge the 'upstream' remote into the local repo...]</span>
+                          <br>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+              </li>
+              <li> Push the skeleton code to <u><b>your</b></u> repo.<br>
+                <table class="Code_Example" id="Code_Example7" style="width:
+                  100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example7');">▽</button></td>
+                      <td>
+                        <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></code><br>
+                          <code class="Shell_Code_Input">$git push -u origin main </code><br>
+                          <code class="Shell_Code_Output"> Counting objects: 30, done.<br>
+                            Delta compression using up to 8 threads.<br>
+                            Compressing objects: 100% (28/28), done.<br>
+                            Writing objects: 100% (30/30), 8.25 KiB | 0 bytes/s, done.<br>
+                            Total 30 (delta 11), reused 0 (delta 0)<br>
+                            To
+                            https://cci-git.uncc.edu/zwartell/ITCS_3120_Project_2.git<br>
+                            * [new branch] master -&gt; master<br>
+                            Branch master set up to track remote branch master from
+                            origin.<br>
+                            <br>
+                          </code> <span class="Shell_Code_Comment">[... this pushes
+                            the local repo to your remote repo and ensures further git
+                            operations will default to using your remote ...]</span> </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+              </li>
+              <!-- 
+              <li> Copy the common file in ../lib into your <span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span> directory
+                <table class="Code_Example" id="Code_Example3_3" style="width:
+                  100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example3_3');">▽</button></td>
+                      <td>
+                        <span id="cursor"></span>
+                        <div style="height: 100px;"> 
+                          <code class="Shell_Code_Input-v2">cd ..
+                          </code>
+                          <code class="Shell_Code_Prompt-v2">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/
+                          </code>
+                          <code class="Shell_Code_Input-v2">cp -r lib <span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></span>
+                          </code>                                                      
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              -->
+              <!--
+              <li> Verify your directory structure: <br>
+                <table class="Code_Example" id="Code_Example8" style="width:
+                  100%;" >
+                  <tbody>
+                    <tr>
+                      <td><button onclick="Code_Example_Toggle('Code_Example8');">▽</button></td>
+                      <td>
+                        <div style="height: 100px;"> <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span>/<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""></code><br>
+                          <code class="Shell_Code_Input">$cd .. </code><br>
+                          <code class="Shell_Code_Prompt">lucretius@CCIWD-435B-1
+                            ~/ITCS_<span class="DataField" data-course-number=""></span></code><br>
+                          <code class="Shell_Code_Input">$find . -maxdepth 2<br>
+                          </code>
+                          <code class="Shell_Code_Output"> .<br>
+                            ./lib<br>
+                            ./lib/cuon-matrix.js<br>
+                            ./lib/cuon-utils.js<br>
+                            ./lib/webgl-debug.js<br>
+                            ./lib/webgl-guide<br>
+                            ./lib/webgl-utils.js<br>
+                            <span class="Shell_Code_Comment">[...the new uncc_webgl_utils...]</span><br>
+                            ./lib/uncc_webgl_utils<br>                            
+                            <span class="Shell_Code_Comment">[...your new project ...]</span><br>
+                            ./<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir=""><br>
+                            ./<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir="">/.git<br>
+                            ./<span class="DataField" data-project-number=""></span>-<span class="DataField" data-project-name-dir="">/README.txt<br>
+                            &nbsp; &nbsp; <span class="Shell_Code_Comment">[...etc...]</span><br>
+                            <span class="Shell_Code_Comment">[...the WebGL book code,
+                              etc...]</span><br>
+                            ./WebGL_Programming_Guide<br>
+                            ./WebGL_Programming_Guide/.git<br>
+                            ./WebGL_Programming_Guide/Appendix<br>
+                            ./WebGL_Programming_Guide/ch02<br>
+                            <span class="Shell_Code_Comment">[...your other tutorial and project stuff ...]</span><br>
+                          </code>                          
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br>
+              </li>
+              -->
+              <li>All your future <span style="File_Name">git push</span> operations
+                will be to the <b> origin </b>. (If you try to push to upstream, it
+                will fail because students have read-only permission to the upstream
+                repository). </li>
+              <!--
+                                              <ol>                                            <li>sdaf</li>                                            <li>asdf</li>                                            <li>sdaf</li>                                            <ol>                                                <li>sadfasdf</li>                                                <li>asdfadsf</li>                                            </ol>                                            <li>                                                <br>                                            </li>                                        </ol>                                        <li>Do this:....</li>                -->
+            </ol>
+            <br>
+          </section>          
+          <p>You will modify and augment the skeleton code for the drawing
+            application.&nbsp;&nbsp; It is suggested that you implement the requirements in
+            order of Part I through Part IV.<br>
+          </p>
+          <p>Total number of points for the project is <span data-total-points=""></span>.<br>
+          </p>
+          <section data-point-fraction="5" class="Instruction_Section"><h2 class="Section">Coding Standards:</h2>            
+            10 points of your project grade will be based on following good programming
+            practices.&nbsp;&nbsp; Including the following:
+            <ul class="Instruction">
+              <li>consistent indentation, variable naming, etc.<br>
+              </li>
+              <li>commenting practice</li>
+              <ul>
+                <li>at least a comment per function, describing it's parameters and
+                  function's purpose<br>
+                </li>
+              </ul>
+              <li>git commit log <br>
+              </li>
+              <ul>
+                <li>There should be at least one descriptive git commit message
+                  associated with your achieving <u>each</u> of the <u>numbered</u>
+                  requirements (listed below).&nbsp;&nbsp; Think of your git commit
+                  messages as professional journal or blog.
+                </li>
+                <li>Good programming practice would suggest you should be making
+                  additional commit messages, as you develop your code and debug it,
+                  etc.<br>
+                  <br>
+                </li>
+                <li>Remember, you do <u>not</u> need to git push with the same
+                  frequency as you git commit.<br>
+                </li>
+              </ul>
+            </ul>
+          </section>
+          <section data-point-fraction="10" class="Instruction_Section"><h2 class="Section">Part I: </h2>
+            The skeleton code contains a file <span class="File_Name">math2D.js</span>.  In contains partial implementation
+            for a number of classes and functions.  For Part I, in class Mat2 and Vec2 finish implementing the unimplemented class methods 
+            that contain the comment /* \todo needs to be implemented */.  Verify these methods work correctly before proceeding to
+            Part II.   
+            <ol class="Instruction">
+              <li data-point-fraction="25"> class Mat2 - implement the remaining methods of this class</li>
+              <li data-point-fraction="25"> class Vec2 - implement the remaining methods of this class</li>
+              <li data-point-fraction="50"> Verify and Test - In file <span class="File_Name">2D Drawing.js</span>,
+                find the if-then statement associated with boolean variable <span class="File_Name">justRunMathTest</span>.
+                Temporarily change the <span class="File_Name">justRunMathTest</span> in order to run the test function
+                <span class="File_Name">math2d_test()</span>.  Study the code in <span class="File_Name">math2d_test()</span>.
+                Use this code to test your implementation of the Mat2 and Vec2 methods.
+                Add any additional testing code to <span class="File_Name">math2d_test()</span> that you find necessary.                                  
+              </li>
+            </ol>
+          </section>  
+          <section data-point-fraction="17" class="Instruction_Section"><h2 class="Section">Part II: </h2>
+            <p>Implement the following functionality by clicking with the mouse
+              button.<br>
+            </p>
+            <ol class="Instruction">
+              <li data-point-fraction="0"><u>Line Drawing</u> 
+                In Line Mode, clicking a pair of points will draw a line between those
+                points.&nbsp; As new vertices are clicked a GL_POINT is drawn to
+                indicate the vertex location.&nbsp;&nbsp; The sample code already
+                implements this for you.<br>
+                <br>
+              </li>
+              <li data-point-fraction="50"><u>Triangle Drawing</u>
+                : In Triangle Mode, clicking a three points will draw a filled
+                triangle using those points.&nbsp; Similar to Line Mode, as new
+                vertices are clicked a GL_POINT should be drawn to indicate the new
+                vertex location.&nbsp; After three points are selected the triangle is
+                drawn and the GL_POINTS at the vertices disappear.<br>
+                <br>
+              </li>
+              <li data-point-fraction="50"><u>Quad Drawing</u>
+                In Quad Mode, clicking four point will draw a quadrilateral. Similar
+                to the modes, vertices should be draw for visual feedback.&nbsp;&nbsp;
+                WebGL does not support quads, but only triangles. The WebGL book
+                Chapter 2 Section “Hello Rectangle (HelloQuad)” describes how to draw
+                a quadrilateral with triangle based primitives.&nbsp; After three
+                points are selected the triangle is drawn and the GL_POINTS at the
+                vertices disappear. </li>
+            </ol>
+          </section>
+          <section data-point-fraction="40" class="Instruction_Section"><h2 class="Section">Part III:</h2>
+            <p>Using the second mouse button, you will be able to select <u>one</u>
+              object.(You may use either the right or
+                middle mouse button, whichever works best in your browser).
+              <br>
+            </p>
+            <ol class="Instruction">
+              <li data-point-fraction="22.2222222"><u>Line Selection</u> To determine if a line is selected, implement a
+                function that computes the distance of the mouse click point to each
+                line <u>segment</u>, if the distance is within a few pixels of line
+                L, line L becomes the selected object.<br>
+                <br>
+                <i>Detailed Requirements</i>:&nbsp; Implement the algorithm as
+                described in the following document:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="https://www.geometrictools.com/Documentation/DistancePointLine.pdf">https://www.geometrictools.com/Documentation/DistancePointLine.pdf</a><br>
+                Add the code to the file math2D.js in the function called
+                pointLineDist.&nbsp;&nbsp; <br>
+                <br>
+              </li>
+              <li data-point-fraction="33.3333333"><u>Triangle Selection</u> To determine if a triangle is selected, implement a function
+                to test if a point is inside each triangle.&nbsp; If mouse the is
+                inside a triangle T, triangle T becomes the selected object.<br>
+                <i><br>
+                </i><i>Detailed Requirements</i>:&nbsp; Implement the
+                point-in-triangle test by computing the barycentric coordinate of
+                point <b>p</b> using the triangles vertices to define the barycentric
+                system.&nbsp;&nbsp; Test the values of the barycentric coordinates of
+                <b>p </b>as discussed in class to test whether <b>p </b>is inside
+                the triangle.&nbsp;&nbsp;&nbsp; Implement the algorithm as described
+                in class (<span id="yui_3_17_2_3_1445737332789_3755" style="font-weight:
+                    normal;">ITCS 4120-2D Coordinates.pptx</span> and <span class="instructure_file_link_holder link_holder"><span
+      
+                    class=""><span style="font-weight: normal;">ITCS
+                      4120-Scan_Conversion 2.pptm).</span></span></span>&nbsp;&nbsp;
+                Add the code to the math2D.js function called <span class="Function_Name">
+                  barycentric()</span>.<br>
+                <br>
+              </li>
+              <li data-point-fraction="22.2222222"><u>Quad Selection</u>: 
+                :&nbsp; To determine if a quad is selected, reuse the barycentric
+                coordinate triangle selection, but test again each triangle making up
+                the quad.&nbsp;&nbsp; If the mouse is inside a quad Q, Q becomes the
+                selected object.<br>
+                <br>
+              </li>
+              <li data-point-fraction="11.1111111"><u>Selected Object</u><u> Indicator</u>The vertices of the 
+                <u>one</u> selected object should be drawn as GL_POINTS in
+                order to visually distinguish that the object is
+                selected.&nbsp;&nbsp;&nbsp; Once the object is no longer the selected
+                object, these GL_POINTS should disappear.&nbsp; Use a different color
+                for these points than those used when drawing.<br>
+                <br>
+              </li>
+              <li data-point-fraction="11.1111111"><u>Multiple Objects</u> If multiple objects all pass their selection test, then
+                successive mouse clicks -- made without mouse movement -- should cycle
+                through selecting each of the object's that passed the selection
+                test.&nbsp;&nbsp; Remember, only  <u>one</u>
+                object is considered the selected object at a time, however.<br>
+              </li>
+            </ol>
+            </section>
+          <section data-point-fraction="23" class="Instruction_Section"><h2 class="Section">Part IV:</h2>
+            <ol class="Instruction">
+              <li data-point-fraction="40"><u>Delete Object</u> 
+                <ol>
+                  <li>Add a Delete button.&nbsp;&nbsp; Pressing the delete button
+                    should delete only the <u>one</u> selected object.&nbsp; (If none
+                    is selected, the button does nothing.)<br>
+                  </li>
+                </ol>
+              </li>
+              <li data-point-fraction="60"><u>Color Change</u>
+                <ol>
+                  <li>Use three sliders with labels Red, Green, Blue.&nbsp;&nbsp; The
+                    their values should range between 0 and 1.&nbsp;</li>
+                  <li>When a object is selected, that the sliders' values should
+                    immediately change to be based on the object type's current color
+                    <!-- 
+                    (for simplicity all objects of the same type will be a single
+                    color).--> <br>
+                  </li>
+                  <li>
+                    <!-- 
+                    If you move a slider, the color of all objects of the selected
+                    type (all lines, triangles, etc.) should change based on the
+                    slider value.<br>
+                    -->
+                    If you move a slider, the color of the selected object should change based on the
+                    slider values
+                  </li>
+                </ol>
+                <p><i>Comments</i>:&nbsp; The resources listed earlier give a
+                  reasonable introduction to event handlers in HTML5 and
+                  JavaScript.&nbsp;&nbsp; Sliders are implemented with &lt;input
+                  type="range"&gt; HTML elements.&nbsp; The skeleton code provides the
+                  3 sliders and initializes basic event handlers.&nbsp; You will have
+                  to modify these as well as set the range's min and max,
+                  etc.&nbsp;&nbsp; (<a target="_blank" href="https://www.w3.org/wiki/HTML/Elements/input/range">https://www.w3.org/wiki/HTML/Elements/input/range</a>)</p>
+              </li>
+            </ol>
+          </section>
+        </section>
+        <section><h1 class="Section"> Academic Integrity</h1>
+          <p>See the course syllabus regarding partial credit and the late penalty
+            policy. &nbsp; <br>
+          </p>
+          <p>This is an <strong>individual</strong> student project.&nbsp;&nbsp;
+            Each student should be writing and submitting their own code.&nbsp; <br>
+          </p>
+          <p>Students can discuss general aspects of the various API's (WebGL,
+            HTML5, etc) with each other and this is strongly encouraged.&nbsp;&nbsp;
+            Discussing algorithm's at the pseudo-code level is also acceptable.
+            &nbsp; <br>
+          </p>
+          <p>However, it is <u>not</u> permissible:<br>
+          </p>
+          <ul>
+            <li>to copy code from other students</li>
+            <li>copy code implementing entire functions or entire algorithms from
+              Internet resources</li>
+            <li>to copy code from other students from prior semesters<br>
+            </li>
+            <li>translate an algorithm found on the Internet implemented in
+              programming <i>X</i> and re-write it in language <i>Y</i>.</li>
+          </ul>
+          <p>For example, Objective 4 is to demonstrate the student's ability to
+            understand a geometric computation at the diagrammatic, algebraic and
+            pseudo-code level and then implement code that solves that geometric
+            problem.&nbsp; Copying code from the Internet that already implements
+            the algorithm (1) does not demonstrate programming ability nor the
+            ability to translate geometric computation from a high-level description
+            to code and (2) constitutes plagiarism if the resource is not cited
+            immediately next to the copied code segment. &nbsp; For these reasons
+            this would violate academic integrity.<br>
+          </p>
+          <p>If you have questions about whether using a particular resource is
+            acceptable or not, email the TA and/or Professor.<br>
+          </p>
+        </section>
+        <section id="Section_Rubric"><h1 id="Section_Rubric" class="Section">Appendix I: Rubric</h1>
+          <!--
+                  <div style="border: solid 1px" hidden="">              <p style="background-color: yellow; color: red; text-align: center;"><em>[3/12/2021                  - 12:05am] Section&nbsp; Under Construction<br>                </em></p>              This Tutorial is out of will be 160 total points<br>              The rubric is generated from the "<strong>[x pts]</strong>"<strong>              </strong>labels<strong> </strong>next to each of the tutorial<strong>              </strong><u>Exercise</u><strong>:'s.<br>                <br>              </strong>ZJW: 3/12/2021:&nbsp; The rubric is nearly complete<strong>.<br>              </strong>            </div>            -->
+                
+          <div id="Div_Rubric">
+            <div>
+              <table id="RubricAwardedPoints" class="RubricAwardedPoints">
+                <thead>
+                  <tr><th>Combination</th><!--<th>Completed</th> --> <th>Max Points</th><th>Awarded Points</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><!--</td><td>--></td><td><span data-total-points=""></span></td><td><span id="AwardedPoints">0.0</span></td></tr>
+                </tbody>
+              </table>                  
+              <br>
+            </div>
+            <table class="Rubric" id="RubricTable">
+              <tbody>
+                <tr>
+                  <th scope="col" width="120">Section</th>
+                  <th scope="col" width="43">Item</th>
+                  <th scope="col" width="43">Category</th>
+                  <th scope="col" width="100">Link</th>
+                  <th scope="col" width="max-content">Fraction</th>
+                  <th scope="col" width="fit-content">Points <span class="Instructor_Mode">| Award</span></th>
+                  <!-- <th class="Instructor_Mode" scope="col" hidden="" width="43">Full/Partial</th> -->
+                  <!--<th class="Instructor_Mode" scope="col" hidden="" width="25">Awarded</th> --> <th class="Instructor_Mode" scope="col" hidden="" width="200">Comments</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section><h1 class="Section"> Academic Integrity</h1>
+          <p>See the course syllabus regarding partial credit and the late
+            penalty policy. &nbsp; <br>
+          </p>
+          <ul>
+            <li>This is an individual assignment.&nbsp;&nbsp; Each student must
+              write and submit their own unique code, logs, answers, etc.</li>
+            <li>However, feel free work together in pairs or groups and
+              discussing the readings and concepts. </li>
+          </ul>
+          <p><br>
+            Cheating in any form is subject to disciplinary action (UNCC
+            Catalog, pages 275-278).<br>
+            <br>
+            The TA will be running the submitted code through various plagiarism
+            detection software such as TurnitIn.
+          </p>
+          <p>If you have questions about whether using a particular resource or
+            collaborative strategy is acceptable or not, email the TA and/or
+            Professor. <br>
+          </p>
+        </section>        
+    
+      </article>
+    </div>      
+    <!--
+      most external site will refuse to connect via an iframe, therefore I went with the windowOpenLeft() solution.
+      <div class="side-read-bar">          <iframe src="https://developer.mozilla.org/en-US/html/zjwgi/Web/JavaScript/Guide/Expressions_and_Operators">          </iframe>        </div>                      -->
+  </div>
+</body>
+ <template id="SectionRubricTemplate" data-version="1.0">
+  <table class="SectionRubric">
+    <tbody>
+      <tr>
+        <td> Time&nbsp;</td>
+        <td> MSDoc: "2 minutes to read"</td>
+        <td> Assignment: "? minutes to do"</td>
+      </tr>
+      <tr>
+        <td><input onclick='new GradingScript({category : "MSVSSolution", projectDirectory : "MSVS-CSharp-Tutorial/Arrays" }).downloadScript();' value="Grade"
+
+            type="button"></td>
+      </tr>
+    </tbody>
+  </table>
+</template> <template id="Instruction_Section_Template" data-version="1.0">
+  <div class="Instruction_Section"> </div>
+</template> 
+</html>

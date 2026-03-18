@@ -1,7 +1,3 @@
-[submodule "site/git_modules/zjwgi"]
-	path = site/git_modules/zjwgi
-	url = https://gitlab.com/zwartell/zjw-generic-instructions.git
-	branch = version2
 [submodule "git-modules/zjw-generic-instructions.git"]
 	path = git-modules/zjw-generic-instructions.git
 	url = git@github.com:ZacharyWartell/zjw-generic-instructions.git

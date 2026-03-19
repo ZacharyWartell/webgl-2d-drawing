@@ -1,7 +1,7 @@
 [submodule "git-modules/zjw-generic-instructions.git"]
 	path = git-modules/zjw-generic-instructions.git
 	url = git@github.com:ZacharyWartell/zjw-generic-instructions.git
-	branch = main
+	branch = master
 [submodule "git-modules/zjw-pwa-template.git"]
 	path = git-modules/zjw-pwa-template.git
 	url = git@github.com:ZacharyWartell/zjw-pwa-template.git

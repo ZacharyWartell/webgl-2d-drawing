@@ -2,11 +2,11 @@
 */
 {
     "name": "WebGL 2D Drawing",
-    "version": "1.10.5",
+    "version": "1.10.6",
     "short_name": "WebGL 2D Drawing",
     "author": "Zachary Wartell",
-    "start_url":"https://172.21.224.73:8080/",
-    //"start_url":"https://webpages.charlotte.edu/%7Ezwartell/Teaching/webgl-tutorial",
+    //"start_url":"https://172.21.224.73:8080/",
+    "start_url":"https://webpages.charlotte.edu/%7Ezwartell/Teaching/webgl-2d-drawing",
     "display":"standalone",
     "description" : "",
     "icons": [

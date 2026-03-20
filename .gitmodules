@@ -14,6 +14,3 @@
 	path = git-modules/zxw-git-modules.git
 	url = git@github.com:ZacharyWartell/zxw-git-modules.git
 	branch = main
-[submodule "git-modules/zxw-env.git"]
-	path = git-modules/zxw-env.git
-	url = git@github.com:ZacharyWartell/zxw-env.git

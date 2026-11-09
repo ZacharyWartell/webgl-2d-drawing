@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<!-- \author Zachary Wartell\copyright Copyright 2015. Zachary Wartell.  All rights reserved.-->
+<!--
+\author Zachary Wartell
+\copyright Copyright 2015. Zachary Wartell.  All rights reserved.
+-->
 <html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="generator" content="HTML Tidy for HTML5 for Linux version 5.2.0">
+    <title>ITCS 3120 : Visual Studio Code Tutorial </title>    
 
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">  
-  <title>WebGL 2D Drawing</title>
-
-  <link rel="manifest" crossorigin="use-credentials" href="manifest.json">
-  <link rel="shortcut icon" type="image/png" href="icons/icon48.png">
-  <link rel="shortcut icon" type="image/png" href="icons/icon144.png">
-
-  <!-- BEGIN:  ZxW MVC <head> -->
-  <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/style.css">
-  <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/technical-writing.css">
-  <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/annotation.css">
-  
-  <script type="importmap">
+    <!-- BEGIN:  ZxW MVC <head> -->
+    <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/style.css">
+    <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/technical-writing.css">
+    <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/annotation.css">        
+    <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/numbered-headings-alpha-v2.css">
+    <script type="importmap">
           {
             "imports": {
               "ZxW_MVC": "./modules/zxw-mvc/ZxW_MVC.js",
@@ -26,101 +25,94 @@
               "ZxW_TextEditor": "./modules/zxw-mvc/ZxW_TextEditor.js"
             }
           }
-      </script>
-  <!-- END:  ZxW MVC <head> -->
+      </script>      
+    <!-- END:  ZxW MVC <head> -->
+      
+    <!-- BEGIN:  ZJWGI <head> -->
+    <link href="modules/zjw-generic-instructions/css/GUI.css" rel="stylesheet" type="text/css">
+    <link href="modules/zjw-generic-instructions/css/generic_instructions.css" rel="stylesheet" type="text/css">
+    <link href="modules/zjw-generic-instructions/css/ClassAssignmentWartell.css" rel="stylesheet" type="text/css">    
+    <link media="print" href="modules/zjw-generic-instructions/css/generic_instructions-print.css" rel="stylesheet" type="text/css">
+    <script src="modules/zjw-generic-instructions/scripts/generic_instructions.js"></script>
+    <!-- END:  ZxW MVC <head> -->
 
-  <!-- BEGIN:  ZJW Generic Instructions <head> -->
-  <link href="modules/zjw-generic-instructions/css/ClassAssignmentWartell.css" rel="stylesheet" type="text/css">
-  <link type="text/css" rel="stylesheet" href="modules/zxw-mvc/numbered-headings-alpha-v2.css">
-  <link href="modules/zjw-generic-instructions/css/ " rel="stylesheet" type="text/css">
-  <link href="modules/zjw-generic-instructions/css/GUI.css" rel="stylesheet" type="text/css">
-  <link href="modules/zjw-generic-instructions/css/generic_instructions.css" rel="stylesheet" type="text/css">
-  <link media="print" href="modules/zjw-generic-instructions/css/generic_instructions-print.css" rel="stylesheet"
-    type="text/css">
-  <!--      
-    <script type="application/json" class="js-hypothesis-config">        {            "openSidebar": false        }    </script>        <script src="https://hypothes.is/embed.js" async=""></script>              <script src="modules/zjw-generic-instructions/scripts/third-party/jquery-3.5.1.min.js"></script>        <script src="modules/zjw-generic-instructions/scripts/third-party/jquery-3.5.1.min.js" lang="javascript"></script>    
-     -->
-  <script src="modules/zjw-generic-instructions/scripts/generic_instructions.js"></script>
-  <!-- END:  ZJW Generic Instructions <head> -->
-  <script type="module" lang="javascript">
-    import * as ZxW_GUI from "ZxW_GUI";
-    import * as Rubric from "./modules/zjw-generic-instructions/scripts/Rubric.js";
-    import * as CAW from "./modules/zjw-generic-instructions/scripts/ClassAssignmentWartell.js";
+    <script type="module" lang="javascript">      
+      import * as ZxW_GUI from "ZxW_GUI";
+      import * as Rubric from "./modules/zjw-generic-instructions/scripts/Rubric.js";
+      import * as CAW from "./modules/zjw-generic-instructions/scripts/ClassAssignmentWartell.js";
 
-    //const DEV_BUILD = true;
-    const DEV_BUILD=false;
+      class App extends ZxW_GUI.DefaultApplication
+      {
+          constructor(){super();}
+      }
+      let app = new App()
+      await ZxW_GUI.DefaultApplication.fetchUserDocument(app, "vs-code-tutorial.zxw-doc.html");
+      window.BreadCrumb = Rubric.BreadCrumb;
+      CAW.main(150);
 
-    class App extends ZxW_GUI.DefaultApplication {
-      constructor() { super(); }
-    }
-    let app = new App()
-    await ZxW_GUI.DefaultApplication.fetchUserDocument(app, "webgl-2d-drawing.zxw-doc.html");
+      window.Visibility_Toggle = CAW.Visibility_Toggle; 
+      console.log("window.rubricMain");
 
-    window.BreadCrumb = Rubric.BreadCrumb;
-    CAW.main(200, !DEV_BUILD, 2);
-
-
-    window.Visibility_Toggle = CAW.Visibility_Toggle;
-    console.log("window.rubricMain");
-
-    document.getElementById("fileMenu").disabled = false;
-    document.getElementById("Instructor_Mode").addEventListener('change', (e) => {
-      Visibility_Toggle('Instructor_Mode', e.target.checked); Visibility_Toggle('Staff_Only', e.target.checked); document.getElementById("fileMenu").disabled
-        = !e.target.checked;
-    });
-    //function onload_Body() { console.log("function onload_Body()");}
-    //window.onload_Body = onload_Body;
-
-    if (DEV_BUILD) {
-      const c = document.getElementById("cursor");
-      if (c !== null) c.scrollIntoView();
-    }
-
-    if (false)
-      window.addEventListener("popstate", (event) => {
-        //alert(
-        //  `location: ${document.location}, state: ${JSON.stringify(event.state)}`,
-        //);
-        const s = document.location.toString().split('#');
-        if (s.length == 2) {
-          console.log(s[1]);
-          const id = document.getElementById(s[1]);
-          console.log("id:", id);
-          if (id !== null)
-            id.scrollIntoView();
-          else {
-            const mc = document.querySelector("article");
-            console.log("mc 1:" + mc);
-            mc.scrollIntoView();
-          }
-        } else {
-          const mc = document.querySelector("article");
-          console.log("mc 2:" + mc + mc.classList);
-          mc.scrollIntoView({ behavior: "instant", block: "start" });
+      document.getElementById("Instructor_Mode").addEventListener('change', (e) => {
+        Visibility_Toggle('Instructor_Mode', e.target.checked);
+        Visibility_Toggle('Staff_Only', e.target.checked); 
+        document.getElementById("fileMenu").disabled = !e.target.checked;
+      }); 
+      
+      window.Console = CAW.Console;
+      window.addEventListener("hashchange", (event) => 
+      {
+        /*
+          alert(
+            `"hashchange" 
+            location: ${document.location}, event: ${JSON.stringify(event)}`,); 
+        */
+        console.log(event);        
+        let split = event.newURL.split("#");
+        let e = document.getElementById(split[1]);        
+        console.log("split:",split,split[1]);
+        if (e !== null) 
+        {
+          console.log("e:",e);
+          e.scrollIntoView();           
         }
-
-        console.log(
-          `location: ${document.location}, state: ${JSON.stringify(event.state)}`
-        );
+        // if (event.target instanceof HTMLElement)
+        // {
+        //   document.getElementById(event.newURL.split("#")[1]).scrollIntoView();           
+        //   console.log("2:",event.newURL.split("#")[1]);
+        // }
       });
-  </script>
+
+      /**
+       *  developer tool - scrolls to the element with id="cursor"
+       */
+      const c = document.getElementById("cursor");
+      if (c !== null) c.scrollIntoView();           
+    </script>
   <script type="application/json" id="AssignmentName">
       {
         "AssignmentName" : {
             "courseNumber" : "3120",
             "number" : "p1",
             "numberLongDir" : "3120-p1-webgl-2d-drawing",
-            "name" : "webgl-2d-drawing"
+            "name" : "webgl-2d-drawing",
+            "gitServerOptionA": "git.zacharywartell.net",
+            "gitServerOptionB": "cci-git.charlotte.edu"              
           }   
       }
-  </script>
-  <!-- END:  ZJW Generic Instruction <head> -->
-</head>
+  </script>    
+    <!-- END:  ZxW MVC <head> -->
 
-<body>
-  <!--  
-    <div class="window-container"> </div>
+    <!-- 
+    <script type="application/json" class="js-hypothesis-config">
+      {
+        "openSidebar": true
+      }
+    </script>
+    <script async src="https://hypothes.is/embed.js"></script>
     -->
+  </head>
+  <body>
   <div class="window-container">
     <header>
     <div class="toolbar" id="Toolbar">
@@ -197,25 +189,23 @@
           <div class="side-read-bar">          <iframe src="https://developer.mozilla.org/en-US/html/Web/JavaScript/Guide/Expressions_and_Operators">          </iframe>        </div>                      -->
     </div>
   </div>
-  <template id="SectionRubricTemplate" data-version="1.0">
-    <table class="SectionRubric">
-      <tbody>
-        <tr>
-          <td> Time&nbsp;</td>
-          <td> MSDoc: "2 minutes to read"</td>
-          <td> Assignment: "? minutes to do"</td>
-        </tr>
-        <tr>
-          <td><input
-              onclick='new GradingScript({category : "MSVSSolution", projectDirectory : "MSVS-CSharp-Tutorial/Arrays" }).downloadScript();'
-              value="Grade" type="button"></td>
-        </tr>
-      </tbody>
-    </table>
-  </template>
-  <template id="Instruction_Section_Template" data-version="1.0">
-    <div class="Instruction_Section"> </div>
-  </template>
-</body>
-</html>
+    <template id="SectionRubricTemplate" data-version="1.0">
+      <table class="SectionRubric">
+        <tbody>
+          <tr>
+            <td> Time&nbsp;</td>
+            <td> MSDoc: "2 minutes to read"</td>
+            <td> Assignment: "? minutes to do"</td>
+          </tr>
+          <tr>
+            <td><input onclick='new GradingScript({category : "MSVSSolution", projectDirectory : "MSVS-CSharp-Tutorial/Arrays" }).downloadScript();' value="Grade"
 
+                type="button"></td>
+          </tr>
+        </tbody>
+      </table>
+    </template> <template id="Instruction_Section_Template" data-version="1.0">
+      <div class="Instruction_Section"> </div>
+    </template>
+  </body>
+</html>

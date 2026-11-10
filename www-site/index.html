@@ -45,14 +45,18 @@
       import * as Rubric from "./modules/zjw-generic-instructions/scripts/Rubric.js";
       import * as CAW from "./modules/zjw-generic-instructions/scripts/ClassAssignmentWartell.js";
 
+      const DEV_BUILD = true;
+      //const DEV_BUILD=false;
+
+
       class App extends ZxW_GUI.DefaultApplication
       {
           constructor(){super();}
       }
       let app = new App()
       await ZxW_GUI.DefaultApplication.fetchUserDocument(app, "webgl-2d-drawing.zxw-doc.html");
-      window.BreadCrumb = Rubric.BreadCrumb;
-      CAW.main(150);
+      window.BreadCrumb = Rubric.BreadCrumb;      
+      CAW.main(200, !DEV_BUILD, 2);
 
       window.Visibility_Toggle = CAW.Visibility_Toggle; 
       console.log("window.rubricMain");
@@ -98,7 +102,7 @@
         "AssignmentName" : {
             "courseNumber" : "3120",
             "number" : "p1",
-            "numberLongDir" : "3120-p1-webgl-2d-drawing",
+            "numberLongDir" : "p1-webgl-2d-drawing",
             "name" : "webgl-2d-drawing",
             "gitServerOptionA": "git.zacharywartell.net",
             "gitServerOptionB": "cci-git.charlotte.edu"              
